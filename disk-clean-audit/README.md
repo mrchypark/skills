@@ -47,7 +47,7 @@ cp -R disk-clean-audit ~/.codex/skills/disk-clean-audit
 권장 automation prompt 예시:
 
 ```md
-Use [$disk-clean-audit-chatgpt](/Users/cypark/Documents/project/skills/disk-clean-audit/chatgpt/SKILL.md) to audit macOS disk usage in read-only mode.
+Use $disk-clean-audit-chatgpt to audit macOS disk usage in read-only mode.
 
 Read `info.md` first, refresh all required capacity commands on this run, reuse existing folder semantics when the evidence is already sufficient, and only investigate new, incomplete, sharply changed, or unclear large paths more deeply.
 
@@ -60,6 +60,12 @@ Return the final report in Korean with these sections:
 4. 정리 후보
 5. 주의/금지/권한 제한 폴더
 6. `info.md` 수정 요약
+```
+
+설치 후 로컬 파일 경로를 직접 적고 싶다면 저장소 체크아웃 경로가 아니라 설치 경로를 사용한다.
+
+```text
+~/.codex/skills/disk-clean-audit/chatgpt/SKILL.md
 ```
 
 ## Automation Notes
