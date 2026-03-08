@@ -7,10 +7,12 @@ Each skill lives in its own top-level directory so the repository can grow as a 
 ## Structure
 
 - `docs/plans/`: design and implementation notes for repository changes
+- `oracle/`: external model consultation skill via `@steipete/oracle`
 - `pocketbase-go/`: PocketBase backend skill for Go projects
 
 ## Current Skills
 
+- `oracle`
 - `pocketbase-go`
 
 ## Adding Skills
