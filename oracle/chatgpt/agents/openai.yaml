@@ -1,0 +1,4 @@
+interface:
+  display_name: "Oracle (ChatGPT)"
+  short_description: "Second-opinion reviews via Oracle"
+  default_prompt: "Use $oracle-chatgpt to get a second-model review for this change."

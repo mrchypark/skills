@@ -1,13 +1,13 @@
 ---
-name: oracle-claude-code
-description: Use when you need a second-model opinion via the @steipete/oracle CLI for high-risk debugging, non-trivial refactors, architecture or API tradeoff reviews, or decisions that are expensive to reverse. Do not use for routine edits, small bug fixes, or tasks that can be validated quickly in the local codebase.
+name: oracle-claude
+description: Use when you need a second-model opinion via the @steipete/oracle CLI against Claude for high-risk debugging, non-trivial refactors, architecture or API tradeoff reviews, or decisions that are expensive to reverse. Do not use for routine edits, small bug fixes, or tasks that can be validated quickly in the local codebase.
 ---
 
-# Oracle (Claude Code)
+# Oracle (Claude)
 
 ## Overview
 
-Oracle bundles a prompt and selected files into a one-shot request for another model. Treat Oracle output as advisory and verify it against the codebase and tests.
+Oracle bundles a prompt and selected files into a one-shot request for Claude. Treat Oracle output as advisory and verify it against the codebase and tests.
 
 ## When to Use
 
@@ -33,7 +33,7 @@ Do not use Oracle for:
 - Dry run:
   - `npx -y @steipete/oracle --dry-run summary --files-report -p "<task>" --file "src/**"`
 - Browser run:
-  - `npx -y @steipete/oracle --engine browser --model gpt-5.4-pro -p "<task>" --file "src/**"`
+  - `npx -y @steipete/oracle --engine api --model claude -p "<task>" --file "src/**"`
 - Reattach:
   - `oracle status --hours 72`
   - `oracle session <id> --render`
@@ -57,8 +57,7 @@ At minimum:
 
 ### Engine choice
 
-- Prefer `--engine browser` explicitly for the normal ChatGPT workflow.
-- Use API mode only when you intentionally want API behavior.
+- Prefer explicit API mode for Claude-targeted reviews.
 - API runs require explicit user consent because they incur usage costs.
 
 ### Sessions

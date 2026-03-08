@@ -2,34 +2,37 @@
 
 Personal skill repository for `mrchypark`.
 
-Skills can live at the repository root or under platform-specific namespaces when the same capability needs different packaging rules.
+Skills can live at the repository root or under capability namespaces when the same tool needs service-specific variants.
 
 ## Structure
 
 - `docs/plans/`: design and implementation notes for repository changes
-- `gpt/`: GPT/Codex-oriented skills written in the richer `skill-creator` style
-- `claude-code/`: Claude Code-oriented skills written as `SKILL.md`-first variants
+- `oracle/`: shared Oracle family with service-specific variants for ChatGPT, Claude, and Gemini
 - `pocketbase-go/`: PocketBase backend skill for Go projects
 
 ## Current Skills
 
-- `gpt/oracle`
-- `claude-code/oracle`
+- `oracle`
+- `oracle/chatgpt`
+- `oracle/claude`
+- `oracle/gemini`
 - `pocketbase-go`
 
 ## Adding Skills
 
-Add each new skill either at the repository root or inside a platform namespace:
+Add each new skill either at the repository root or inside a capability namespace:
 
 ```text
 skills/
 ├── README.md
-├── gpt/
-│   └── <skill-name>/
-│       ├── SKILL.md
-│       └── agents/
-├── claude-code/
-│   └── <skill-name>/
+├── oracle/
+│   ├── SKILL.md
+│   ├── chatgpt/
+│   │   ├── SKILL.md
+│   │   └── agents/
+│   ├── claude/
+│   │   └── SKILL.md
+│   └── gemini/
 │       └── SKILL.md
 ├── docs/
 └── <skill-name>/
@@ -37,4 +40,4 @@ skills/
     └── resources/
 ```
 
-Keep each variant self-contained inside its own skill directory.
+Keep each capability and each service variant self-contained inside its own directory.

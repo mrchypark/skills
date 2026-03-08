@@ -1,13 +1,13 @@
 ---
-name: oracle-gpt
-description: Comprehensive Oracle CLI skill for GPT-oriented workflows. Use when you want a second-model review via @steipete/oracle for high-risk debugging, non-trivial refactors, architecture or API tradeoff reviews, or decisions that are expensive to reverse, and when bundling a prompt plus a tightly scoped file set for browser or API review will improve the quality of feedback.
+name: oracle-chatgpt
+description: ChatGPT-specific Oracle CLI skill for browser-based second-model reviews. Use when you want a second-model review via @steipete/oracle against ChatGPT for high-risk debugging, non-trivial refactors, architecture or API tradeoff reviews, or decisions that are expensive to reverse.
 ---
 
-# Oracle (GPT)
+# Oracle (ChatGPT)
 
 ## Overview
 
-Use Oracle to package a prompt and a focused set of files into a single review request for another model. Treat Oracle output as advisory and verify conclusions against the codebase, tests, and project constraints.
+Use Oracle to package a prompt and a focused set of files into a single review request for ChatGPT. Treat Oracle output as advisory and verify conclusions against the codebase, tests, and project constraints.
 
 ## Core Capabilities
 
@@ -36,7 +36,7 @@ Use Oracle for:
 
 Do not use Oracle for routine edits, small bug fixes, or questions you can answer quickly by reading one or two files or running the tests locally.
 
-### 3. Session-based browser reviews
+### 3. ChatGPT browser reviews
 
 Prefer browser mode for the normal ChatGPT workflow:
 
@@ -50,7 +50,7 @@ Browser runs can take 10-60 minutes. If a run detaches or times out, reattach to
 1. Narrow the file set to the smallest useful scope.
 2. Run `--dry-run` and inspect the attached file list.
 3. Check for token-heavy or low-signal files before sending.
-4. Run Oracle in browser mode unless you explicitly want API behavior.
+4. Run Oracle in ChatGPT browser mode unless you explicitly want API behavior.
 5. Reattach to the stored session if the browser run is interrupted.
 
 ## Quick Reference
