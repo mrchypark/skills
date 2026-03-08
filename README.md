@@ -6,12 +6,17 @@ Skills can live at the repository root or under capability namespaces when the s
 
 ## Structure
 
+- `disk-clean-audit/`: shared disk cleanup audit family with service-specific variants
 - `docs/plans/`: design and implementation notes for repository changes
 - `oracle/`: shared Oracle family with service-specific variants for ChatGPT, Claude, and Gemini
 - `pocketbase-go/`: PocketBase backend skill for Go projects
 
 ## Current Skills
 
+- `disk-clean-audit`
+- `disk-clean-audit/chatgpt`
+- `disk-clean-audit/claude`
+- `disk-clean-audit/gemini`
 - `oracle`
 - `oracle/chatgpt`
 - `oracle/claude`
@@ -25,6 +30,15 @@ Add each new skill either at the repository root or inside a capability namespac
 ```text
 skills/
 ├── README.md
+├── disk-clean-audit/
+│   ├── SKILL.md
+│   ├── chatgpt/
+│   │   ├── SKILL.md
+│   │   └── agents/
+│   ├── claude/
+│   │   └── SKILL.md
+│   └── gemini/
+│       └── SKILL.md
 ├── oracle/
 │   ├── SKILL.md
 │   ├── chatgpt/

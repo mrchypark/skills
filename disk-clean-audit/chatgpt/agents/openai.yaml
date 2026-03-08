@@ -1,0 +1,4 @@
+interface:
+  display_name: "Disk Clean Audit (ChatGPT)"
+  short_description: "Read-only macOS disk cleanup audit"
+  default_prompt: "Use $disk-clean-audit-chatgpt to audit this Mac's disk usage without deleting anything."
