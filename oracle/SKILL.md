@@ -1,6 +1,6 @@
 ---
 name: oracle
-description: Use when using the @steipete/oracle CLI to get a second-model opinion for debugging, refactors, design checks, or decision validation.
+description: Use when you need a second-model opinion via the @steipete/oracle CLI for high-risk debugging, non-trivial refactors, architecture or API tradeoff reviews, or decisions that are expensive to reverse. Do not use for routine edits, small bug fixes, or tasks that can be validated quickly in the local codebase.
 ---
 
 # Oracle (CLI) — best use
@@ -9,16 +9,16 @@ Oracle bundles your prompt + selected files into one “one-shot” request so a
 
 ## Decision support rule
 
-Use Oracle proactively as a discussion partner for important decisions, not only for bug fixing or reviews. When the work involves a meaningful technical or product decision, ask Oracle for an opinion before locking in the direction.
+Use Oracle as an optional second opinion for meaningful technical or product decisions when:
 
-Examples:
+- the decision has lasting architecture or API impact
+- there are multiple viable options with non-obvious tradeoffs
+- the change is expensive to reverse
+- local tests and code reading alone are unlikely to surface the main risks
 
-- architecture or API direction with lasting consequences
-- risky refactors or migrations
-- tradeoffs between multiple implementation options
-- decisions that are expensive to reverse later
+Do not treat Oracle as a mandatory approval gate. Use it to challenge assumptions and expose blind spots, then verify the conclusions against the codebase, tests, and project constraints.
 
-Minimum expectation:
+When you do use it for a decision review, at minimum:
 
 - summarize the decision and constraints
 - present the leading option and at least one alternative
@@ -31,7 +31,7 @@ Default workflow here: `--engine browser` with GPT-5.4 Pro in ChatGPT. This is t
 Recommended defaults:
 
 - Engine: browser (`--engine browser`)
-- Model: GPT-5.4 Pro (either `--model gpt-5.4-pro` or a ChatGPT picker label like `--model "5.4 Pro"`)
+- Model: GPT-5.4 Pro (`--model gpt-5.4-pro` or the current ChatGPT picker label if it differs)
 - Attachments: directories/globs + excludes; avoid secrets.
 
 ## Golden path (fast + reliable)
@@ -40,6 +40,22 @@ Recommended defaults:
 2. Preview what you are about to send (`--dry-run` + `--files-report` when needed).
 3. Run in browser mode for the usual GPT-5.4 Pro ChatGPT workflow; use API only when you explicitly want it.
 4. If the run detaches or times out: reattach to the stored session instead of re-running.
+
+## Avoid common misuse
+
+Do not use Oracle for:
+
+- routine code edits or small, local bug fixes
+- questions that can be answered by running the tests or reading 1-2 files
+- broad "review the whole repo" requests
+- attaching generated artifacts, lockfiles, snapshots, logs, or vendored code unless they are directly relevant
+
+Before any paid or long-running run:
+
+1. narrow the file set
+2. run `--dry-run`
+3. inspect the file list and token-heavy files
+4. confirm the question is specific enough to answer in one shot
 
 ## Commands (preferred)
 
@@ -58,7 +74,7 @@ Recommended defaults:
 
 - Manual paste fallback (assemble bundle, copy to clipboard):
   - `npx -y @steipete/oracle --render --copy -p "<task>" --file "src/**"`
-  - Note: `--copy` is a hidden alias for `--copy-markdown`.
+  - Use this only when browser automation is unavailable or unreliable, and after confirming the rendered bundle is scoped correctly.
 
 ## Attaching files (`--file`)
 
@@ -78,16 +94,24 @@ Recommended defaults:
   - Does not follow symlinks (glob expansion uses `followSymbolicLinks: false`).
   - Dotfiles are filtered unless you explicitly opt in with a pattern that includes a dot-segment (for example `--file ".github/**"`).
   - Default cap: files larger than 1 MB are rejected unless you raise `ORACLE_MAX_FILE_SIZE_BYTES` or `maxFileSizeBytes` in `~/.oracle/config.json`.
+- Attachment discipline:
+  - Never assume `.gitignore` alone is a sufficient privacy or relevance filter.
+  - Always inspect the dry-run output before sending.
+  - Exclude low-signal files first: snapshots, coverage, build output, logs, generated files, and vendor copies unless they are central to the question.
+  - If hidden config is important, include it explicitly and verify it was picked up.
 
 ## Budget + observability
 
-- Target: keep total input under ~196k tokens.
+- Treat ~196k tokens as a soft operating target, not a goal.
 - Use `--files-report` (and/or `--dry-run json`) to spot the token hogs before spending.
+- If the dry-run already looks large or the file report shows multiple token-heavy files, stop and reduce scope before running.
+- Browser runs also have real cost: time, session management, and repeated manual attention. Prefer one well-scoped run over multiple broad retries.
 - If you need hidden or advanced knobs: `npx -y @steipete/oracle --help --verbose`.
 
 ## Engines (API vs browser)
 
 - Auto-pick: uses `api` when `OPENAI_API_KEY` is set, otherwise `browser`.
+- In this repo, prefer setting `--engine browser` explicitly for the usual ChatGPT workflow. Do not rely on auto-pick if cost, provider, or session behavior matters.
 - Browser engine supports GPT + Gemini only; use `--engine api` for Claude/Grok/Codex or multi-model runs.
 - API runs require explicit user consent before starting because they incur usage costs.
 - Browser attachments:
