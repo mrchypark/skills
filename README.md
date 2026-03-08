@@ -2,30 +2,39 @@
 
 Personal skill repository for `mrchypark`.
 
-Each skill lives in its own top-level directory so the repository can grow as a flat monorepo without mixing skill assets together.
+Skills can live at the repository root or under platform-specific namespaces when the same capability needs different packaging rules.
 
 ## Structure
 
 - `docs/plans/`: design and implementation notes for repository changes
-- `oracle/`: second-opinion skill via `@steipete/oracle` for high-risk debugging, refactors, and architecture tradeoff reviews
+- `gpt/`: GPT/Codex-oriented skills written in the richer `skill-creator` style
+- `claude-code/`: Claude Code-oriented skills written as `SKILL.md`-first variants
 - `pocketbase-go/`: PocketBase backend skill for Go projects
 
 ## Current Skills
 
-- `oracle`
+- `gpt/oracle`
+- `claude-code/oracle`
 - `pocketbase-go`
 
 ## Adding Skills
 
-Add each new skill as its own directory at the repository root:
+Add each new skill either at the repository root or inside a platform namespace:
 
 ```text
 skills/
 ├── README.md
+├── gpt/
+│   └── <skill-name>/
+│       ├── SKILL.md
+│       └── agents/
+├── claude-code/
+│   └── <skill-name>/
+│       └── SKILL.md
 ├── docs/
 └── <skill-name>/
     ├── SKILL.md
     └── resources/
 ```
 
-Keep `SKILL.md` and any supporting files inside that skill directory.
+Keep each variant self-contained inside its own skill directory.

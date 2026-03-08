@@ -1,0 +1,4 @@
+interface:
+  display_name: "Oracle (GPT)"
+  short_description: "Second-opinion reviews via Oracle"
+  default_prompt: "Use $oracle-gpt to get a second-model review for this change."
