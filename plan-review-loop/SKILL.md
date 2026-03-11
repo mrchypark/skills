@@ -53,7 +53,7 @@ Run these review angles separately. Keep findings ordered by severity and tied t
 - Reorder tasks when a reviewer shows the workflow has causal gaps.
 - Do not move on while known material issues remain open.
 
-### 5. Run a 수정 확인 리뷰
+### 5. Run a fix confirmation review
 
 After applying findings, do not jump straight to completion.
 
@@ -62,9 +62,9 @@ After applying findings, do not jump straight to completion.
 - Treat this as a targeted fix-confirmation pass, not a fresh open-ended review.
 - If a reviewer says a fix is incomplete or introduced a new issue, revise again before proceeding.
 
-### 6. Run 다시 전체 리뷰
+### 6. Run a full re-review
 
-Once the 수정 확인 리뷰 is clean, run one more full review of the entire plan.
+Once the fix confirmation review is clean, run one more full review of the entire plan.
 
 - This pass is broader than fix verification.
 - Its purpose is to confirm the final document still works as a whole after all revisions.
@@ -73,11 +73,11 @@ Once the 수정 확인 리뷰 is clean, run one more full review of the entire p
 
 ### 7. Repeat until convergence
 
-Run another `전체 리뷰 -> 수정 확인 리뷰 -> 다시 전체 리뷰` cycle after meaningful revisions whenever the last whole-plan review still finds material issues.
+Run another `revise -> fix confirmation review -> full re-review` cycle after meaningful revisions whenever the last whole-plan review still finds material issues.
 
 Stop when:
-- the 수정 확인 리뷰 reports `no material findings`
-- the 다시 전체 리뷰 also reports `no material findings`, or
+- the fix confirmation review reports `no material findings`
+- the full re-review also reports `no material findings`, or
 - only residual execution risks remain and they are documented explicitly.
 
 ## Output Requirements
@@ -86,7 +86,7 @@ At the end of the loop, produce:
 
 - the finalized plan path
 - a short summary of the main changes made during review
-- confirmation that both the 수정 확인 리뷰 and 다시 전체 리뷰 were completed
+- confirmation that both the fix confirmation review and full re-review were completed
 - any residual risks that remain intentionally deferred
 
 ## Guardrails
@@ -96,5 +96,5 @@ At the end of the loop, produce:
 - Do not leave scope claims broader than the verification plan can support.
 - Do not let optimization layers land before the reference path is proven unless the optimization is part of correctness.
 - Do not let fallback behavior or compatibility modes creep back in unless the plan explicitly justifies them.
-- Do not treat “the fixes look good” as equivalent to 다시 전체 리뷰 approval.
-- Do not skip the explicit 수정 확인 리뷰 after applying changes.
+- Do not treat “the fixes look good” as equivalent to full re-review approval.
+- Do not skip the explicit fix confirmation review after applying changes.
