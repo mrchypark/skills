@@ -1,0 +1,4 @@
+interface:
+  display_name: "Remote Review"
+  short_description: "Handle remote review threads end-to-end"
+  default_prompt: "Use $remote-review to process outstanding remote review comments until completion or quota exhaustion."
