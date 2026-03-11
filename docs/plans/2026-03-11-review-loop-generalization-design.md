@@ -25,6 +25,7 @@ Replace the plan-only `plan-review-loop` skill with a generalized `review-loop` 
   - `capacity/contention`
   - `trust-boundary/security`
   - `state/accessibility`
+  - `deployment/environment`
   - `equivalence/regression-surface`
   - `reproduction/test-gap`
 
