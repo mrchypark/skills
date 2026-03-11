@@ -61,6 +61,8 @@ Choose extra layers based on the change context. If multiple contexts apply, rev
   - Add `trust-boundary/security`
 - `ui`
   - Add `state/accessibility`
+- `infra`
+  - Add `deployment/environment`
 - `refactor`
   - Add `equivalence/regression-surface`
 - `bugfix`
@@ -85,6 +87,9 @@ Choose extra layers based on the change context. If multiple contexts apply, rev
 
 - `state/accessibility`
   - Check state transitions plus loading, error, and empty paths, and verify keyboard and screen-reader behavior.
+
+- `deployment/environment`
+  - Check deployment wiring, configuration sources, environment parity, secret and network dependencies, and rollback assumptions.
 
 - `equivalence/regression-surface`
   - Check what behavior must stay unchanged, what deletions are safe, and what callers or side effects are touched.
@@ -111,9 +116,8 @@ Default layers:
 
 - `intent/scope`
 - `correctness/invariants`
+- `workflow/operability`
 - `complexity/YAGNI`
-
-Add `workflow/operability` whenever the code affects rollout, data movement, runtime behavior, recovery, or production debugging.
 
 For code, review the exact diff plus the minimal surrounding context, touched tests, and impacted interfaces.
 
