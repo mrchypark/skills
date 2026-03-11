@@ -9,7 +9,7 @@ Skills can live at the repository root or under capability namespaces when the s
 - `disk-clean-audit/`: shared disk cleanup audit family with service-specific variants
 - `docs/plans/`: design and implementation notes for repository changes
 - `oracle/`: shared Oracle family with service-specific variants for ChatGPT, Claude, and Gemini
-- `plan-review-loop/`: repeated multi-angle plan critique and revision workflow
+- `review-loop/`: repeated layer-based review and revision workflow for plans and code
 - `pocketbase-go/`: PocketBase backend skill for Go projects
 
 ## Current Skills
@@ -22,7 +22,7 @@ Skills can live at the repository root or under capability namespaces when the s
 - `oracle/chatgpt`
 - `oracle/claude`
 - `oracle/gemini`
-- `plan-review-loop`
+- `review-loop`
 - `pocketbase-go`
 
 ## Adding Skills
@@ -50,7 +50,7 @@ skills/
 │   │   └── SKILL.md
 │   └── gemini/
 │       └── SKILL.md
-├── plan-review-loop/
+├── review-loop/
 │   └── SKILL.md
 ├── docs/
 └── <skill-name>/
