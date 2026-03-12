@@ -1,0 +1,97 @@
+entries:
+  - id: mrchypark-brainstorm
+    kind: skill
+    path: skills/process/mrchypark-brainstorm/SKILL.md
+    tags: [process, design, codex]
+    install_scope: [global, project]
+    status: active
+  - id: mrchypark-orchestrate
+    kind: skill
+    path: skills/process/mrchypark-orchestrate/SKILL.md
+    tags: [process, orchestration, multi-agent]
+    install_scope: [global, project]
+    status: active
+  - id: mrchypark-debate
+    kind: skill
+    path: skills/process/mrchypark-debate/SKILL.md
+    tags: [process, debate, decision]
+    install_scope: [global, project]
+    status: active
+  - id: mrchypark-plan
+    kind: skill
+    path: skills/process/mrchypark-plan/SKILL.md
+    tags: [process, planning, codex]
+    install_scope: [global, project]
+    status: active
+  - id: mrchypark-delegate
+    kind: skill
+    path: skills/process/mrchypark-delegate/SKILL.md
+    tags: [process, delegation, multi-agent]
+    install_scope: [global, project]
+    status: active
+  - id: mrchypark-review-request
+    kind: skill
+    path: skills/process/mrchypark-review-request/SKILL.md
+    tags: [process, review, quality]
+    install_scope: [global, project]
+    status: active
+  - id: mrchypark-verify
+    kind: skill
+    path: skills/process/mrchypark-verify/SKILL.md
+    tags: [process, verification, quality]
+    install_scope: [global, project]
+    status: active
+  - id: disk-clean-audit
+    kind: skill
+    path: skills/domain/disk-clean-audit/SKILL.md
+    tags: [domain, macos, disk]
+    install_scope: [global, project]
+    status: active
+  - id: oracle
+    kind: skill
+    path: skills/domain/oracle/SKILL.md
+    tags: [domain, review, oracle]
+    install_scope: [global, project]
+    status: active
+  - id: pocketbase-go
+    kind: skill
+    path: skills/domain/pocketbase-go/SKILL.md
+    tags: [domain, pocketbase, go]
+    install_scope: [global, project]
+    status: active
+  - id: triager
+    kind: agent
+    path: codex/agents/triager.toml
+    tags: [agent, triage, multi-agent]
+    install_scope: [global, project]
+    status: active
+  - id: builder
+    kind: agent
+    path: codex/agents/builder.toml
+    tags: [agent, implementer, multi-agent]
+    install_scope: [global, project]
+    status: active
+  - id: debater
+    kind: agent
+    path: codex/agents/debater.toml
+    tags: [agent, debate, decision]
+    install_scope: [global, project]
+    status: active
+  - id: moderator
+    kind: agent
+    path: codex/agents/moderator.toml
+    tags: [agent, synthesis, decision]
+    install_scope: [global, project]
+    status: active
+  - id: reviewer
+    kind: agent
+    path: codex/agents/reviewer.toml
+    tags: [agent, review, quality]
+    install_scope: [global, project]
+    status: active
+  - id: researcher
+    kind: agent
+    path: codex/agents/researcher.toml
+    tags: [agent, research, docs]
+    install_scope: [global, project]
+    status: active

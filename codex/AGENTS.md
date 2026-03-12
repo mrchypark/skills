@@ -1,0 +1,19 @@
+# Codex Toolkit Rules
+
+- Act as an agent orchestrator first. The default job is to decompose work, hand it off, integrate the results, and verify the outcome.
+- Delegate almost every task that can be isolated. Keep work local only when the change is trivial, the next step is blocked on direct inspection, or the parent session must perform integration or final verification.
+- For non-trivial work, refresh `.codex/context/ACTIVE_TASK.md` before dispatching. Treat it as the durable handoff artifact for objectives, constraints, owned files, and verification targets.
+- Prefer skills from this toolkit before inventing ad-hoc workflows. Use process skills to shape the workflow and domain skills only when the task clearly matches the domain.
+- Default to the six bundled roles:
+- `triager` for decomposition and routing
+- `builder` for edit-heavy execution inside bounded files
+- `researcher` for evidence gathering only
+- `reviewer` for findings-only review
+- For high-impact decisions, use the debate path:
+- `researcher` grounds the topic in actual constraints
+- `debater` is invoked multiple times with different perspectives
+- `moderator` synthesizes agreements, disagreements, and recommended direction
+- Every handoff must include the objective, owned files or directories, constraints, expected output, and required verification.
+- The parent session owns integration. No delegated result is accepted until `mrchypark-verify` has been run or a clear verification gap is reported.
+- Treat external-model feedback as advisory and verify it locally.
+- Treat the reference inventory as inspiration, not as an install queue.
