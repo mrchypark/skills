@@ -1,7 +1,7 @@
 # Dockerfile for PocketBase
-FROM alpine:latest
+FROM alpine:3.23.3
 
-ARG PB_VERSION=0.36.0
+ARG PB_VERSION=0.36.6
 ARG PB_ARCH=linux_amd64
 
 RUN apk add --no-cache \
@@ -12,8 +12,10 @@ RUN apk add --no-cache \
 # Download PocketBase
 WORKDIR /pb
 RUN curl -L -o pb.zip "https://github.com/pocketbase/pocketbase/releases/download/v${PB_VERSION}/pocketbase_${PB_VERSION}_${PB_ARCH}.zip" && \
+    curl -L -o checksums.txt "https://github.com/pocketbase/pocketbase/releases/download/v${PB_VERSION}/checksums.txt" && \
+    grep " pocketbase_${PB_VERSION}_${PB_ARCH}.zip$" checksums.txt | sha256sum -c - && \
     unzip pb.zip && \
-    rm pb.zip
+    rm pb.zip checksums.txt
 
 # Copy migrations (These should be committed in your repo)
 COPY pb_migrations /pb/pb_migrations

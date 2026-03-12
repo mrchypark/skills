@@ -3,8 +3,8 @@ PB_ADMIN_EMAIL ?= admin@example.com
 PB_ADMIN_PASSWORD ?= admin1234
 PB_DIR ?= .pb
 PB_BIN ?= $(PB_DIR)/pocketbase
-PB_VERSION ?= 0.36.0
-PBC_GEN_VERSION ?= v0.3.8
+PB_VERSION ?= 0.36.6
+PBC_GEN_VERSION ?= v0.3.9
 SCHEMA_FILE ?= pb_schema.json
 MODELS_OUT ?= models/models.gen.go
 MODELS_PKG ?= models
@@ -27,10 +27,18 @@ init:
 			arm64|aarch64) ARCH=arm64 ;; \
 			*) echo "Unsupported arch: $$ARCH"; exit 1 ;; \
 		esac; \
+		PB_ZIP="pocketbase_$(PB_VERSION)_$${OS}_$${ARCH}.zip"; \
 		echo "Detected OS: $$OS, Arch: $$ARCH"; \
-		curl -L -o "$(PB_DIR)/pb.zip" "https://github.com/pocketbase/pocketbase/releases/download/v$(PB_VERSION)/pocketbase_$(PB_VERSION)_$${OS}_$${ARCH}.zip"; \
+		curl -L -o "$(PB_DIR)/pb.zip" "https://github.com/pocketbase/pocketbase/releases/download/v$(PB_VERSION)/$${PB_ZIP}"; \
+		curl -L -o "$(PB_DIR)/checksums.txt" "https://github.com/pocketbase/pocketbase/releases/download/v$(PB_VERSION)/checksums.txt"; \
+		EXPECTED_SHA=$$(awk '/ '"$${PB_ZIP}"'$$/ {print $$1}' "$(PB_DIR)/checksums.txt"); \
+		ACTUAL_SHA=$$(shasum -a 256 "$(PB_DIR)/pb.zip" | awk '{print $$1}'); \
+		if [ "$$EXPECTED_SHA" != "$$ACTUAL_SHA" ]; then \
+			echo "Checksum mismatch for $${PB_ZIP}"; \
+			exit 1; \
+		fi; \
 		unzip -o "$(PB_DIR)/pb.zip" -d "$(PB_DIR)"; \
-		rm "$(PB_DIR)/pb.zip"; \
+		rm "$(PB_DIR)/pb.zip" "$(PB_DIR)/checksums.txt"; \
 		chmod +x "$(PB_BIN)"; \
 	fi
 	@echo "Bootstrapping Admin..."
