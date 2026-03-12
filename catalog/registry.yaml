@@ -41,6 +41,18 @@ entries:
     tags: [process, verification, quality]
     install_scope: [global, project]
     status: active
+  - id: review-loop
+    kind: skill
+    path: skills/process/review-loop/SKILL.md
+    tags: [process, review, iteration]
+    install_scope: [global, project]
+    status: active
+  - id: remote-review
+    kind: skill
+    path: skills/process/remote-review/SKILL.md
+    tags: [process, review, remote]
+    install_scope: [global, project]
+    status: active
   - id: disk-clean-audit
     kind: skill
     path: skills/domain/disk-clean-audit/SKILL.md

@@ -20,7 +20,7 @@ No repository-owned hook layer is included. The toolkit only models Codex surfac
 
 The default operating surface is intentionally small:
 
-- seven process skills
+- nine process skills
 - three domain skills
 - six bundled agent roles
 
@@ -54,6 +54,8 @@ catalog/registry.yaml
 - `mrchypark-delegate`
 - `mrchypark-review-request`
 - `mrchypark-verify`
+- `review-loop`
+- `remote-review`
 
 ### Domain
 
