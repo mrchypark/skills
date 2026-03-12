@@ -1,0 +1,1720 @@
+{
+  "generated_at": "2026-03-12T16:55:44+00:00",
+  "sources": [
+    {
+      "id": "workflows",
+      "url": "https://github.com/edwinhu/workflows.git",
+      "commit": "53c2e4a32c09a45100b5f0fcce6fcae72ba19003",
+      "entry_count": 95
+    },
+    {
+      "id": "superpowers",
+      "url": "https://github.com/obra/superpowers.git",
+      "commit": "363923f74aa9cd7b470c0aaa73dee629a8bfdc90",
+      "entry_count": 15
+    },
+    {
+      "id": "awesome-claude-code-subagents",
+      "url": "https://github.com/VoltAgent/awesome-claude-code-subagents.git",
+      "commit": "87321636a1c666283d8f17398b45c2644395044b",
+      "entry_count": 131
+    }
+  ],
+  "summary": {
+    "total_entries": 241,
+    "skills": 95,
+    "agents": 146,
+    "process_skills": 41,
+    "domain_skills": 54,
+    "agent_roles": 146
+  },
+  "entries": [
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-clarify",
+      "path": "lib/skills/dev-clarify/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-delegate",
+      "path": "lib/skills/dev-delegate/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-design",
+      "path": "lib/skills/dev-design/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-explore",
+      "path": "lib/skills/dev-explore/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-implement",
+      "path": "lib/skills/dev-implement/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-plan-reviewer",
+      "path": "lib/skills/dev-plan-reviewer/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-ralph-loop",
+      "path": "lib/skills/dev-ralph-loop/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-review",
+      "path": "lib/skills/dev-review/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-spec-reviewer",
+      "path": "lib/skills/dev-spec-reviewer/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-tdd",
+      "path": "lib/skills/dev-tdd/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-test",
+      "path": "lib/skills/dev-test/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-test-chrome",
+      "path": "lib/skills/dev-test-chrome/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-test-electron",
+      "path": "lib/skills/dev-test-electron/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-test-hammerspoon",
+      "path": "lib/skills/dev-test-hammerspoon/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-test-linux",
+      "path": "lib/skills/dev-test-linux/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-test-playwright",
+      "path": "lib/skills/dev-test-playwright/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-verify",
+      "path": "lib/skills/dev-verify/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "ds-delegate",
+      "path": "lib/skills/ds-delegate/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "ds-implement",
+      "path": "lib/skills/ds-implement/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "ds-plan",
+      "path": "lib/skills/ds-plan/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "ds-plan-reviewer",
+      "path": "lib/skills/ds-plan-reviewer/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "ds-review",
+      "path": "lib/skills/ds-review/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "ds-spec-reviewer",
+      "path": "lib/skills/ds-spec-reviewer/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "ds-verify",
+      "path": "lib/skills/ds-verify/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "using-skills",
+      "path": "lib/skills/using-skills/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "writing-draft",
+      "path": "lib/skills/writing-draft/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "writing-econ",
+      "path": "lib/skills/writing-econ/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "writing-general",
+      "path": "lib/skills/writing-general/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "writing-legal",
+      "path": "lib/skills/writing-legal/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "writing-outline",
+      "path": "lib/skills/writing-outline/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "writing-outline-reviewer",
+      "path": "lib/skills/writing-outline-reviewer/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "writing-precis-reviewer",
+      "path": "lib/skills/writing-precis-reviewer/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "writing-setup",
+      "path": "lib/skills/writing-setup/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "ai-anti-patterns",
+      "path": "skills/ai-anti-patterns/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "audit-fix-loop",
+      "path": "skills/audit-fix-loop/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "bluebook",
+      "path": "skills/bluebook/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "bluebook-audit",
+      "path": "skills/bluebook-audit/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "audit-archive",
+      "path": "skills/bluebook-audit/lib/skills/audit-archive/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "audit-check",
+      "path": "skills/bluebook-audit/lib/skills/audit-check/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "audit-correct",
+      "path": "skills/bluebook-audit/lib/skills/audit-correct/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "audit-crossrefs",
+      "path": "skills/bluebook-audit/lib/skills/audit-crossrefs/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "audit-extract",
+      "path": "skills/bluebook-audit/lib/skills/audit-extract/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "audit-report",
+      "path": "skills/bluebook-audit/lib/skills/audit-report/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "audit-verify",
+      "path": "skills/bluebook-audit/lib/skills/audit-verify/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "continuous-learning",
+      "path": "skills/continuous-learning/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "data-context",
+      "path": "skills/data-context/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev",
+      "path": "skills/dev/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-debug",
+      "path": "skills/dev-debug/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-tools",
+      "path": "skills/dev-tools/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-worktree",
+      "path": "skills/dev-worktree/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "docx-footnotes",
+      "path": "skills/docx-footnotes/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "ds",
+      "path": "skills/ds/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "ds-fix",
+      "path": "skills/ds-fix/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "ds-tools",
+      "path": "skills/ds-tools/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "gemini-batch",
+      "path": "skills/gemini-batch/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "google-scholar",
+      "path": "skills/google-scholar/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "jupytext",
+      "path": "skills/jupytext/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "look-at",
+      "path": "skills/look-at/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "lseg-data",
+      "path": "skills/lseg-data/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "marimo",
+      "path": "skills/marimo/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "nlm",
+      "path": "skills/nlm/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "notebook-debug",
+      "path": "skills/notebook-debug/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "pattern-capture",
+      "path": "skills/pattern-capture/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "pptx-render",
+      "path": "skills/pptx-render/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "reading-add",
+      "path": "skills/reading-add/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "readwise",
+      "path": "skills/readwise/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "readwise-chat",
+      "path": "skills/readwise-chat/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "readwise-docs",
+      "path": "skills/readwise-docs/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "readwise-prune",
+      "path": "skills/readwise-prune/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "readwise-search",
+      "path": "skills/readwise-search/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "scheduling-poll",
+      "path": "skills/scheduling-poll/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "skill-creator",
+      "path": "skills/skill-creator/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "source-verify",
+      "path": "skills/source-verify/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "typst-test-slide",
+      "path": "skills/tinymist/typst-test-slide/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "visual-mockup",
+      "path": "skills/visual-mockup/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "visual-verify",
+      "path": "skills/visual-verify/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "workflow-creator",
+      "path": "skills/workflow-creator/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "wrds",
+      "path": "skills/wrds/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "writing",
+      "path": "skills/writing/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "writing-review",
+      "path": "skills/writing-review/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "writing-revise",
+      "path": "skills/writing-revise/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "agent",
+      "name": "architect",
+      "path": "agents/architect.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "workflows",
+      "kind": "agent",
+      "name": "assistant",
+      "path": "agents/assistant.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "workflows",
+      "kind": "agent",
+      "name": "build-error-resolver",
+      "path": "agents/build-error-resolver.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "workflows",
+      "kind": "agent",
+      "name": "code-reviewer",
+      "path": "agents/code-reviewer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "workflows",
+      "kind": "agent",
+      "name": "data-explorer",
+      "path": "agents/data-explorer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "workflows",
+      "kind": "agent",
+      "name": "dev-implementer",
+      "path": "agents/dev-implementer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "workflows",
+      "kind": "agent",
+      "name": "doc-updater",
+      "path": "agents/doc-updater.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "workflows",
+      "kind": "agent",
+      "name": "ds-analyst",
+      "path": "agents/ds-analyst.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "workflows",
+      "kind": "agent",
+      "name": "e2e-runner",
+      "path": "agents/e2e-runner.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "workflows",
+      "kind": "agent",
+      "name": "librarian",
+      "path": "agents/librarian.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "workflows",
+      "kind": "agent",
+      "name": "planner",
+      "path": "agents/planner.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "workflows",
+      "kind": "agent",
+      "name": "refactor-cleaner",
+      "path": "agents/refactor-cleaner.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "workflows",
+      "kind": "agent",
+      "name": "security-reviewer",
+      "path": "agents/security-reviewer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "workflows",
+      "kind": "agent",
+      "name": "tdd-guide",
+      "path": "agents/tdd-guide.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "superpowers",
+      "kind": "skill",
+      "name": "brainstorming",
+      "path": "skills/brainstorming/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "superpowers",
+      "kind": "skill",
+      "name": "dispatching-parallel-agents",
+      "path": "skills/dispatching-parallel-agents/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "superpowers",
+      "kind": "skill",
+      "name": "executing-plans",
+      "path": "skills/executing-plans/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "superpowers",
+      "kind": "skill",
+      "name": "finishing-a-development-branch",
+      "path": "skills/finishing-a-development-branch/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "superpowers",
+      "kind": "skill",
+      "name": "receiving-code-review",
+      "path": "skills/receiving-code-review/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "superpowers",
+      "kind": "skill",
+      "name": "requesting-code-review",
+      "path": "skills/requesting-code-review/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "superpowers",
+      "kind": "skill",
+      "name": "subagent-driven-development",
+      "path": "skills/subagent-driven-development/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "superpowers",
+      "kind": "skill",
+      "name": "systematic-debugging",
+      "path": "skills/systematic-debugging/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "superpowers",
+      "kind": "skill",
+      "name": "test-driven-development",
+      "path": "skills/test-driven-development/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "superpowers",
+      "kind": "skill",
+      "name": "using-git-worktrees",
+      "path": "skills/using-git-worktrees/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "superpowers",
+      "kind": "skill",
+      "name": "using-superpowers",
+      "path": "skills/using-superpowers/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "superpowers",
+      "kind": "skill",
+      "name": "verification-before-completion",
+      "path": "skills/verification-before-completion/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "superpowers",
+      "kind": "skill",
+      "name": "writing-plans",
+      "path": "skills/writing-plans/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "superpowers",
+      "kind": "skill",
+      "name": "writing-skills",
+      "path": "skills/writing-skills/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "superpowers",
+      "kind": "agent",
+      "name": "code-reviewer",
+      "path": "agents/code-reviewer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "api-designer",
+      "path": "categories/01-core-development/api-designer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "backend-developer",
+      "path": "categories/01-core-development/backend-developer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "electron-pro",
+      "path": "categories/01-core-development/electron-pro.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "frontend-developer",
+      "path": "categories/01-core-development/frontend-developer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "fullstack-developer",
+      "path": "categories/01-core-development/fullstack-developer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "graphql-architect",
+      "path": "categories/01-core-development/graphql-architect.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "microservices-architect",
+      "path": "categories/01-core-development/microservices-architect.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "mobile-developer",
+      "path": "categories/01-core-development/mobile-developer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "ui-designer",
+      "path": "categories/01-core-development/ui-designer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "websocket-engineer",
+      "path": "categories/01-core-development/websocket-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "angular-architect",
+      "path": "categories/02-language-specialists/angular-architect.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "cpp-pro",
+      "path": "categories/02-language-specialists/cpp-pro.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "csharp-developer",
+      "path": "categories/02-language-specialists/csharp-developer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "django-developer",
+      "path": "categories/02-language-specialists/django-developer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "dotnet-core-expert",
+      "path": "categories/02-language-specialists/dotnet-core-expert.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "dotnet-framework-4.8-expert",
+      "path": "categories/02-language-specialists/dotnet-framework-4.8-expert.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "elixir-expert",
+      "path": "categories/02-language-specialists/elixir-expert.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "flutter-expert",
+      "path": "categories/02-language-specialists/flutter-expert.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "golang-pro",
+      "path": "categories/02-language-specialists/golang-pro.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "java-architect",
+      "path": "categories/02-language-specialists/java-architect.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "javascript-pro",
+      "path": "categories/02-language-specialists/javascript-pro.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "kotlin-specialist",
+      "path": "categories/02-language-specialists/kotlin-specialist.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "laravel-specialist",
+      "path": "categories/02-language-specialists/laravel-specialist.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "nextjs-developer",
+      "path": "categories/02-language-specialists/nextjs-developer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "php-pro",
+      "path": "categories/02-language-specialists/php-pro.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "powershell-5.1-expert",
+      "path": "categories/02-language-specialists/powershell-5.1-expert.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "powershell-7-expert",
+      "path": "categories/02-language-specialists/powershell-7-expert.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "python-pro",
+      "path": "categories/02-language-specialists/python-pro.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "rails-expert",
+      "path": "categories/02-language-specialists/rails-expert.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "react-specialist",
+      "path": "categories/02-language-specialists/react-specialist.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "rust-engineer",
+      "path": "categories/02-language-specialists/rust-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "spring-boot-engineer",
+      "path": "categories/02-language-specialists/spring-boot-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "sql-pro",
+      "path": "categories/02-language-specialists/sql-pro.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "swift-expert",
+      "path": "categories/02-language-specialists/swift-expert.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "typescript-pro",
+      "path": "categories/02-language-specialists/typescript-pro.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "vue-expert",
+      "path": "categories/02-language-specialists/vue-expert.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "azure-infra-engineer",
+      "path": "categories/03-infrastructure/azure-infra-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "cloud-architect",
+      "path": "categories/03-infrastructure/cloud-architect.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "database-administrator",
+      "path": "categories/03-infrastructure/database-administrator.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "deployment-engineer",
+      "path": "categories/03-infrastructure/deployment-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "devops-engineer",
+      "path": "categories/03-infrastructure/devops-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "devops-incident-responder",
+      "path": "categories/03-infrastructure/devops-incident-responder.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "docker-expert",
+      "path": "categories/03-infrastructure/docker-expert.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "incident-responder",
+      "path": "categories/03-infrastructure/incident-responder.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "kubernetes-specialist",
+      "path": "categories/03-infrastructure/kubernetes-specialist.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "network-engineer",
+      "path": "categories/03-infrastructure/network-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "platform-engineer",
+      "path": "categories/03-infrastructure/platform-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "security-engineer",
+      "path": "categories/03-infrastructure/security-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "sre-engineer",
+      "path": "categories/03-infrastructure/sre-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "terraform-engineer",
+      "path": "categories/03-infrastructure/terraform-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "terragrunt-expert",
+      "path": "categories/03-infrastructure/terragrunt-expert.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "windows-infra-admin",
+      "path": "categories/03-infrastructure/windows-infra-admin.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "accessibility-tester",
+      "path": "categories/04-quality-security/accessibility-tester.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "ad-security-reviewer",
+      "path": "categories/04-quality-security/ad-security-reviewer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "architect-reviewer",
+      "path": "categories/04-quality-security/architect-reviewer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "chaos-engineer",
+      "path": "categories/04-quality-security/chaos-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "code-reviewer",
+      "path": "categories/04-quality-security/code-reviewer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "compliance-auditor",
+      "path": "categories/04-quality-security/compliance-auditor.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "debugger",
+      "path": "categories/04-quality-security/debugger.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "error-detective",
+      "path": "categories/04-quality-security/error-detective.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "penetration-tester",
+      "path": "categories/04-quality-security/penetration-tester.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "performance-engineer",
+      "path": "categories/04-quality-security/performance-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "powershell-security-hardening",
+      "path": "categories/04-quality-security/powershell-security-hardening.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "qa-expert",
+      "path": "categories/04-quality-security/qa-expert.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "security-auditor",
+      "path": "categories/04-quality-security/security-auditor.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "test-automator",
+      "path": "categories/04-quality-security/test-automator.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "ai-engineer",
+      "path": "categories/05-data-ai/ai-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "data-analyst",
+      "path": "categories/05-data-ai/data-analyst.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "data-engineer",
+      "path": "categories/05-data-ai/data-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "data-scientist",
+      "path": "categories/05-data-ai/data-scientist.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "database-optimizer",
+      "path": "categories/05-data-ai/database-optimizer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "llm-architect",
+      "path": "categories/05-data-ai/llm-architect.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "machine-learning-engineer",
+      "path": "categories/05-data-ai/machine-learning-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "ml-engineer",
+      "path": "categories/05-data-ai/ml-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "mlops-engineer",
+      "path": "categories/05-data-ai/mlops-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "nlp-engineer",
+      "path": "categories/05-data-ai/nlp-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "postgres-pro",
+      "path": "categories/05-data-ai/postgres-pro.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "prompt-engineer",
+      "path": "categories/05-data-ai/prompt-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "build-engineer",
+      "path": "categories/06-developer-experience/build-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "cli-developer",
+      "path": "categories/06-developer-experience/cli-developer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "dependency-manager",
+      "path": "categories/06-developer-experience/dependency-manager.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "documentation-engineer",
+      "path": "categories/06-developer-experience/documentation-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "dx-optimizer",
+      "path": "categories/06-developer-experience/dx-optimizer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "git-workflow-manager",
+      "path": "categories/06-developer-experience/git-workflow-manager.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "legacy-modernizer",
+      "path": "categories/06-developer-experience/legacy-modernizer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "mcp-developer",
+      "path": "categories/06-developer-experience/mcp-developer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "powershell-module-architect",
+      "path": "categories/06-developer-experience/powershell-module-architect.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "powershell-ui-architect",
+      "path": "categories/06-developer-experience/powershell-ui-architect.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "refactoring-specialist",
+      "path": "categories/06-developer-experience/refactoring-specialist.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "slack-expert",
+      "path": "categories/06-developer-experience/slack-expert.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "tooling-engineer",
+      "path": "categories/06-developer-experience/tooling-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "api-documenter",
+      "path": "categories/07-specialized-domains/api-documenter.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "blockchain-developer",
+      "path": "categories/07-specialized-domains/blockchain-developer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "embedded-systems",
+      "path": "categories/07-specialized-domains/embedded-systems.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "fintech-engineer",
+      "path": "categories/07-specialized-domains/fintech-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "game-developer",
+      "path": "categories/07-specialized-domains/game-developer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "iot-engineer",
+      "path": "categories/07-specialized-domains/iot-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "m365-admin",
+      "path": "categories/07-specialized-domains/m365-admin.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "mobile-app-developer",
+      "path": "categories/07-specialized-domains/mobile-app-developer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "payment-integration",
+      "path": "categories/07-specialized-domains/payment-integration.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "quant-analyst",
+      "path": "categories/07-specialized-domains/quant-analyst.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "risk-manager",
+      "path": "categories/07-specialized-domains/risk-manager.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "seo-specialist",
+      "path": "categories/07-specialized-domains/seo-specialist.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "business-analyst",
+      "path": "categories/08-business-product/business-analyst.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "content-marketer",
+      "path": "categories/08-business-product/content-marketer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "customer-success-manager",
+      "path": "categories/08-business-product/customer-success-manager.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "legal-advisor",
+      "path": "categories/08-business-product/legal-advisor.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "product-manager",
+      "path": "categories/08-business-product/product-manager.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "project-manager",
+      "path": "categories/08-business-product/project-manager.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "sales-engineer",
+      "path": "categories/08-business-product/sales-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "scrum-master",
+      "path": "categories/08-business-product/scrum-master.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "technical-writer",
+      "path": "categories/08-business-product/technical-writer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "ux-researcher",
+      "path": "categories/08-business-product/ux-researcher.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "wordpress-master",
+      "path": "categories/08-business-product/wordpress-master.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "agent-installer",
+      "path": "categories/09-meta-orchestration/agent-installer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "agent-organizer",
+      "path": "categories/09-meta-orchestration/agent-organizer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "context-manager",
+      "path": "categories/09-meta-orchestration/context-manager.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "error-coordinator",
+      "path": "categories/09-meta-orchestration/error-coordinator.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "it-ops-orchestrator",
+      "path": "categories/09-meta-orchestration/it-ops-orchestrator.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "knowledge-synthesizer",
+      "path": "categories/09-meta-orchestration/knowledge-synthesizer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "multi-agent-coordinator",
+      "path": "categories/09-meta-orchestration/multi-agent-coordinator.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "performance-monitor",
+      "path": "categories/09-meta-orchestration/performance-monitor.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "task-distributor",
+      "path": "categories/09-meta-orchestration/task-distributor.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "workflow-orchestrator",
+      "path": "categories/09-meta-orchestration/workflow-orchestrator.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "competitive-analyst",
+      "path": "categories/10-research-analysis/competitive-analyst.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "data-researcher",
+      "path": "categories/10-research-analysis/data-researcher.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "market-researcher",
+      "path": "categories/10-research-analysis/market-researcher.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "research-analyst",
+      "path": "categories/10-research-analysis/research-analyst.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "scientific-literature-researcher",
+      "path": "categories/10-research-analysis/scientific-literature-researcher.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "search-specialist",
+      "path": "categories/10-research-analysis/search-specialist.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "trend-analyst",
+      "path": "categories/10-research-analysis/trend-analyst.md",
+      "suggested_bucket": "agent-role"
+    }
+  ]
+}

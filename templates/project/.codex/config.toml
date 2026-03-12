@@ -1,0 +1,31 @@
+[features]
+multi_agent = true
+collab = true
+
+[agents]
+max_threads = 5
+max_depth = 1
+
+[agents.triager]
+description = "Coordinator that decomposes most non-trivial requests and routes bounded handoffs to the right agent."
+config_file = "agents/triager.toml"
+
+[agents.builder]
+description = "Write-enabled implementer for bounded files or directories provided in a handoff."
+config_file = "agents/builder.toml"
+
+[agents.debater]
+description = "Read-only debate participant that argues one assigned perspective against a grounded question."
+config_file = "agents/debater.toml"
+
+[agents.moderator]
+description = "Read-only synthesizer that compares debate outputs and produces a decision memo."
+config_file = "agents/moderator.toml"
+
+[agents.reviewer]
+description = "Read-only reviewer focused on correctness, regressions, and missing verification."
+config_file = "agents/reviewer.toml"
+
+[agents.researcher]
+description = "Read-only researcher for docs, configuration, and external references."
+config_file = "agents/researcher.toml"

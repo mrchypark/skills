@@ -1,61 +1,110 @@
-# mrchypark/skills
+# Codex Toolkit
 
-Personal skill repository for `mrchypark`.
+Personal Codex toolkit repository for `mrchypark`.
 
-Skills can live at the repository root or under capability namespaces when the same tool needs service-specific variants.
+This repository is the source of truth for:
+
+- Codex skills under `skills/`
+- multi-agent config templates under `codex/`
+- install helpers under `install/`
+- project vendoring templates under `templates/project/`
+- validation scripts under `tests/`
+
+The repository keeps a development-friendly layout. Install scripts project that layout into the Codex-visible surfaces:
+
+- `~/.agents/skills/<repo-name>`
+- `~/.codex/<repo-name>`
+- project-local `.agents/`, `.codex/`, and `AGENTS.md`
+
+No repository-owned hook layer is included. The toolkit only models Codex surfaces that are actually installed or checked into a project.
+
+The default operating surface is intentionally small:
+
+- nine process skills
+- three domain skills
+- six bundled agent roles
+
+The larger external reference catalogs are inventoried for comparison, then aggressively reduced before anything is installed here.
 
 ## Structure
 
-- `disk-clean-audit/`: shared disk cleanup audit family with service-specific variants
-- `docs/plans/`: design and implementation notes for repository changes
-- `oracle/`: shared Oracle family with service-specific variants for ChatGPT, Claude, and Gemini
-- `review-loop/`: repeated layer-based review and revision workflow for plans and code
-- `pocketbase-go/`: PocketBase backend skill for Go projects
-
-## Current Skills
-
-- `disk-clean-audit`
-- `disk-clean-audit/chatgpt`
-- `disk-clean-audit/claude`
-- `disk-clean-audit/gemini`
-- `oracle`
-- `oracle/chatgpt`
-- `oracle/claude`
-- `oracle/gemini`
-- `review-loop`
-- `pocketbase-go`
-
-## Adding Skills
-
-Add each new skill either at the repository root or inside a capability namespace:
-
 ```text
 skills/
-├── README.md
-├── disk-clean-audit/
-│   ├── SKILL.md
-│   ├── chatgpt/
-│   │   ├── SKILL.md
-│   │   └── agents/
-│   ├── claude/
-│   │   └── SKILL.md
-│   └── gemini/
-│       └── SKILL.md
-├── oracle/
-│   ├── SKILL.md
-│   ├── chatgpt/
-│   │   ├── SKILL.md
-│   │   └── agents/
-│   ├── claude/
-│   │   └── SKILL.md
-│   └── gemini/
-│       └── SKILL.md
-├── review-loop/
-│   └── SKILL.md
-├── docs/
-└── <skill-name>/
-    ├── SKILL.md
-    └── resources/
+  process/
+  domain/
+codex/
+  AGENTS.md
+  config.toml
+  agents/
+  context/
+install/
+templates/project/
+tests/
+catalog/registry.yaml
 ```
 
-Keep each capability and each service variant self-contained inside its own directory.
+## Included Skills
+
+### Process
+
+- `mrchypark-brainstorm`
+- `mrchypark-debate`
+- `mrchypark-orchestrate`
+- `mrchypark-plan`
+- `mrchypark-delegate`
+- `mrchypark-review-request`
+- `mrchypark-verify`
+- `review-loop`
+- `remote-review`
+
+### Domain
+
+- `disk-clean-audit`
+- `oracle`
+- `pocketbase-go`
+
+## Bundled Agents
+
+- `triager`
+- `builder`
+- `debater`
+- `moderator`
+- `researcher`
+- `reviewer`
+
+## Install
+
+Global install:
+
+```bash
+sh install/global-install.sh "$(pwd)"
+sh install/verify-install.sh "$(pwd)"
+```
+
+Restart Codex after changing the global install layout.
+
+Project bootstrap:
+
+```bash
+sh install/project-bootstrap.sh "$(pwd)" /path/to/project
+```
+
+## Verify
+
+```bash
+tests/validate-repo.sh
+tests/smoke-install.sh
+```
+
+## Reference Inventory
+
+To re-list the external reference skills and agents and refresh the consolidation worksheet:
+
+```bash
+python3 scripts/reference_inventory.py \
+  --json-out catalog/reference-inventory.json \
+  --markdown-out docs/reference-consolidation.md
+tests/reference-inventory.sh
+```
+
+The consolidation findings that explain what was kept, simplified, or rejected live in `docs/codex-fit-review.md`.

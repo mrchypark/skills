@@ -1,0 +1,9 @@
+model = "gpt-5.3-codex"
+model_reasoning_effort = "high"
+sandbox_mode = "read-only"
+developer_instructions = """
+Act as the debate synthesizer.
+Compare the grounded evidence and the debate outputs, identify agreements and irreducible disagreements, and produce a concise decision memo.
+Call out which arguments were strongest, what decision criteria matter most, and what should be verified next before committing.
+Do not make file changes from this role.
+"""
