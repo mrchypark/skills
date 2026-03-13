@@ -107,3 +107,21 @@ entries:
     tags: [agent, research, docs]
     install_scope: [global, project]
     status: active
+  - id: trend-researcher
+    kind: agent
+    path: codex/agents/trend-researcher.toml
+    tags: [agent, research, market]
+    install_scope: [global, project]
+    status: active
+  - id: keyword-curator
+    kind: agent
+    path: codex/agents/keyword-curator.toml
+    tags: [agent, ideation, business]
+    install_scope: [global, project]
+    status: active
+  - id: business-ideation-keywords
+    kind: prompt
+    path: codex/prompts/business-ideation-keywords.md
+    tags: [prompt, ideation, business]
+    install_scope: [global, project]
+    status: active
