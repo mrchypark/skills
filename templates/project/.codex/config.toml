@@ -29,3 +29,11 @@ config_file = "agents/reviewer.toml"
 [agents.researcher]
 description = "Read-only researcher for docs, configuration, and external references."
 config_file = "agents/researcher.toml"
+
+[agents.trend_researcher]
+description = "Read-only researcher that searches recent English-language web sources, extracts repeated market signals, and returns evidence without prematurely locking in final ideas."
+config_file = "agents/trend-researcher.toml"
+
+[agents.keyword_curator]
+description = "Read-only curator that turns research evidence into 2 to 3 business ideation keywords, mixing source-backed signals with one controlled-random wildcard."
+config_file = "agents/keyword-curator.toml"

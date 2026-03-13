@@ -6,6 +6,7 @@ This repository is the source of truth for:
 
 - Codex skills under `skills/`
 - multi-agent config templates under `codex/`
+- reusable prompt templates under `codex/prompts/`
 - install helpers under `install/`
 - project vendoring templates under `templates/project/`
 - validation scripts under `tests/`
@@ -22,7 +23,8 @@ The default operating surface is intentionally small:
 
 - nine process skills
 - three domain skills
-- six bundled agent roles
+- eight bundled agent roles
+- one reusable ideation prompt
 
 The larger external reference catalogs are inventoried for comparison, then aggressively reduced before anything is installed here.
 
@@ -36,6 +38,7 @@ codex/
   AGENTS.md
   config.toml
   agents/
+  prompts/
   context/
 install/
 templates/project/
@@ -71,6 +74,12 @@ catalog/registry.yaml
 - `moderator`
 - `researcher`
 - `reviewer`
+- `trend_researcher`
+- `keyword_curator`
+
+## Bundled Prompts
+
+- `business-ideation-keywords`
 
 ## Install
 

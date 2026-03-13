@@ -9,6 +9,9 @@
 - `builder` for edit-heavy execution inside bounded files
 - `researcher` for evidence gathering only
 - `reviewer` for findings-only review
+- Additional specialist roles are available when the workflow clearly calls for them:
+- `trend_researcher` for recent market-signal gathering and English-language web research
+- `keyword_curator` for turning research evidence into business-ideation keywords
 - For high-impact decisions, use the debate path:
 - `researcher` grounds the topic in actual constraints
 - `debater` is invoked multiple times with different perspectives

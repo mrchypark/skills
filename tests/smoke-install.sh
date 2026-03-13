@@ -32,6 +32,14 @@ HOME="$HOME_DIR" sh "$PROJECT_DIR/install/project-bootstrap.sh" "$PROJECT_DIR" "
   printf 'missing copied triager config\n' >&2
   exit 1
 }
+[ -f "$HOME_DIR/.codex/$REPO_NAME/agents/trend-researcher.toml" ] || {
+  printf 'missing copied trend researcher config\n' >&2
+  exit 1
+}
+[ -f "$HOME_DIR/.codex/$REPO_NAME/prompts/business-ideation-keywords.md" ] || {
+  printf 'missing copied business ideation prompt\n' >&2
+  exit 1
+}
 [ -f "$TARGET_DIR/AGENTS.md" ] || {
   printf 'missing bootstrapped AGENTS.md\n' >&2
   exit 1
@@ -42,6 +50,14 @@ HOME="$HOME_DIR" sh "$PROJECT_DIR/install/project-bootstrap.sh" "$PROJECT_DIR" "
 }
 [ -f "$TARGET_DIR/.codex/agents/reviewer.toml" ] || {
   printf 'missing bootstrapped project reviewer config\n' >&2
+  exit 1
+}
+[ -f "$TARGET_DIR/.codex/agents/keyword-curator.toml" ] || {
+  printf 'missing bootstrapped project keyword curator config\n' >&2
+  exit 1
+}
+[ -f "$TARGET_DIR/.codex/prompts/business-ideation-keywords.md" ] || {
+  printf 'missing bootstrapped project prompt\n' >&2
   exit 1
 }
 [ -f "$TARGET_DIR/.agents/skills/README.md" ] || {
