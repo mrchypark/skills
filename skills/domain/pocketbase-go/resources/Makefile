@@ -28,17 +28,24 @@ init:
 			*) echo "Unsupported arch: $$ARCH"; exit 1 ;; \
 		esac; \
 		PB_ZIP="pocketbase_$(PB_VERSION)_$${OS}_$${ARCH}.zip"; \
+		PB_ZIP_PATH="$(PB_DIR)/$${PB_ZIP}"; \
 		echo "Detected OS: $$OS, Arch: $$ARCH"; \
-		curl -L -o "$(PB_DIR)/pb.zip" "https://github.com/pocketbase/pocketbase/releases/download/v$(PB_VERSION)/$${PB_ZIP}"; \
+		curl -L -o "$$PB_ZIP_PATH" "https://github.com/pocketbase/pocketbase/releases/download/v$(PB_VERSION)/$${PB_ZIP}"; \
 		curl -L -o "$(PB_DIR)/checksums.txt" "https://github.com/pocketbase/pocketbase/releases/download/v$(PB_VERSION)/checksums.txt"; \
 		EXPECTED_SHA=$$(awk '/ '"$${PB_ZIP}"'$$/ {print $$1}' "$(PB_DIR)/checksums.txt"); \
-		ACTUAL_SHA=$$(shasum -a 256 "$(PB_DIR)/pb.zip" | awk '{print $$1}'); \
-		if [ "$$EXPECTED_SHA" != "$$ACTUAL_SHA" ]; then \
-			echo "Checksum mismatch for $${PB_ZIP}"; \
+		if [ -z "$$EXPECTED_SHA" ]; then \
+			echo "Missing checksum entry for $${PB_ZIP}"; \
 			exit 1; \
 		fi; \
-		unzip -o "$(PB_DIR)/pb.zip" -d "$(PB_DIR)"; \
-		rm "$(PB_DIR)/pb.zip" "$(PB_DIR)/checksums.txt"; \
+		ACTUAL_SHA=$$(shasum -a 256 "$$PB_ZIP_PATH" | awk '{print $$1}'); \
+		if [ "$$EXPECTED_SHA" != "$$ACTUAL_SHA" ]; then \
+			echo "Checksum mismatch for $${PB_ZIP}"; \
+			echo "Expected: $$EXPECTED_SHA"; \
+			echo "Actual:   $$ACTUAL_SHA"; \
+			exit 1; \
+		fi; \
+		unzip -o "$$PB_ZIP_PATH" -d "$(PB_DIR)"; \
+		rm "$$PB_ZIP_PATH" "$(PB_DIR)/checksums.txt"; \
 		chmod +x "$(PB_BIN)"; \
 	fi
 	@echo "Bootstrapping Admin..."

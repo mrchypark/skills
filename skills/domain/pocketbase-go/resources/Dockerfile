@@ -11,11 +11,12 @@ RUN apk add --no-cache \
 
 # Download PocketBase
 WORKDIR /pb
-RUN curl -L -o pb.zip "https://github.com/pocketbase/pocketbase/releases/download/v${PB_VERSION}/pocketbase_${PB_VERSION}_${PB_ARCH}.zip" && \
+RUN PB_ZIP="pocketbase_${PB_VERSION}_${PB_ARCH}.zip" && \
+    curl -L -o "${PB_ZIP}" "https://github.com/pocketbase/pocketbase/releases/download/v${PB_VERSION}/${PB_ZIP}" && \
     curl -L -o checksums.txt "https://github.com/pocketbase/pocketbase/releases/download/v${PB_VERSION}/checksums.txt" && \
-    grep " pocketbase_${PB_VERSION}_${PB_ARCH}.zip$" checksums.txt | sha256sum -c - && \
-    unzip pb.zip && \
-    rm pb.zip checksums.txt
+    grep " ${PB_ZIP}$" checksums.txt | sha256sum -c - && \
+    unzip "${PB_ZIP}" && \
+    rm "${PB_ZIP}" checksums.txt
 
 # Copy migrations (These should be committed in your repo)
 COPY pb_migrations /pb/pb_migrations
