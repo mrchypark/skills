@@ -15,7 +15,7 @@ This note records the overlap, overdesign, and contradiction cleanup applied whi
 ## Consolidation decisions
 
 - Installed process skills stay intentionally small: `mrchypark-brainstorm`, `mrchypark-debate`, `mrchypark-orchestrate`, `mrchypark-plan`, `mrchypark-delegate`, `mrchypark-review-request`, `mrchypark-verify`.
-- Installed domain skills stay task-specific: `disk-clean-audit`, `oracle`, `pocketbase-go`.
+- Installed domain skills stay task-specific: `disk-clean-audit`, `frontend-delight`, `oracle`, `pocketbase-go`.
 - Installed agent roles stay narrow and purpose-built: `triager`, `builder`, `debater`, `moderator`, `researcher`, `reviewer`.
 - Everything else remains reference-only until a repeated Codex-native need is proven.
 
@@ -48,6 +48,7 @@ This note records the overlap, overdesign, and contradiction cleanup applied whi
 - Delegate only independent work.
 - Keep reviewer output findings-first.
 - Treat external-model critique as advisory and verify it locally.
+- Prefer design-brief-first frontend work over jumping straight into generic UI implementation.
 
 ## Patterns explicitly rejected
 

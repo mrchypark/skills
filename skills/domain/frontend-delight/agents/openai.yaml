@@ -1,0 +1,4 @@
+interface:
+  display_name: "Frontend Delight"
+  short_description: "Design-first frontend workflow"
+  default_prompt: "Use $frontend-delight to gather a design brief first, then build a polished modern frontend."

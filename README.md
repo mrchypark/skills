@@ -21,7 +21,7 @@ No repository-owned hook layer is included. The toolkit only models Codex surfac
 The default operating surface is intentionally small:
 
 - nine process skills
-- three domain skills
+- four domain skills
 - six bundled agent roles
 
 The larger external reference catalogs are inventoried for comparison, then aggressively reduced before anything is installed here.
@@ -60,6 +60,7 @@ catalog/registry.yaml
 ### Domain
 
 - `disk-clean-audit`
+- `frontend-delight`
 - `oracle`
 - `pocketbase-go`
 
