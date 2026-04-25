@@ -19,5 +19,7 @@ rm -rf "$CODEX_ROOT"
 mkdir -p "$CODEX_ROOT"
 cp -R "$REPO_ROOT/codex/." "$CODEX_ROOT/"
 
+sh "$REPO_ROOT/install/sync-codex-skills.sh" "$REPO_ROOT"
+
 printf 'Installed skills at %s\n' "$SKILL_LINK"
 printf 'Installed Codex config at %s\n' "$CODEX_ROOT"

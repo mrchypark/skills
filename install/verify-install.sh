@@ -34,5 +34,13 @@ CODEX_ROOT=${HOME}/.codex/${REPO_NAME}
   printf 'missing installed researcher config\n' >&2
   exit 1
 }
+[ -L "${HOME}/.codex/skills/skill-management" ] || {
+  printf 'missing synced skill-management skill\n' >&2
+  exit 1
+}
+[ -L "${HOME}/.codex/skills/yeoul-memory" ] || {
+  printf 'missing synced yeoul-memory skill\n' >&2
+  exit 1
+}
 
 printf 'Install verified for %s\n' "$REPO_NAME"

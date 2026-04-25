@@ -11,6 +11,12 @@ entries:
     tags: [process, review, remote]
     install_scope: [global, project]
     status: active
+  - id: review-workflow
+    kind: skill
+    path: skills/process/review-workflow/SKILL.md
+    tags: [process, review, local]
+    install_scope: [global, project]
+    status: active
   - id: memory-harvest
     kind: skill
     path: skills/process/memory-harvest/SKILL.md
@@ -21,6 +27,12 @@ entries:
     kind: skill
     path: skills/process/scheduled-task/SKILL.md
     tags: [process, automation, schedule]
+    install_scope: [global, project]
+    status: active
+  - id: skill-management
+    kind: skill
+    path: skills/process/skill-management/SKILL.md
+    tags: [process, skills, install]
     install_scope: [global, project]
     status: active
   - id: disk-clean-audit
@@ -45,6 +57,24 @@ entries:
     kind: skill
     path: skills/domain/legacy-automation/SKILL.md
     tags: [domain, automation, browser, adb, ocr]
+    install_scope: [global, project]
+    status: active
+  - id: frontend-design
+    kind: skill
+    path: skills/domain/frontend-design/SKILL.md
+    tags: [domain, frontend, design]
+    install_scope: [global, project]
+    status: active
+  - id: ui-ux-pro-max
+    kind: skill
+    path: skills/domain/ui-ux-pro-max/SKILL.md
+    tags: [domain, ui, ux, design]
+    install_scope: [global, project]
+    status: active
+  - id: yeoul-memory
+    kind: skill
+    path: skills/domain/yeoul-memory/SKILL.md
+    tags: [domain, memory, yeoul]
     install_scope: [global, project]
     status: active
   - id: triager
