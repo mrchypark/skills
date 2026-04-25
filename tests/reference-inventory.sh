@@ -34,7 +34,6 @@ with open(sys.argv[1], "r", encoding="utf-8") as fh:
 
 repos = {source["id"] for source in data["sources"]}
 assert "workflows" in repos
-assert "superpowers" in repos
 assert "awesome-claude-code-subagents" in repos
 
 kinds = {entry["kind"] for entry in data["entries"]}
@@ -46,5 +45,4 @@ PY
 
 rg -q "Unified taxonomy" "$MD_OUT"
 rg -q "workflows" "$MD_OUT"
-rg -q "superpowers" "$MD_OUT"
 rg -q "awesome-claude-code-subagents" "$MD_OUT"

@@ -14,6 +14,6 @@
 - `debater` is invoked multiple times with different perspectives
 - `moderator` synthesizes agreements, disagreements, and recommended direction
 - Every handoff must include the objective, owned files or directories, constraints, expected output, and required verification.
-- The parent session owns integration. No delegated result is accepted until `mrchypark-verify` has been run or a clear verification gap is reported.
+- The parent session owns integration. No delegated result is accepted until concrete verification evidence has been checked or a clear verification gap is reported.
 - Treat external-model feedback as advisory and verify it locally.
 - Treat the reference inventory as inspiration, not as an install queue.

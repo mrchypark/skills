@@ -1,265 +1,28 @@
 {
-  "generated_at": "2026-03-12T16:55:44+00:00",
+  "generated_at": "2026-04-25T06:29:16+00:00",
   "sources": [
     {
       "id": "workflows",
       "url": "https://github.com/edwinhu/workflows.git",
-      "commit": "53c2e4a32c09a45100b5f0fcce6fcae72ba19003",
-      "entry_count": 95
-    },
-    {
-      "id": "superpowers",
-      "url": "https://github.com/obra/superpowers.git",
-      "commit": "363923f74aa9cd7b470c0aaa73dee629a8bfdc90",
-      "entry_count": 15
+      "commit": "d74933c8311a569944b64a0a49226d723e7a9aa7",
+      "entry_count": 115
     },
     {
       "id": "awesome-claude-code-subagents",
       "url": "https://github.com/VoltAgent/awesome-claude-code-subagents.git",
-      "commit": "87321636a1c666283d8f17398b45c2644395044b",
-      "entry_count": 131
+      "commit": "6f804f0cfab22fb62668855aa3d62ee3a1453077",
+      "entry_count": 144
     }
   ],
   "summary": {
-    "total_entries": 241,
-    "skills": 95,
-    "agents": 146,
-    "process_skills": 41,
-    "domain_skills": 54,
-    "agent_roles": 146
+    "total_entries": 259,
+    "skills": 94,
+    "agents": 165,
+    "process_skills": 30,
+    "domain_skills": 64,
+    "agent_roles": 165
   },
   "entries": [
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "dev-clarify",
-      "path": "lib/skills/dev-clarify/SKILL.md",
-      "suggested_bucket": "domain-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "dev-delegate",
-      "path": "lib/skills/dev-delegate/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "dev-design",
-      "path": "lib/skills/dev-design/SKILL.md",
-      "suggested_bucket": "domain-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "dev-explore",
-      "path": "lib/skills/dev-explore/SKILL.md",
-      "suggested_bucket": "domain-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "dev-implement",
-      "path": "lib/skills/dev-implement/SKILL.md",
-      "suggested_bucket": "domain-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "dev-plan-reviewer",
-      "path": "lib/skills/dev-plan-reviewer/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "dev-ralph-loop",
-      "path": "lib/skills/dev-ralph-loop/SKILL.md",
-      "suggested_bucket": "domain-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "dev-review",
-      "path": "lib/skills/dev-review/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "dev-spec-reviewer",
-      "path": "lib/skills/dev-spec-reviewer/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "dev-tdd",
-      "path": "lib/skills/dev-tdd/SKILL.md",
-      "suggested_bucket": "domain-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "dev-test",
-      "path": "lib/skills/dev-test/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "dev-test-chrome",
-      "path": "lib/skills/dev-test-chrome/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "dev-test-electron",
-      "path": "lib/skills/dev-test-electron/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "dev-test-hammerspoon",
-      "path": "lib/skills/dev-test-hammerspoon/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "dev-test-linux",
-      "path": "lib/skills/dev-test-linux/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "dev-test-playwright",
-      "path": "lib/skills/dev-test-playwright/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "dev-verify",
-      "path": "lib/skills/dev-verify/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "ds-delegate",
-      "path": "lib/skills/ds-delegate/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "ds-implement",
-      "path": "lib/skills/ds-implement/SKILL.md",
-      "suggested_bucket": "domain-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "ds-plan",
-      "path": "lib/skills/ds-plan/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "ds-plan-reviewer",
-      "path": "lib/skills/ds-plan-reviewer/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "ds-review",
-      "path": "lib/skills/ds-review/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "ds-spec-reviewer",
-      "path": "lib/skills/ds-spec-reviewer/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "ds-verify",
-      "path": "lib/skills/ds-verify/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "using-skills",
-      "path": "lib/skills/using-skills/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "writing-draft",
-      "path": "lib/skills/writing-draft/SKILL.md",
-      "suggested_bucket": "domain-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "writing-econ",
-      "path": "lib/skills/writing-econ/SKILL.md",
-      "suggested_bucket": "domain-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "writing-general",
-      "path": "lib/skills/writing-general/SKILL.md",
-      "suggested_bucket": "domain-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "writing-legal",
-      "path": "lib/skills/writing-legal/SKILL.md",
-      "suggested_bucket": "domain-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "writing-outline",
-      "path": "lib/skills/writing-outline/SKILL.md",
-      "suggested_bucket": "domain-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "writing-outline-reviewer",
-      "path": "lib/skills/writing-outline-reviewer/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "writing-precis-reviewer",
-      "path": "lib/skills/writing-precis-reviewer/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "workflows",
-      "kind": "skill",
-      "name": "writing-setup",
-      "path": "lib/skills/writing-setup/SKILL.md",
-      "suggested_bucket": "domain-skill"
-    },
     {
       "source": "workflows",
       "kind": "skill",
@@ -292,50 +55,57 @@
       "source": "workflows",
       "kind": "skill",
       "name": "audit-archive",
-      "path": "skills/bluebook-audit/lib/skills/audit-archive/SKILL.md",
+      "path": "skills/bluebook-audit/skills/audit-archive/SKILL.md",
       "suggested_bucket": "domain-skill"
     },
     {
       "source": "workflows",
       "kind": "skill",
       "name": "audit-check",
-      "path": "skills/bluebook-audit/lib/skills/audit-check/SKILL.md",
+      "path": "skills/bluebook-audit/skills/audit-check/SKILL.md",
       "suggested_bucket": "domain-skill"
     },
     {
       "source": "workflows",
       "kind": "skill",
       "name": "audit-correct",
-      "path": "skills/bluebook-audit/lib/skills/audit-correct/SKILL.md",
+      "path": "skills/bluebook-audit/skills/audit-correct/SKILL.md",
       "suggested_bucket": "domain-skill"
     },
     {
       "source": "workflows",
       "kind": "skill",
       "name": "audit-crossrefs",
-      "path": "skills/bluebook-audit/lib/skills/audit-crossrefs/SKILL.md",
+      "path": "skills/bluebook-audit/skills/audit-crossrefs/SKILL.md",
       "suggested_bucket": "domain-skill"
     },
     {
       "source": "workflows",
       "kind": "skill",
       "name": "audit-extract",
-      "path": "skills/bluebook-audit/lib/skills/audit-extract/SKILL.md",
+      "path": "skills/bluebook-audit/skills/audit-extract/SKILL.md",
       "suggested_bucket": "domain-skill"
     },
     {
       "source": "workflows",
       "kind": "skill",
       "name": "audit-report",
-      "path": "skills/bluebook-audit/lib/skills/audit-report/SKILL.md",
+      "path": "skills/bluebook-audit/skills/audit-report/SKILL.md",
       "suggested_bucket": "domain-skill"
     },
     {
       "source": "workflows",
       "kind": "skill",
       "name": "audit-verify",
-      "path": "skills/bluebook-audit/lib/skills/audit-verify/SKILL.md",
+      "path": "skills/bluebook-audit/skills/audit-verify/SKILL.md",
       "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "consensus",
+      "path": "skills/consensus/SKILL.md",
+      "suggested_bucket": "domain-skill"
     },
     {
       "source": "workflows",
@@ -361,8 +131,134 @@
     {
       "source": "workflows",
       "kind": "skill",
+      "name": "dev-clarify",
+      "path": "skills/dev-clarify/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
       "name": "dev-debug",
       "path": "skills/dev-debug/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-delegate",
+      "path": "skills/dev-delegate/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-design",
+      "path": "skills/dev-design/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-explore",
+      "path": "skills/dev-explore/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-handoff",
+      "path": "skills/dev-handoff/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-implement",
+      "path": "skills/dev-implement/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-plan-reviewer",
+      "path": "skills/dev-plan-reviewer/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-ralph-loop",
+      "path": "skills/dev-ralph-loop/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-review",
+      "path": "skills/dev-review/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-spec-reviewer",
+      "path": "skills/dev-spec-reviewer/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-tdd",
+      "path": "skills/dev-tdd/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-test",
+      "path": "skills/dev-test/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-test-chrome",
+      "path": "skills/dev-test-chrome/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-test-electron",
+      "path": "skills/dev-test-electron/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-test-gaps",
+      "path": "skills/dev-test-gaps/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-test-hammerspoon",
+      "path": "skills/dev-test-hammerspoon/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-test-linux",
+      "path": "skills/dev-test-linux/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-test-playwright",
+      "path": "skills/dev-test-playwright/SKILL.md",
       "suggested_bucket": "process-skill"
     },
     {
@@ -371,6 +267,13 @@
       "name": "dev-tools",
       "path": "skills/dev-tools/SKILL.md",
       "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "dev-verify",
+      "path": "skills/dev-verify/SKILL.md",
+      "suggested_bucket": "process-skill"
     },
     {
       "source": "workflows",
@@ -396,6 +299,13 @@
     {
       "source": "workflows",
       "kind": "skill",
+      "name": "ds-delegate",
+      "path": "skills/ds-delegate/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
       "name": "ds-fix",
       "path": "skills/ds-fix/SKILL.md",
       "suggested_bucket": "domain-skill"
@@ -403,9 +313,65 @@
     {
       "source": "workflows",
       "kind": "skill",
+      "name": "ds-handoff",
+      "path": "skills/ds-handoff/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "ds-implement",
+      "path": "skills/ds-implement/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "ds-plan",
+      "path": "skills/ds-plan/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "ds-plan-reviewer",
+      "path": "skills/ds-plan-reviewer/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "ds-review",
+      "path": "skills/ds-review/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "ds-spec-reviewer",
+      "path": "skills/ds-spec-reviewer/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
       "name": "ds-tools",
       "path": "skills/ds-tools/SKILL.md",
       "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "ds-validate",
+      "path": "skills/ds-validate/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "ds-verify",
+      "path": "skills/ds-verify/SKILL.md",
+      "suggested_bucket": "process-skill"
     },
     {
       "source": "workflows",
@@ -424,9 +390,23 @@
     {
       "source": "workflows",
       "kind": "skill",
+      "name": "headline-card",
+      "path": "skills/headline-card/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
       "name": "jupytext",
       "path": "skills/jupytext/SKILL.md",
       "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "law-review-docx",
+      "path": "skills/law-review-docx/SKILL.md",
+      "suggested_bucket": "process-skill"
     },
     {
       "source": "workflows",
@@ -452,6 +432,13 @@
     {
       "source": "workflows",
       "kind": "skill",
+      "name": "marimo-serve",
+      "path": "skills/marimo/marimo-serve/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
       "name": "nlm",
       "path": "skills/nlm/SKILL.md",
       "suggested_bucket": "domain-skill"
@@ -466,6 +453,13 @@
     {
       "source": "workflows",
       "kind": "skill",
+      "name": "obsidian-organize",
+      "path": "skills/obsidian-organize/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
       "name": "pattern-capture",
       "path": "skills/pattern-capture/SKILL.md",
       "suggested_bucket": "domain-skill"
@@ -473,15 +467,15 @@
     {
       "source": "workflows",
       "kind": "skill",
-      "name": "pptx-render",
-      "path": "skills/pptx-render/SKILL.md",
+      "name": "plugin-creator",
+      "path": "skills/plugin-creator/SKILL.md",
       "suggested_bucket": "domain-skill"
     },
     {
       "source": "workflows",
       "kind": "skill",
-      "name": "reading-add",
-      "path": "skills/reading-add/SKILL.md",
+      "name": "pptx-render",
+      "path": "skills/pptx-render/SKILL.md",
       "suggested_bucket": "domain-skill"
     },
     {
@@ -522,8 +516,8 @@
     {
       "source": "workflows",
       "kind": "skill",
-      "name": "scheduling-poll",
-      "path": "skills/scheduling-poll/SKILL.md",
+      "name": "research",
+      "path": "skills/research/SKILL.md",
       "suggested_bucket": "domain-skill"
     },
     {
@@ -550,6 +544,13 @@
     {
       "source": "workflows",
       "kind": "skill",
+      "name": "using-skills",
+      "path": "skills/using-skills/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
       "name": "visual-mockup",
       "path": "skills/visual-mockup/SKILL.md",
       "suggested_bucket": "domain-skill"
@@ -571,6 +572,20 @@
     {
       "source": "workflows",
       "kind": "skill",
+      "name": "workshop",
+      "path": "skills/workshop/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "workshop-revise",
+      "path": "skills/workshop-revise/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
       "name": "wrds",
       "path": "skills/wrds/SKILL.md",
       "suggested_bucket": "domain-skill"
@@ -585,6 +600,62 @@
     {
       "source": "workflows",
       "kind": "skill",
+      "name": "writing-draft",
+      "path": "skills/writing-draft/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "writing-econ",
+      "path": "skills/writing-econ/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "writing-general",
+      "path": "skills/writing-general/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "writing-handoff",
+      "path": "skills/writing-handoff/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "writing-legal",
+      "path": "skills/writing-legal/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "writing-outline",
+      "path": "skills/writing-outline/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "writing-outline-reviewer",
+      "path": "skills/writing-outline-reviewer/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "writing-precis-reviewer",
+      "path": "skills/writing-precis-reviewer/SKILL.md",
+      "suggested_bucket": "process-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
       "name": "writing-review",
       "path": "skills/writing-review/SKILL.md",
       "suggested_bucket": "process-skill"
@@ -594,6 +665,20 @@
       "kind": "skill",
       "name": "writing-revise",
       "path": "skills/writing-revise/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "writing-setup",
+      "path": "skills/writing-setup/SKILL.md",
+      "suggested_bucket": "domain-skill"
+    },
+    {
+      "source": "workflows",
+      "kind": "skill",
+      "name": "writing-validate",
+      "path": "skills/writing-validate/SKILL.md",
       "suggested_bucket": "domain-skill"
     },
     {
@@ -634,8 +719,29 @@
     {
       "source": "workflows",
       "kind": "agent",
+      "name": "dev-debugger",
+      "path": "agents/dev-debugger.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "workflows",
+      "kind": "agent",
       "name": "dev-implementer",
       "path": "agents/dev-implementer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "workflows",
+      "kind": "agent",
+      "name": "dev-plan-checker",
+      "path": "agents/dev-plan-checker.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "workflows",
+      "kind": "agent",
+      "name": "dev-verifier",
+      "path": "agents/dev-verifier.md",
       "suggested_bucket": "agent-role"
     },
     {
@@ -650,6 +756,13 @@
       "kind": "agent",
       "name": "ds-analyst",
       "path": "agents/ds-analyst.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "workflows",
+      "kind": "agent",
+      "name": "ds-engineer",
+      "path": "agents/ds-engineer.md",
       "suggested_bucket": "agent-role"
     },
     {
@@ -695,108 +808,24 @@
       "suggested_bucket": "agent-role"
     },
     {
-      "source": "superpowers",
-      "kind": "skill",
-      "name": "brainstorming",
-      "path": "skills/brainstorming/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "superpowers",
-      "kind": "skill",
-      "name": "dispatching-parallel-agents",
-      "path": "skills/dispatching-parallel-agents/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "superpowers",
-      "kind": "skill",
-      "name": "executing-plans",
-      "path": "skills/executing-plans/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "superpowers",
-      "kind": "skill",
-      "name": "finishing-a-development-branch",
-      "path": "skills/finishing-a-development-branch/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "superpowers",
-      "kind": "skill",
-      "name": "receiving-code-review",
-      "path": "skills/receiving-code-review/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "superpowers",
-      "kind": "skill",
-      "name": "requesting-code-review",
-      "path": "skills/requesting-code-review/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "superpowers",
-      "kind": "skill",
-      "name": "subagent-driven-development",
-      "path": "skills/subagent-driven-development/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "superpowers",
-      "kind": "skill",
-      "name": "systematic-debugging",
-      "path": "skills/systematic-debugging/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "superpowers",
-      "kind": "skill",
-      "name": "test-driven-development",
-      "path": "skills/test-driven-development/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "superpowers",
-      "kind": "skill",
-      "name": "using-git-worktrees",
-      "path": "skills/using-git-worktrees/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "superpowers",
-      "kind": "skill",
-      "name": "using-superpowers",
-      "path": "skills/using-superpowers/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "superpowers",
-      "kind": "skill",
-      "name": "verification-before-completion",
-      "path": "skills/verification-before-completion/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "superpowers",
-      "kind": "skill",
-      "name": "writing-plans",
-      "path": "skills/writing-plans/SKILL.md",
-      "suggested_bucket": "process-skill"
-    },
-    {
-      "source": "superpowers",
-      "kind": "skill",
-      "name": "writing-skills",
-      "path": "skills/writing-skills/SKILL.md",
-      "suggested_bucket": "domain-skill"
-    },
-    {
-      "source": "superpowers",
+      "source": "workflows",
       "kind": "agent",
-      "name": "code-reviewer",
-      "path": "agents/code-reviewer.md",
+      "name": "test-gap-auditor",
+      "path": "agents/test-gap-auditor.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "workflows",
+      "kind": "agent",
+      "name": "writing-prose-reviewer",
+      "path": "agents/writing-prose-reviewer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "workflows",
+      "kind": "agent",
+      "name": "writing-source-fidelity-reviewer",
+      "path": "agents/writing-source-fidelity-reviewer.md",
       "suggested_bucket": "agent-role"
     },
     {
@@ -811,6 +840,13 @@
       "kind": "agent",
       "name": "backend-developer",
       "path": "categories/01-core-development/backend-developer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "design-bridge",
+      "path": "categories/01-core-development/design-bridge.md",
       "suggested_bucket": "agent-role"
     },
     {
@@ -921,6 +957,20 @@
     {
       "source": "awesome-claude-code-subagents",
       "kind": "agent",
+      "name": "expo-react-native-expert",
+      "path": "categories/02-language-specialists/expo-react-native-expert.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "fastapi-developer",
+      "path": "categories/02-language-specialists/fastapi-developer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
       "name": "flutter-expert",
       "path": "categories/02-language-specialists/flutter-expert.md",
       "suggested_bucket": "agent-role"
@@ -965,6 +1015,13 @@
       "kind": "agent",
       "name": "nextjs-developer",
       "path": "categories/02-language-specialists/nextjs-developer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "node-specialist",
+      "path": "categories/02-language-specialists/node-specialist.md",
       "suggested_bucket": "agent-role"
     },
     {
@@ -1035,6 +1092,13 @@
       "kind": "agent",
       "name": "swift-expert",
       "path": "categories/02-language-specialists/swift-expert.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "symfony-specialist",
+      "path": "categories/02-language-specialists/symfony-specialist.md",
       "suggested_bucket": "agent-role"
     },
     {
@@ -1180,6 +1244,13 @@
     {
       "source": "awesome-claude-code-subagents",
       "kind": "agent",
+      "name": "ai-writing-auditor",
+      "path": "categories/04-quality-security/ai-writing-auditor.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
       "name": "architect-reviewer",
       "path": "categories/04-quality-security/architect-reviewer.md",
       "suggested_bucket": "agent-role"
@@ -1259,6 +1330,13 @@
       "kind": "agent",
       "name": "test-automator",
       "path": "categories/04-quality-security/test-automator.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "ui-ux-tester",
+      "path": "categories/04-quality-security/ui-ux-tester.md",
       "suggested_bucket": "agent-role"
     },
     {
@@ -1348,6 +1426,13 @@
     {
       "source": "awesome-claude-code-subagents",
       "kind": "agent",
+      "name": "reinforcement-learning-engineer",
+      "path": "categories/05-data-ai/reinforcement-learning-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
       "name": "build-engineer",
       "path": "categories/06-developer-experience/build-engineer.md",
       "suggested_bucket": "agent-role"
@@ -1418,6 +1503,13 @@
     {
       "source": "awesome-claude-code-subagents",
       "kind": "agent",
+      "name": "readme-generator",
+      "path": "categories/06-developer-experience/readme-generator.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
       "name": "refactoring-specialist",
       "path": "categories/06-developer-experience/refactoring-specialist.md",
       "suggested_bucket": "agent-role"
@@ -1469,6 +1561,13 @@
       "kind": "agent",
       "name": "game-developer",
       "path": "categories/07-specialized-domains/game-developer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "healthcare-admin",
+      "path": "categories/07-specialized-domains/healthcare-admin.md",
       "suggested_bucket": "agent-role"
     },
     {
@@ -1551,6 +1650,13 @@
     {
       "source": "awesome-claude-code-subagents",
       "kind": "agent",
+      "name": "license-engineer",
+      "path": "categories/08-business-product/license-engineer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
       "name": "product-manager",
       "path": "categories/08-business-product/product-manager.md",
       "suggested_bucket": "agent-role"
@@ -1609,6 +1715,13 @@
       "kind": "agent",
       "name": "agent-organizer",
       "path": "categories/09-meta-orchestration/agent-organizer.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "codebase-orchestrator",
+      "path": "categories/09-meta-orchestration/codebase-orchestrator.md",
       "suggested_bucket": "agent-role"
     },
     {
@@ -1686,6 +1799,13 @@
       "kind": "agent",
       "name": "market-researcher",
       "path": "categories/10-research-analysis/market-researcher.md",
+      "suggested_bucket": "agent-role"
+    },
+    {
+      "source": "awesome-claude-code-subagents",
+      "kind": "agent",
+      "name": "project-idea-validator",
+      "path": "categories/10-research-analysis/project-idea-validator.md",
       "suggested_bucket": "agent-role"
     },
     {

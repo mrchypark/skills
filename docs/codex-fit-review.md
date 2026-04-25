@@ -4,17 +4,16 @@ This note records the overlap, overdesign, and contradiction cleanup applied whi
 
 ## Inventory summary
 
-- External references inventoried: 241 entries
-- Skills: 95
-- Agents: 146
+- External references inventoried: generated from the active reference sources
+- Skills: generated from the active reference sources
+- Agents: generated from the active reference sources
 - Sources:
   - `workflows`: 95 entries
-  - `superpowers`: 15 entries
   - `awesome-claude-code-subagents`: 131 entries
 
 ## Consolidation decisions
 
-- Installed process skills stay intentionally small: `mrchypark-brainstorm`, `mrchypark-debate`, `mrchypark-orchestrate`, `mrchypark-plan`, `mrchypark-delegate`, `mrchypark-review-request`, `mrchypark-verify`.
+- Installed process skills stay intentionally small and avoid project-prefix process variants.
 - Installed domain skills stay task-specific: `disk-clean-audit`, `oracle`, `pocketbase-go`.
 - Installed agent roles stay narrow and purpose-built: `triager`, `builder`, `debater`, `moderator`, `researcher`, `reviewer`.
 - Everything else remains reference-only until a repeated Codex-native need is proven.
@@ -23,7 +22,7 @@ This note records the overlap, overdesign, and contradiction cleanup applied whi
 
 - Design and planning flow had heavy duplication across `brainstorming`, `writing-plans`, `dev-design`, `dev-clarify`, and spec-review helpers. The installed toolkit now keeps only one lightweight clarification skill and one executable planning skill.
 - Delegation patterns overlapped across `dispatching-parallel-agents`, `subagent-driven-development`, `dev-delegate`, and multiple orchestration agents. The installed toolkit keeps one delegation skill plus one coordinator role.
-- Verification and review guidance overlapped across `verification-before-completion`, `requesting-code-review`, `dev-review`, `audit-verify`, and multiple reviewer agents. The installed toolkit now separates `mrchypark-verify` for evidence gathering from `mrchypark-review-request` for packaging and asking for scrutiny.
+- Verification and review guidance overlapped across multiple reference skills and reviewer agents. The installed toolkit keeps review packaging under the remaining review skills and requires fresh verification evidence.
 - `code-reviewer` appears in all three external sources. That duplication was treated as evidence that a single reviewer role is enough for the default install.
 
 ## Overdesign removed
@@ -35,12 +34,12 @@ This note records the overlap, overdesign, and contradiction cleanup applied whi
 
 ## Contradictions resolved
 
-- The earlier `mrchypark-brainstorm` wording blocked implementation until a spec file and a review loop were completed. That contradicted Codex's default execution-oriented workflow, so it now asks only for the minimum clarification needed.
+- The earlier prefixed brainstorming wording blocked implementation until a spec file and a review loop were completed. That contradicted Codex's default execution-oriented workflow, so the prefixed process layer was removed.
 - The earlier all-read-only agent set pushed implementation back into the parent session. Adding `builder` resolves that gap and makes handoff-first execution real instead of rhetorical.
 - `triager` and `researcher` were too close semantically. `triager` is now explicitly responsible for routing and ownership, while `researcher` is limited to evidence gathering and source-backed findings.
-- `mrchypark-review-request` and `mrchypark-verify` previously blurred together. They now have separate contracts: verify first, then package the delta and open questions for review.
+- Review-request and verification guidance previously blurred together. They now remain separated through fresh verification evidence and the review skills that are still installed.
 - Handoffs used to depend on ad-hoc prompt summaries. `.codex/context/ACTIVE_TASK.md` is now the shared context fragment for non-trivial delegated work.
-- Structured disagreement is now explicit instead of leaking into ad-hoc review prompts. `mrchypark-debate` grounds a question first, runs perspective-specific debate passes, and asks `moderator` for synthesis.
+- Structured disagreement is now explicit instead of leaking into ad-hoc review prompts. Debate-style work should use the bundled debate/moderator agent roles rather than a prefixed process skill.
 
 ## Patterns kept from the references
 

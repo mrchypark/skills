@@ -20,8 +20,8 @@ No repository-owned hook layer is included. The toolkit only models Codex surfac
 
 The default operating surface is intentionally small:
 
-- nine process skills
-- three domain skills
+- four process skills
+- four domain skills
 - six bundled agent roles
 
 The larger external reference catalogs are inventoried for comparison, then aggressively reduced before anything is installed here.
@@ -47,21 +47,17 @@ catalog/registry.yaml
 
 ### Process
 
-- `mrchypark-brainstorm`
-- `mrchypark-debate`
-- `mrchypark-orchestrate`
-- `mrchypark-plan`
-- `mrchypark-delegate`
-- `mrchypark-review-request`
-- `mrchypark-verify`
 - `review-loop`
 - `remote-review`
+- `memory-harvest`
+- `scheduled-task`
 
 ### Domain
 
 - `disk-clean-audit`
 - `oracle`
 - `pocketbase-go`
+- `legacy-automation`
 
 ## Bundled Agents
 

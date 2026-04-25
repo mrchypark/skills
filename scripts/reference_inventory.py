@@ -20,7 +20,6 @@ class Source:
 
 SOURCES = [
     Source("workflows", "https://github.com/edwinhu/workflows.git"),
-    Source("superpowers", "https://github.com/obra/superpowers.git"),
     Source(
         "awesome-claude-code-subagents",
         "https://github.com/VoltAgent/awesome-claude-code-subagents.git",
