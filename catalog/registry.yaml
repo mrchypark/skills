@@ -1,46 +1,4 @@
 entries:
-  - id: mrchypark-brainstorm
-    kind: skill
-    path: skills/process/mrchypark-brainstorm/SKILL.md
-    tags: [process, design, codex]
-    install_scope: [global, project]
-    status: active
-  - id: mrchypark-orchestrate
-    kind: skill
-    path: skills/process/mrchypark-orchestrate/SKILL.md
-    tags: [process, orchestration, multi-agent]
-    install_scope: [global, project]
-    status: active
-  - id: mrchypark-debate
-    kind: skill
-    path: skills/process/mrchypark-debate/SKILL.md
-    tags: [process, debate, decision]
-    install_scope: [global, project]
-    status: active
-  - id: mrchypark-plan
-    kind: skill
-    path: skills/process/mrchypark-plan/SKILL.md
-    tags: [process, planning, codex]
-    install_scope: [global, project]
-    status: active
-  - id: mrchypark-delegate
-    kind: skill
-    path: skills/process/mrchypark-delegate/SKILL.md
-    tags: [process, delegation, multi-agent]
-    install_scope: [global, project]
-    status: active
-  - id: mrchypark-review-request
-    kind: skill
-    path: skills/process/mrchypark-review-request/SKILL.md
-    tags: [process, review, quality]
-    install_scope: [global, project]
-    status: active
-  - id: mrchypark-verify
-    kind: skill
-    path: skills/process/mrchypark-verify/SKILL.md
-    tags: [process, verification, quality]
-    install_scope: [global, project]
-    status: active
   - id: review-loop
     kind: skill
     path: skills/process/review-loop/SKILL.md
@@ -51,6 +9,30 @@ entries:
     kind: skill
     path: skills/process/remote-review/SKILL.md
     tags: [process, review, remote]
+    install_scope: [global, project]
+    status: active
+  - id: review-workflow
+    kind: skill
+    path: skills/process/review-workflow/SKILL.md
+    tags: [process, review, local]
+    install_scope: [global, project]
+    status: active
+  - id: memory-harvest
+    kind: skill
+    path: skills/process/memory-harvest/SKILL.md
+    tags: [process, memory, skill-harvest]
+    install_scope: [global, project]
+    status: active
+  - id: scheduled-task
+    kind: skill
+    path: skills/process/scheduled-task/SKILL.md
+    tags: [process, automation, schedule]
+    install_scope: [global, project]
+    status: active
+  - id: skill-management
+    kind: skill
+    path: skills/process/skill-management/SKILL.md
+    tags: [process, skills, install]
     install_scope: [global, project]
     status: active
   - id: disk-clean-audit
@@ -69,6 +51,30 @@ entries:
     kind: skill
     path: skills/domain/pocketbase-go/SKILL.md
     tags: [domain, pocketbase, go]
+    install_scope: [global, project]
+    status: active
+  - id: legacy-automation
+    kind: skill
+    path: skills/domain/legacy-automation/SKILL.md
+    tags: [domain, automation, browser, adb, ocr]
+    install_scope: [global, project]
+    status: active
+  - id: frontend-design
+    kind: skill
+    path: skills/domain/frontend-design/SKILL.md
+    tags: [domain, frontend, design]
+    install_scope: [global, project]
+    status: active
+  - id: ui-ux-pro-max
+    kind: skill
+    path: skills/domain/ui-ux-pro-max/SKILL.md
+    tags: [domain, ui, ux, design]
+    install_scope: [global, project]
+    status: active
+  - id: yeoul-memory
+    kind: skill
+    path: skills/domain/yeoul-memory/SKILL.md
+    tags: [domain, memory, yeoul]
     install_scope: [global, project]
     status: active
   - id: triager

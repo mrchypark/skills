@@ -32,6 +32,14 @@ HOME="$HOME_DIR" sh "$PROJECT_DIR/install/project-bootstrap.sh" "$PROJECT_DIR" "
   printf 'missing copied triager config\n' >&2
   exit 1
 }
+[ -L "$HOME_DIR/.codex/skills/skill-management" ] || {
+  printf 'missing synced skill-management symlink\n' >&2
+  exit 1
+}
+[ -L "$HOME_DIR/.codex/skills/frontend-design" ] || {
+  printf 'missing synced frontend-design symlink\n' >&2
+  exit 1
+}
 [ -f "$TARGET_DIR/AGENTS.md" ] || {
   printf 'missing bootstrapped AGENTS.md\n' >&2
   exit 1

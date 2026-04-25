@@ -20,8 +20,8 @@ No repository-owned hook layer is included. The toolkit only models Codex surfac
 
 The default operating surface is intentionally small:
 
-- nine process skills
-- three domain skills
+- six process skills
+- seven domain skills
 - six bundled agent roles
 
 The larger external reference catalogs are inventoried for comparison, then aggressively reduced before anything is installed here.
@@ -47,21 +47,22 @@ catalog/registry.yaml
 
 ### Process
 
-- `mrchypark-brainstorm`
-- `mrchypark-debate`
-- `mrchypark-orchestrate`
-- `mrchypark-plan`
-- `mrchypark-delegate`
-- `mrchypark-review-request`
-- `mrchypark-verify`
 - `review-loop`
 - `remote-review`
+- `review-workflow`
+- `memory-harvest`
+- `scheduled-task`
+- `skill-management`
 
 ### Domain
 
 - `disk-clean-audit`
 - `oracle`
 - `pocketbase-go`
+- `legacy-automation`
+- `frontend-design`
+- `ui-ux-pro-max`
+- `yeoul-memory`
 
 ## Bundled Agents
 
@@ -82,6 +83,12 @@ sh install/verify-install.sh "$(pwd)"
 ```
 
 Restart Codex after changing the global install layout.
+
+To sync repo-managed skills into Codex's direct local skill path:
+
+```bash
+sh install/sync-codex-skills.sh "$(pwd)"
+```
 
 Project bootstrap:
 

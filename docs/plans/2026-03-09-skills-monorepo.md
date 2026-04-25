@@ -1,6 +1,6 @@
 # Skills Monorepo Implementation Plan
 
-> **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
+> **For agents:** Execute this plan task-by-task and verify each step before moving on.
 
 **Goal:** Turn this repository into a personal skills monorepo and import the PocketBase Go skill into `pocketbase-go/`.
 
