@@ -34,13 +34,30 @@ CODEX_ROOT=${HOME}/.codex/${REPO_NAME}
   printf 'missing installed researcher config\n' >&2
   exit 1
 }
-[ -L "${HOME}/.codex/skills/skill-management" ] || {
-  printf 'missing synced skill-management skill\n' >&2
-  exit 1
+
+expect_synced_skill() {
+  skill_name=$1
+  expected_rel=$2
+  dst="${HOME}/.codex/skills/${skill_name}"
+
+  [ -L "$dst" ] || {
+    printf 'missing synced %s skill\n' "$skill_name" >&2
+    exit 1
+  }
+  [ "$(readlink "$dst")" = "$REPO_ROOT/$expected_rel" ] || {
+    printf 'synced %s skill target mismatch\n' "$skill_name" >&2
+    exit 1
+  }
+  [ -f "$dst/SKILL.md" ] || {
+    printf 'synced %s skill is not readable\n' "$skill_name" >&2
+    exit 1
+  }
 }
-[ -L "${HOME}/.codex/skills/yeoul-memory" ] || {
-  printf 'missing synced yeoul-memory skill\n' >&2
-  exit 1
-}
+
+expect_synced_skill "remote-review" "skills/process/remote-review"
+expect_synced_skill "review-workflow" "skills/process/review-workflow"
+expect_synced_skill "skill-management" "skills/process/skill-management"
+expect_synced_skill "oracle" "skills/domain/oracle"
+expect_synced_skill "yeoul-memory" "skills/domain/yeoul-memory"
 
 printf 'Install verified for %s\n' "$REPO_NAME"

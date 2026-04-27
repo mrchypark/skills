@@ -36,6 +36,18 @@ HOME="$HOME_DIR" sh "$PROJECT_DIR/install/project-bootstrap.sh" "$PROJECT_DIR" "
   printf 'missing synced skill-management symlink\n' >&2
   exit 1
 }
+[ -L "$HOME_DIR/.codex/skills/remote-review" ] || {
+  printf 'missing synced remote-review symlink\n' >&2
+  exit 1
+}
+[ "$(readlink "$HOME_DIR/.codex/skills/remote-review")" = "$PROJECT_DIR/skills/process/remote-review" ] || {
+  printf 'remote-review symlink target mismatch\n' >&2
+  exit 1
+}
+[ -L "$HOME_DIR/.codex/skills/oracle" ] || {
+  printf 'missing synced oracle symlink\n' >&2
+  exit 1
+}
 [ -L "$HOME_DIR/.codex/skills/frontend-design" ] || {
   printf 'missing synced frontend-design symlink\n' >&2
   exit 1
