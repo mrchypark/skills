@@ -1,0 +1,32 @@
+{
+  "task": "codex principal team implementation",
+  "large_model_actions": 2,
+  "small_model_actions": 3,
+  "oracle_calls": 0,
+  "oracle_adopted": 0,
+  "skills_used": [
+    "executing-plans",
+    "skill-creator",
+    "yeoul-memory"
+  ],
+  "new_skills": [
+    "codex-principal-team"
+  ],
+  "scripts_used": [
+    "scripts/evaluate_team_run.py"
+  ],
+  "new_scripts": [
+    "scripts/evaluate_team_run.py"
+  ],
+  "manual_activities": [
+    "mapping requested plan to repository-specific artifacts"
+  ],
+  "failures": [],
+  "rework_items": [],
+  "tests_run": [
+    "python3 scripts/evaluate_team_run.py evals/codex-principal-team/sample-run.json"
+  ],
+  "follow_up_candidates": [
+    "turn the run log into an automatically generated artifact after each substantial task"
+  ]
+}

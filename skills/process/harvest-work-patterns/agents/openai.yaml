@@ -1,0 +1,4 @@
+interface:
+  display_name: "Harvest Work Patterns"
+  short_description: "Extract reusable patterns from thread and workspace"
+  default_prompt: "Use $harvest-work-patterns to audit this thread and workspace for evidence-backed reusable code, skill candidates, recurring operating rules, and optional Yeoul or automation follow-ups. Do not edit files unless asked to materialize a chosen candidate."

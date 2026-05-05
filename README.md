@@ -5,8 +5,10 @@ Personal Codex toolkit repository for `mrchypark`.
 This repository is the source of truth for:
 
 - Codex skills under `skills/`
+- principal-team evaluation fixtures under `evals/`
 - multi-agent config templates under `codex/`
 - install helpers under `install/`
+- deterministic helpers under `scripts/`
 - project vendoring templates under `templates/project/`
 - validation scripts under `tests/`
 
@@ -20,15 +22,16 @@ No repository-owned hook layer is included. The toolkit only models Codex surfac
 
 The default operating surface is intentionally small:
 
-- six process skills
+- eight process skills
 - seven domain skills
-- six bundled agent roles
+- seven bundled agent roles
 
 The larger external reference catalogs are inventoried for comparison, then aggressively reduced before anything is installed here.
 
 ## Structure
 
 ```text
+evals/
 skills/
   process/
   domain/
@@ -47,6 +50,8 @@ catalog/registry.yaml
 
 ### Process
 
+- `codex-principal-team`
+- `harvest-work-patterns`
 - `review-loop`
 - `remote-review`
 - `review-workflow`
@@ -68,6 +73,7 @@ catalog/registry.yaml
 
 - `triager`
 - `builder`
+- `cost_analyst`
 - `debater`
 - `moderator`
 - `researcher`

@@ -14,6 +14,10 @@ config_file = "agents/triager.toml"
 description = "Write-enabled implementer for bounded files or directories provided in a handoff."
 config_file = "agents/builder.toml"
 
+[agents.cost_analyst]
+description = "Read-only analyst that turns completed work into skill, subagent, script, and measurement improvements."
+config_file = "agents/cost-analyst.toml"
+
 [agents.debater]
 description = "Read-only debate participant that argues one assigned perspective against a grounded question."
 config_file = "agents/debater.toml"

@@ -1,0 +1,76 @@
+{
+  "roles": [
+    {
+      "id": "principal-orchestrator",
+      "display_name": "Principal Orchestrator",
+      "model": "gpt-5.5",
+      "reasoning_effort": "high",
+      "artifact": "skills/process/codex-principal-team/references/agents/principal-orchestrator.md"
+    },
+    {
+      "id": "repo-explorer",
+      "display_name": "Repo Explorer",
+      "model": "gpt-5.4-mini",
+      "reasoning_effort": "medium",
+      "artifact": "skills/process/codex-principal-team/references/agents/repo-explorer.md"
+    },
+    {
+      "id": "research-generalizer",
+      "display_name": "Research Generalizer",
+      "model": "gpt-5.4",
+      "reasoning_effort": "medium",
+      "artifact": "skills/process/codex-principal-team/references/agents/research-generalizer.md"
+    },
+    {
+      "id": "task-spec-architect",
+      "display_name": "Task Spec Architect",
+      "model": "gpt-5.5",
+      "reasoning_effort": "medium",
+      "artifact": "skills/process/codex-principal-team/references/agents/task-spec-architect.md"
+    },
+    {
+      "id": "skill-factory-worker",
+      "display_name": "Skill Factory Worker",
+      "model": "gpt-5.3-codex",
+      "reasoning_effort": "high",
+      "artifact": "skills/process/codex-principal-team/references/agents/skill-factory-worker.md"
+    },
+    {
+      "id": "code-automation-worker",
+      "display_name": "Code Automation Worker",
+      "model": "gpt-5.3-codex",
+      "reasoning_effort": "high",
+      "artifact": "skills/process/codex-principal-team/references/agents/code-automation-worker.md"
+    },
+    {
+      "id": "cheap-task-runner",
+      "display_name": "Cheap Task Runner",
+      "model": "gpt-5.3-codex-spark",
+      "reasoning_effort": "low",
+      "artifact": "skills/process/codex-principal-team/references/agents/cheap-task-runner.md"
+    },
+    {
+      "id": "review-verification-lead",
+      "display_name": "Review & Verification Lead",
+      "model": "gpt-5.4",
+      "reasoning_effort": "high",
+      "artifact": "skills/process/codex-principal-team/references/agents/review-verification-lead.md"
+    },
+    {
+      "id": "cost-performance-analyst",
+      "display_name": "Cost & Performance Analyst",
+      "model": "gpt-5.4-mini",
+      "reasoning_effort": "medium",
+      "artifact": "skills/process/codex-principal-team/references/agents/cost-performance-analyst.md"
+    },
+    {
+      "id": "oracle-critic",
+      "display_name": "Oracle Critic",
+      "model": "oracle:chatgpt-gpt-5.5-pro",
+      "reasoning_effort": "standard",
+      "high_risk_reasoning_effort": "extended",
+      "artifact": "skills/process/codex-principal-team/references/agents/oracle-critic.md",
+      "skill": "oracle"
+    }
+  ]
+}
