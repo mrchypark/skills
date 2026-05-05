@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Principal Team"
+  short_description: "Run tasks through Codex subagents, skills, automation, Oracle review, and cost optimization"
+  default_prompt: "Use $codex-principal-team to run this project task through the principal-engineer operating loop: intake, exploration, generalization, decision review, implementation, verification, and cost optimization. Route work to the specified Codex models and efforts, use Oracle via the oracle skill for expensive-to-reverse decisions, and report reusable skill/script/subagent improvements."

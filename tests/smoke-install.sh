@@ -32,6 +32,22 @@ HOME="$HOME_DIR" sh "$PROJECT_DIR/install/project-bootstrap.sh" "$PROJECT_DIR" "
   printf 'missing copied triager config\n' >&2
   exit 1
 }
+[ -f "$HOME_DIR/.codex/$REPO_NAME/agents/cost-analyst.toml" ] || {
+  printf 'missing copied cost-analyst config\n' >&2
+  exit 1
+}
+[ -L "$HOME_DIR/.codex/skills/codex-principal-team" ] || {
+  printf 'missing synced codex-principal-team symlink\n' >&2
+  exit 1
+}
+[ "$(readlink "$HOME_DIR/.codex/skills/codex-principal-team")" = "$PROJECT_DIR/skills/process/codex-principal-team" ] || {
+  printf 'codex-principal-team symlink target mismatch\n' >&2
+  exit 1
+}
+[ -L "$HOME_DIR/.codex/skills/harvest-work-patterns" ] || {
+  printf 'missing synced harvest-work-patterns symlink\n' >&2
+  exit 1
+}
 [ -L "$HOME_DIR/.codex/skills/skill-management" ] || {
   printf 'missing synced skill-management symlink\n' >&2
   exit 1
@@ -62,6 +78,10 @@ HOME="$HOME_DIR" sh "$PROJECT_DIR/install/project-bootstrap.sh" "$PROJECT_DIR" "
 }
 [ -f "$TARGET_DIR/.codex/agents/reviewer.toml" ] || {
   printf 'missing bootstrapped project reviewer config\n' >&2
+  exit 1
+}
+[ -f "$TARGET_DIR/.codex/agents/cost-analyst.toml" ] || {
+  printf 'missing bootstrapped project cost-analyst config\n' >&2
   exit 1
 }
 [ -f "$TARGET_DIR/.agents/skills/README.md" ] || {

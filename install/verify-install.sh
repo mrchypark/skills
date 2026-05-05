@@ -26,6 +26,10 @@ CODEX_ROOT=${HOME}/.codex/${REPO_NAME}
   printf 'missing installed triager config\n' >&2
   exit 1
 }
+[ -f "$CODEX_ROOT/agents/cost-analyst.toml" ] || {
+  printf 'missing installed cost-analyst config\n' >&2
+  exit 1
+}
 [ -f "$CODEX_ROOT/agents/reviewer.toml" ] || {
   printf 'missing installed reviewer config\n' >&2
   exit 1
@@ -56,6 +60,8 @@ expect_synced_skill() {
 
 expect_synced_skill "remote-review" "skills/process/remote-review"
 expect_synced_skill "review-workflow" "skills/process/review-workflow"
+expect_synced_skill "codex-principal-team" "skills/process/codex-principal-team"
+expect_synced_skill "harvest-work-patterns" "skills/process/harvest-work-patterns"
 expect_synced_skill "skill-management" "skills/process/skill-management"
 expect_synced_skill "oracle" "skills/domain/oracle"
 expect_synced_skill "yeoul-memory" "skills/domain/yeoul-memory"
