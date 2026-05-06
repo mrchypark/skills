@@ -18,6 +18,8 @@ Every task should move through this loop:
 5. Verify quality, regressions, and missed requirements.
 6. Evaluate cost and capture reusable improvements.
 
+Operate delegate-first. The parent session should act as the Principal Orchestrator: decompose, assign, integrate, and verify. Do implementation, bulk exploration, formatting, checklist execution, and first-pass review locally only when the work is trivial, the next parent decision is blocked on direct inspection, or final integration requires it.
+
 ## Team Routing
 
 Read [references/team-roster.md](references/team-roster.md) when assigning roles or choosing models.
@@ -41,6 +43,8 @@ Use the installed Codex agents as the execution substrate:
 - `debater` and `moderator` for high-impact decision debate.
 - `cost_analyst` for post-run optimization.
 - `oracle` remains a skill-based external critic, not a spawned agent.
+
+For any non-trivial task, assign at least one bounded subagent, skill, or deterministic script unless there is a concrete reason not to. Record that reason in the optimization loop.
 
 ## Execution Workflow
 
