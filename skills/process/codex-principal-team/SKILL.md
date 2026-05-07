@@ -20,6 +20,15 @@ Every task should move through this loop:
 
 Operate delegate-first. The parent session should act as the Principal Orchestrator: decompose, assign, integrate, and verify. Do implementation, bulk exploration, formatting, checklist execution, and first-pass review locally only when the work is trivial, the next parent decision is blocked on direct inspection, or final integration requires it.
 
+## Delegation Gate
+
+Before non-trivial work, write the routing decision in the working plan or update:
+
+- First delegation target: `explorer`, `worker`, skill, or deterministic script.
+- Parent-only work: integration, conflict resolution, final verification, or a named blocker.
+- Direct edit budget: parent should not perform more than one non-trivial `apply_patch` before handing implementation to `worker`.
+- Policy exception: if subagents are unavailable or the current tool policy does not permit spawning them, say so and use a skill or deterministic script instead.
+
 ## Team Routing
 
 Read [references/team-roster.md](references/team-roster.md) when assigning roles or choosing models.
@@ -34,14 +43,12 @@ Default operating-role routing:
 - Use `gpt-5.3-codex-spark` `low` for cheap deterministic searches, checklists, and formatting.
 - Use the `oracle` skill as Oracle Critic with ChatGPT `GPT-5.5 Pro` `standard`; use `extended` only for migration, security, data-loss, or expensive-to-reverse decisions.
 
-Use the installed Codex agents as the execution substrate:
+Use the callable Codex subagent surface as the execution substrate:
 
-- `triager` for orchestration handoffs and task-spec shaping.
-- `researcher` for repo exploration and evidence gathering.
-- `builder` for Skill Factory Worker and Code Automation Worker tasks.
-- `reviewer` for Review & Verification Lead tasks.
-- `debater` and `moderator` for high-impact decision debate.
-- `cost_analyst` for post-run optimization.
+- `explorer` for repo exploration, cheap checklist execution, and independent review.
+- `worker` for Skill Factory Worker and Code Automation Worker tasks.
+- Parent session for orchestration, integration, final decisions, and final verification.
+- `cost_analyst` is an installed toolkit role, but when it is not callable through the active subagent surface, use the session-log analyzer plus `harvest-work-patterns` for the cost loop.
 - `oracle` remains a skill-based external critic, not a spawned agent.
 
 For any non-trivial task, assign at least one bounded subagent, skill, or deterministic script unless there is a concrete reason not to. Record that reason in the optimization loop.
@@ -69,7 +76,15 @@ For substantial runs, create or update a run log using the schema in [references
 Use the deterministic evaluator:
 
 ```bash
-python3 scripts/evaluate_team_run.py evals/codex-principal-team/sample-run.json
+python3 skills/process/codex-principal-team/scripts/evaluate_team_run.py evals/codex-principal-team/sample-run.json
+```
+
+From the repository root, `python3 scripts/evaluate_team_run.py ...` is kept as a compatibility wrapper.
+
+For session-log audits, use:
+
+```bash
+python3 skills/process/codex-principal-team/scripts/analyze_codex_sessions.py "$HOME"/.codex/archived_sessions/rollout-2026-05-07*.jsonl
 ```
 
 Treat the output as a prompt for improving agent instructions, skills, or scripts.

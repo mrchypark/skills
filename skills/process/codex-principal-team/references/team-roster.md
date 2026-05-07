@@ -17,22 +17,24 @@
 
 The same routing is stored in `references/roster.json` for deterministic validation and future automation.
 
-## Installed Agent Mapping
+## Callable Agent Mapping
 
-The ten permanent roles are an operating model, not ten installed Codex agents. Use the installed toolkit agents this way:
+The ten permanent roles are an operating model, not ten guaranteed callable Codex agents. In the active Codex subagent surface, prefer this practical mapping:
 
 | Operating Role | Installed Agent |
 | --- | --- |
-| Principal Orchestrator | parent session plus `triager` |
-| Repo Explorer | `researcher` |
-| Research Generalizer | `researcher`; escalate synthesis to parent session |
-| Task Spec Architect | `triager`, with `debater` and `moderator` for high-impact tradeoffs |
-| Skill Factory Worker | `builder` |
-| Code Automation Worker | `builder` |
-| Cheap Task Runner | `researcher` or built-in explorer-style delegation |
-| Review & Verification Lead | `reviewer` |
-| Cost & Performance Analyst | `cost_analyst` |
+| Principal Orchestrator | parent session |
+| Repo Explorer | `explorer` |
+| Research Generalizer | `explorer` for evidence, parent session for synthesis |
+| Task Spec Architect | parent session; use Oracle for expensive-to-reverse critique |
+| Skill Factory Worker | `worker` |
+| Code Automation Worker | `worker` |
+| Cheap Task Runner | `explorer` or deterministic script |
+| Review & Verification Lead | `explorer` with a findings-only review prompt |
+| Cost & Performance Analyst | session-log analyzer plus `harvest-work-patterns`; `cost_analyst` only when callable |
 | Oracle Critic | `oracle` skill, not a spawned agent |
+
+When the active tool policy permits model overrides, set `model` and `reasoning_effort` from the roster. When policy requires inherited models, put the intended role, model, and effort in the handoff prompt and record that execution used inherited defaults.
 
 ## Routing Rules
 
@@ -40,6 +42,8 @@ The ten permanent roles are an operating model, not ten installed Codex agents. 
 - Escalate when uncertainty is high, evidence conflicts, or reversal cost is high.
 - De-escalate repeated work into a skill, small-model role, or script after one successful manual pass.
 - Keep permanent roles under ten; add temporary mission roles only for a bounded project phase.
+- Treat user-requested subagent use as a separate signal from skill-driven delegation. Record it in the run log.
+- Parent session may perform at most one non-trivial implementation patch before handing implementation to `worker`, unless the patch is final integration or conflict resolution.
 
 ## Subagent Invocation Template
 
@@ -48,6 +52,7 @@ Use this when delegating:
 ```text
 Role:
 Model / effort:
+Callable agent type:
 Context:
 Owned files or scope:
 Task:

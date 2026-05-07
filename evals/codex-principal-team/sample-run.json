@@ -28,5 +28,8 @@
   ],
   "follow_up_candidates": [
     "turn the run log into an automatically generated artifact after each substantial task"
-  ]
+  ],
+  "parent_patch_count": 1,
+  "worker_patch_count": 0,
+  "user_requested_delegation": false
 }

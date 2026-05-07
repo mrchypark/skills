@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compatibility wrapper for the bundled Codex principal-team evaluator."""
+"""Compatibility wrapper for the bundled Codex session-log analyzer."""
 
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ from pathlib import Path
 
 def main() -> int:
     root = Path(__file__).resolve().parents[1]
-    target = root / "skills/process/codex-principal-team/scripts/evaluate_team_run.py"
+    target = root / "skills/process/codex-principal-team/scripts/analyze_codex_sessions.py"
     runpy.run_path(str(target), run_name="__main__")
     return 0
 
