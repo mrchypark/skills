@@ -8,9 +8,18 @@ import json
 import re
 from collections import Counter, defaultdict
 from pathlib import Path
-from typing import Any
+from typing import Any, Iterator
 
-SUBAGENT_REQUEST_RE = re.compile(r"서브\s*에이전트|subagent|spawn_agent", re.IGNORECASE)
+DELEGATION_TARGET_RE = r"(?:서브\s*에이전트|subagents?|spawn_agent)"
+DELEGATION_ACTION_RE = (
+    r"(?:써|쓰|사용|활용|위임|맡겨|돌려|호출|실행|진행|적극|"
+    r"use|using|delegate|delegation|dispatch|spawn|run|parallel)"
+)
+SUBAGENT_REQUEST_RE = re.compile(
+    rf"(?:{DELEGATION_ACTION_RE}.{{0,40}}{DELEGATION_TARGET_RE}|"
+    rf"{DELEGATION_TARGET_RE}.{{0,40}}{DELEGATION_ACTION_RE})",
+    re.IGNORECASE,
+)
 VERIFY_RE = re.compile(
     r"\b(pytest|cargo test|go test|npm test|pnpm test|bun test|yarn test|"
     r"swift test|xcodebuild|ruff|mypy|tsc|eslint|validate-repo|smoke-install|"
@@ -18,8 +27,7 @@ VERIFY_RE = re.compile(
 )
 
 
-def read_jsonl(path: Path) -> list[dict[str, Any]]:
-    records: list[dict[str, Any]] = []
+def iter_jsonl(path: Path) -> Iterator[dict[str, Any]]:
     with path.open("r", encoding="utf-8") as handle:
         for line in handle:
             try:
@@ -27,8 +35,7 @@ def read_jsonl(path: Path) -> list[dict[str, Any]]:
             except json.JSONDecodeError:
                 continue
             if isinstance(value, dict):
-                records.append(value)
-    return records
+                yield value
 
 
 def payload(record: dict[str, Any]) -> dict[str, Any]:
@@ -74,7 +81,6 @@ def command_from_event(record: dict[str, Any]) -> str:
 
 
 def analyze_file(path: Path) -> dict[str, Any]:
-    records = read_jsonl(path)
     session_id = None
     parent_id = None
     role = "parent"
@@ -93,26 +99,21 @@ def analyze_file(path: Path) -> dict[str, Any]:
         "user_requested_delegation": False,
     }
 
-    for record in records:
-        if record.get("type") != "session_meta":
-            continue
-        meta = payload(record)
-        session_id = meta.get("id")
-        role = meta.get("agent_role") or "parent"
-        source = meta.get("source")
-        if isinstance(source, dict):
-            subagent = source.get("subagent")
-            if isinstance(subagent, dict):
-                thread_spawn = subagent.get("thread_spawn")
-                if isinstance(thread_spawn, dict):
-                    parent_id = thread_spawn.get("parent_thread_id")
-        metrics.update({"role": role, "session_id": session_id, "parent_id": parent_id})
-        break
-
-    for record in records:
+    for record in iter_jsonl(path):
         record_type = record.get("type")
         data = payload(record)
-        if record_type == "response_item" and data.get("type") == "function_call":
+        if record_type == "session_meta":
+            session_id = data.get("id")
+            role = data.get("agent_role") or "parent"
+            source = data.get("source")
+            if isinstance(source, dict):
+                subagent = source.get("subagent")
+                if isinstance(subagent, dict):
+                    thread_spawn = subagent.get("thread_spawn")
+                    if isinstance(thread_spawn, dict):
+                        parent_id = thread_spawn.get("parent_thread_id")
+            metrics.update({"role": role, "session_id": session_id, "parent_id": parent_id})
+        elif record_type == "response_item" and data.get("type") == "function_call":
             name = data.get("name")
             if name == "spawn_agent":
                 metrics["spawn_agent_count"] += 1
