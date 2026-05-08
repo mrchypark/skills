@@ -10,7 +10,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any, Iterator
 
-DELEGATION_TARGET_RE = r"(?:서브\s*에이전트|subagents?|spawn_agent)"
+DELEGATION_TARGET_RE = r"(?:서브\s*에이전트|sub[- ]?agents?|spawn_agent)"
 DELEGATION_ACTION_RE = (
     r"(?:써|쓰|사용|활용|위임|맡겨|돌려|호출|실행|진행|적극|"
     r"use|using|delegate|delegation|dispatch|spawn|run|parallel)"
