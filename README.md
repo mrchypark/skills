@@ -23,7 +23,7 @@ No repository-owned hook layer is included. The toolkit only models Codex surfac
 The default operating surface is intentionally small:
 
 - eight process skills
-- seven domain skills
+- nine domain skills
 - seven bundled agent roles
 
 The larger external reference catalogs are inventoried for comparison, then aggressively reduced before anything is installed here.
@@ -66,6 +66,8 @@ catalog/registry.yaml
 - `pocketbase-go`
 - `legacy-automation`
 - `frontend-design`
+- `gemini-cli`
+- `playwright-cli`
 - `ui-ux-pro-max`
 - `yeoul-memory`
 

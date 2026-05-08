@@ -1,0 +1,92 @@
+{
+  "domains": [
+    {
+      "domain": "ux",
+      "title": "Accessibility and interaction baseline",
+      "tags": ["accessibility", "keyboard", "touch", "forms", "loading"],
+      "summary": "Keep contrast at WCAG thresholds, preserve visible focus states, label controls, support keyboard navigation, and provide loading/error feedback near the affected control."
+    },
+    {
+      "domain": "ux",
+      "title": "Responsive layout baseline",
+      "tags": ["responsive", "mobile", "layout", "safe-area"],
+      "summary": "Design mobile first, avoid horizontal scroll, keep critical actions reachable, reserve space for media, and verify small phone, desktop, and wide layouts."
+    },
+    {
+      "domain": "style",
+      "title": "Professional product interface",
+      "tags": ["dashboard", "saas", "admin", "tool", "minimal"],
+      "summary": "Use restrained hierarchy, dense but scannable layout, clear states, and semantic tokens. Avoid decorative card grids, one-note palettes, and generic gradient hero sections."
+    },
+    {
+      "domain": "style",
+      "title": "Editorial or brand-led interface",
+      "tags": ["landing", "portfolio", "brand", "editorial"],
+      "summary": "Let the product, person, or place be visible in the first viewport. Use strong imagery or real media, not placeholder illustration, and keep the hero from becoming an isolated card."
+    },
+    {
+      "domain": "color",
+      "title": "Accessible semantic color",
+      "tags": ["contrast", "theme", "tokens", "light", "dark"],
+      "summary": "Use semantic tokens for text, surfaces, borders, and states. Test contrast in both themes and avoid raw component-local hex values that bypass the design system."
+    },
+    {
+      "domain": "typography",
+      "title": "Readable type system",
+      "tags": ["font", "scale", "line-height", "measure"],
+      "summary": "Use a coherent type scale, body text at readable sizes, line-height around 1.5 for paragraphs, and constrained measure for long-form text."
+    },
+    {
+      "domain": "chart",
+      "title": "Accessible chart defaults",
+      "tags": ["chart", "analytics", "dashboard", "legend", "tooltip"],
+      "summary": "Choose chart types by comparison task, provide legends and tooltips, avoid color-only encoding, and format numbers and dates using locale-aware rules."
+    },
+    {
+      "domain": "product",
+      "title": "Operational SaaS and admin tools",
+      "tags": ["saas", "crm", "admin", "dashboard", "workflow"],
+      "summary": "Prioritize repeated-use efficiency, predictable navigation, table density, filters, saved views, bulk actions, and clear empty/error states."
+    },
+    {
+      "domain": "landing",
+      "title": "Landing page structure",
+      "tags": ["landing", "hero", "cta", "pricing", "social-proof"],
+      "summary": "Use a concrete first-viewport signal, a literal offer or name as the H1, one primary CTA, proof near the fold, and visible continuation into the next section."
+    },
+    {
+      "domain": "react",
+      "title": "React and Next.js performance",
+      "tags": ["react", "next", "performance", "memo", "suspense"],
+      "summary": "Avoid unnecessary rerenders, keep server/client boundaries intentional, lazy-load heavy UI, reserve image space, and use Suspense or skeletons for meaningful loading states."
+    },
+    {
+      "domain": "web",
+      "title": "Web app interaction",
+      "tags": ["web", "forms", "aria", "keyboard", "touch"],
+      "summary": "Use native controls where possible, label form fields, expose icon-only buttons with accessible names, and keep focus order aligned with visual order."
+    }
+  ],
+  "stacks": [
+    {
+      "stack": "web",
+      "summary": "Use semantic HTML, CSS tokens, responsive constraints, keyboard support, and browser-based verification across mobile and desktop viewports."
+    },
+    {
+      "stack": "react",
+      "summary": "Keep component state local where possible, avoid prop drilling through layout shells, memoize only proven hot paths, and use stable keys."
+    },
+    {
+      "stack": "next",
+      "summary": "Choose server components by default, keep client components focused on interaction, and avoid moving data fetching into effects without a reason."
+    },
+    {
+      "stack": "react-native",
+      "summary": "Respect safe areas, platform gestures, dynamic type, 44/48pt touch targets, and native-feeling press feedback."
+    },
+    {
+      "stack": "swiftui",
+      "summary": "Use system controls, Dynamic Type, semantic colors, platform navigation, and accessibility labels/hints for custom controls."
+    }
+  ]
+}

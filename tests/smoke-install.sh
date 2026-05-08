@@ -68,6 +68,13 @@ HOME="$HOME_DIR" sh "$PROJECT_DIR/install/project-bootstrap.sh" "$PROJECT_DIR" "
   printf 'missing synced frontend-design symlink\n' >&2
   exit 1
 }
+for dst in "$HOME_DIR/.codex/skills"/*; do
+  [ -e "$dst" ] || continue
+  if [ -L "$dst" ] && [ ! -e "$dst" ]; then
+    printf 'broken synced skill symlink: %s -> %s\n' "$dst" "$(readlink "$dst")" >&2
+    exit 1
+  fi
+done
 [ -f "$TARGET_DIR/AGENTS.md" ] || {
   printf 'missing bootstrapped AGENTS.md\n' >&2
   exit 1

@@ -23,7 +23,7 @@ Use this repo as the source of truth for portable local skills and Codex agent c
 
 1. Inventory local skills:
    ```bash
-   find "$HOME/.codex/skills" -maxdepth 3 -type f -name SKILL.md | sort
+   find -L "$HOME/.codex/skills" -maxdepth 3 -type f -name SKILL.md | sort
    ```
 2. Ignore system-managed skills under `~/.codex/skills/.system`.
 3. Copy user-owned skills into `skills/process` or `skills/domain`.
@@ -33,6 +33,17 @@ Use this repo as the source of truth for portable local skills and Codex agent c
 7. Update `README.md` counts and lists.
 8. Update validation tests for required paths.
 9. Run install and validation scripts.
+
+Also check for broken skill symlinks before deciding the install surface is clean:
+
+```bash
+for skill in "$HOME/.codex/skills"/*; do
+  [ -e "$skill" ] || continue
+  if [ -L "$skill" ] && [ ! -e "$skill" ]; then
+    printf 'broken skill symlink: %s -> %s\n' "$skill" "$(readlink "$skill")" >&2
+  fi
+done
+```
 
 ## Install Workflow
 

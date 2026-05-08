@@ -46,7 +46,11 @@ expect_path "skills/domain/oracle/SKILL.md"
 expect_path "skills/domain/pocketbase-go/SKILL.md"
 expect_path "skills/domain/legacy-automation/SKILL.md"
 expect_path "skills/domain/frontend-design/SKILL.md"
+expect_path "skills/domain/gemini-cli/SKILL.md"
+expect_path "skills/domain/playwright-cli/SKILL.md"
 expect_path "skills/domain/ui-ux-pro-max/SKILL.md"
+expect_path "skills/domain/ui-ux-pro-max/scripts/search.py"
+expect_path "skills/domain/ui-ux-pro-max/data/design-rules.json"
 expect_path "skills/domain/yeoul-memory/SKILL.md"
 expect_path "templates/project/AGENTS.md"
 expect_path "templates/project/.codex/config.toml"
@@ -63,6 +67,53 @@ sed -n 's/^    path: //p' "$ROOT/catalog/registry.yaml" | while IFS= read -r rel
     exit 1
   fi
 done
+
+sed -n '/kind: skill/{n; s/^    path: //p; }' "$ROOT/catalog/registry.yaml" | while IFS= read -r relpath; do
+  [ -n "$relpath" ] || continue
+  skill_dir=$(dirname "$relpath")
+  skill_id=$(basename "$skill_dir")
+  frontmatter_name=$(sed -n 's/^name: //p' "$ROOT/$relpath" | head -n 1 | tr -d '"')
+  if [ "$frontmatter_name" != "$skill_id" ]; then
+    printf 'registry id and skill frontmatter mismatch: %s has name %s\n' "$skill_id" "$frontmatter_name" >&2
+    exit 1
+  fi
+done
+
+UI_UX_OUT=$(python3 "$ROOT/skills/domain/ui-ux-pro-max/scripts/search.py" "dashboard accessibility" --design-system)
+case "$UI_UX_OUT" in
+  *"Design System"* ) ;;
+  * )
+    printf 'ui-ux-pro-max design-system search did not return expected output\n' >&2
+    exit 1
+    ;;
+esac
+
+python3 "$ROOT/skills/domain/ui-ux-pro-max/scripts/search.py" "accessibility" --domain ux >/dev/null
+python3 "$ROOT/skills/domain/ui-ux-pro-max/scripts/search.py" "rendering performance" --stack react >/dev/null
+
+python3 - "$ROOT" <<'PY'
+import re
+import sys
+from pathlib import Path
+
+root = Path(sys.argv[1])
+missing = []
+for skill_path in sorted(root.glob("skills/*/*/SKILL.md")):
+    text = skill_path.read_text(encoding="utf-8")
+    for match in re.finditer(r"\[[^\]]+\]\(([^)]+)\)", text):
+        link = match.group(1)
+        if "://" in link or link.startswith("#") or link.startswith("mailto:"):
+            continue
+        rel = link.split("#", 1)[0]
+        if not rel:
+            continue
+        target = (skill_path.parent / rel).resolve()
+        if not target.exists():
+            line = text.count("\n", 0, match.start()) + 1
+            missing.append(f"{skill_path.relative_to(root)}:{line}: {link}")
+if missing:
+    raise SystemExit("broken skill markdown links:\n" + "\n".join(missing))
+PY
 
 expect_no_path "disk-clean-audit/chatgpt"
 expect_no_path "disk-clean-audit/claude"

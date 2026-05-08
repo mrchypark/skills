@@ -58,12 +58,22 @@ expect_synced_skill() {
   }
 }
 
-expect_synced_skill "remote-review" "skills/process/remote-review"
-expect_synced_skill "review-workflow" "skills/process/review-workflow"
-expect_synced_skill "codex-principal-team" "skills/process/codex-principal-team"
-expect_synced_skill "harvest-work-patterns" "skills/process/harvest-work-patterns"
-expect_synced_skill "skill-management" "skills/process/skill-management"
-expect_synced_skill "oracle" "skills/domain/oracle"
-expect_synced_skill "yeoul-memory" "skills/domain/yeoul-memory"
+skill_paths=$(
+  sed -n '/kind: skill/{n; s/^    path: //p; }' "$REPO_ROOT/catalog/registry.yaml"
+)
+
+for relpath in $skill_paths; do
+  skill_dir=$(dirname "$relpath")
+  skill_name=$(basename "$skill_dir")
+  expect_synced_skill "$skill_name" "$skill_dir"
+done
+
+for dst in "${HOME}/.codex/skills"/*; do
+  [ -e "$dst" ] || continue
+  if [ -L "$dst" ] && [ ! -e "$dst" ]; then
+    printf 'broken synced skill symlink: %s -> %s\n' "$dst" "$(readlink "$dst")" >&2
+    exit 1
+  fi
+done
 
 printf 'Install verified for %s\n' "$REPO_NAME"
