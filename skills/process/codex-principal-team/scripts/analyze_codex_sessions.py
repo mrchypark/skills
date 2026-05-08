@@ -190,7 +190,8 @@ def aggregate(files: list[Path]) -> dict[str, Any]:
     subagent_sessions_from_user_requested_parent = sum(
         1
         for session in sessions
-        if session["parent_id"] in parent_ids_with_user_delegation
+        if session["role"] != "parent"
+        and session["parent_id"] in parent_ids_with_user_delegation
     )
 
     return {
