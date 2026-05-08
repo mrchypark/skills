@@ -78,7 +78,6 @@ def analyze_file(path: Path) -> dict[str, Any]:
     session_id = None
     parent_id = None
     role = "parent"
-    calls: dict[str, str] = {}
     metrics: dict[str, Any] = {
         "path": str(path),
         "role": role,
@@ -114,10 +113,7 @@ def analyze_file(path: Path) -> dict[str, Any]:
         record_type = record.get("type")
         data = payload(record)
         if record_type == "response_item" and data.get("type") == "function_call":
-            call_id = data.get("call_id")
             name = data.get("name")
-            if isinstance(call_id, str) and isinstance(name, str):
-                calls[call_id] = name
             if name == "spawn_agent":
                 metrics["spawn_agent_count"] += 1
                 args = function_args(record)
@@ -159,7 +155,9 @@ def aggregate(files: list[Path]) -> dict[str, Any]:
     parent_ids_with_user_delegation = {
         session["session_id"]
         for session in sessions
-        if session["role"] == "parent" and session["user_requested_delegation"]
+        if session["role"] == "parent"
+        and session["user_requested_delegation"]
+        and session["session_id"] is not None
     }
 
     for session in sessions:
@@ -180,7 +178,7 @@ def aggregate(files: list[Path]) -> dict[str, Any]:
 
     parent_patches = by_role["parent"]["apply_patch_count"]
     worker_patches = by_role["worker"]["apply_patch_count"]
-    patch_total = parent_patches + worker_patches
+    patch_total = sum(counter["apply_patch_count"] for counter in by_role.values())
     spawn_total = sum(counter["spawn_agent_count"] for counter in by_role.values())
     explicit_model_total = sum(counter["explicit_model_count"] for counter in by_role.values())
     explicit_effort_total = sum(counter["explicit_effort_count"] for counter in by_role.values())
