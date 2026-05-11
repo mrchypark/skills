@@ -53,6 +53,12 @@ entries:
     tags: [domain, macos, disk]
     install_scope: [global, project]
     status: active
+  - id: oracle
+    kind: skill
+    path: skills/domain/oracle/SKILL.md
+    tags: [domain, review, oracle]
+    install_scope: [global, project]
+    status: active
   - id: pocketbase-go
     kind: skill
     path: skills/domain/pocketbase-go/SKILL.md

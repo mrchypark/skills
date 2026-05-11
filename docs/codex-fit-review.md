@@ -30,7 +30,7 @@ This note records the overlap, overdesign, and contradiction cleanup applied whi
 - Mandatory spec writing and spec-review loops before any implementation were removed from the default process flow. Specs and plans are now optional durable artifacts for long or handoff-heavy work.
 - The reference agent catalogs contain many specialist personas. Installing them all would create routing noise, maintenance overhead, and role ambiguity. The default toolkit now ships only three general roles.
 - Provider-specific variants were removed entirely. The toolkit keeps only Codex-facing instructions and config surfaces.
-- Machine-specific Oracle guidance was removed from the repo-managed skill set and should live as a local `~/.codex/skills/oracle` skill instead.
+- Oracle stays repo-managed only with an explicit `oracle >= 0.11.1` binary requirement, because its browser-tab, harvest/live-tail, Deep Research, Project Sources, and multi-turn browser workflows depend on the newer CLI surface.
 
 ## Contradictions resolved
 

@@ -42,6 +42,7 @@ expect_path "skills/process/review-workflow/SKILL.md"
 expect_path "skills/process/scheduled-task/SKILL.md"
 expect_path "skills/process/skill-management/SKILL.md"
 expect_path "skills/domain/disk-clean-audit/SKILL.md"
+expect_path "skills/domain/oracle/SKILL.md"
 expect_path "skills/domain/pocketbase-go/SKILL.md"
 expect_path "skills/domain/legacy-automation/SKILL.md"
 expect_path "skills/domain/frontend-design/SKILL.md"
@@ -93,6 +94,11 @@ if missing:
     raise SystemExit("broken skill markdown links:\n" + "\n".join(missing))
 PY
 
+grep -Eq 'Oracle CLI `0\.11\.1` or newer|version older than `0\.11\.1`' "$ROOT/skills/domain/oracle/SKILL.md" || {
+  printf 'oracle skill must document the required oracle binary version\n' >&2
+  exit 1
+}
+
 expect_no_path "disk-clean-audit/chatgpt"
 expect_no_path "disk-clean-audit/claude"
 expect_no_path "disk-clean-audit/gemini"
@@ -101,5 +107,4 @@ expect_no_path "oracle/claude"
 expect_no_path "oracle/gemini"
 expect_no_path "skills/domain/gemini-cli"
 expect_no_path "skills/domain/playwright-cli"
-expect_no_path "skills/domain/oracle"
 expect_no_path "skills/domain/ui-ux-pro-max"
