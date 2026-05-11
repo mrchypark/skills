@@ -11,6 +11,26 @@ skill_paths=$(
   sed -n '/kind: skill/{n; s/^    path: //p; }' "$REPO_ROOT/catalog/registry.yaml"
 )
 
+managed_names=$(
+  for relpath in $skill_paths; do
+    basename "$(dirname "$relpath")"
+  done
+)
+
+for dst in "$CODEX_SKILLS_ROOT"/*; do
+  [ -L "$dst" ] || continue
+  target=$(readlink "$dst")
+  case "$target" in
+    "$REPO_ROOT"/skills/*)
+      skill_name=$(basename "$dst")
+      if ! printf '%s\n' "$managed_names" | grep -Fx "$skill_name" >/dev/null; then
+        rm "$dst"
+        printf 'Removed stale repo-managed skill link %s\n' "$dst"
+      fi
+      ;;
+  esac
+done
+
 for relpath in $skill_paths; do
   skill_dir=$(dirname "$relpath")
   skill_name=$(basename "$skill_dir")

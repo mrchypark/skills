@@ -15,7 +15,6 @@ if [ -L "$SKILL_LINK" ] || [ -e "$SKILL_LINK" ]; then
 fi
 ln -s "$REPO_ROOT/skills" "$SKILL_LINK"
 
-rm -rf "$CODEX_ROOT"
 mkdir -p "$CODEX_ROOT"
 cp -R "$REPO_ROOT/codex/." "$CODEX_ROOT/"
 

@@ -42,23 +42,13 @@ expect_path "skills/process/review-workflow/SKILL.md"
 expect_path "skills/process/scheduled-task/SKILL.md"
 expect_path "skills/process/skill-management/SKILL.md"
 expect_path "skills/domain/disk-clean-audit/SKILL.md"
-expect_path "skills/domain/oracle/SKILL.md"
 expect_path "skills/domain/pocketbase-go/SKILL.md"
 expect_path "skills/domain/legacy-automation/SKILL.md"
 expect_path "skills/domain/frontend-design/SKILL.md"
-expect_path "skills/domain/gemini-cli/SKILL.md"
-expect_path "skills/domain/playwright-cli/SKILL.md"
-expect_path "skills/domain/ui-ux-pro-max/SKILL.md"
-expect_path "skills/domain/ui-ux-pro-max/scripts/search.py"
-expect_path "skills/domain/ui-ux-pro-max/data/design-rules.json"
 expect_path "skills/domain/yeoul-memory/SKILL.md"
 expect_path "templates/project/AGENTS.md"
-expect_path "templates/project/.codex/config.toml"
-expect_path "templates/project/.codex/agents/triager.toml"
-expect_path "templates/project/.codex/agents/cost-analyst.toml"
-expect_path "templates/project/.codex/agents/reviewer.toml"
-expect_path "templates/project/.codex/agents/researcher.toml"
 expect_path "templates/project/.agents/skills/README.md"
+expect_no_path "templates/project/.codex"
 
 sed -n 's/^    path: //p' "$ROOT/catalog/registry.yaml" | while IFS= read -r relpath; do
   [ -n "$relpath" ] || continue
@@ -78,18 +68,6 @@ sed -n '/kind: skill/{n; s/^    path: //p; }' "$ROOT/catalog/registry.yaml" | wh
     exit 1
   fi
 done
-
-UI_UX_OUT=$(python3 "$ROOT/skills/domain/ui-ux-pro-max/scripts/search.py" "dashboard accessibility" --design-system)
-case "$UI_UX_OUT" in
-  *"Design System"* ) ;;
-  * )
-    printf 'ui-ux-pro-max design-system search did not return expected output\n' >&2
-    exit 1
-    ;;
-esac
-
-python3 "$ROOT/skills/domain/ui-ux-pro-max/scripts/search.py" "accessibility" --domain ux >/dev/null
-python3 "$ROOT/skills/domain/ui-ux-pro-max/scripts/search.py" "rendering performance" --stack react >/dev/null
 
 python3 - "$ROOT" <<'PY'
 import re
@@ -121,3 +99,7 @@ expect_no_path "disk-clean-audit/gemini"
 expect_no_path "oracle/chatgpt"
 expect_no_path "oracle/claude"
 expect_no_path "oracle/gemini"
+expect_no_path "skills/domain/gemini-cli"
+expect_no_path "skills/domain/playwright-cli"
+expect_no_path "skills/domain/oracle"
+expect_no_path "skills/domain/ui-ux-pro-max"

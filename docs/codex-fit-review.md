@@ -14,7 +14,7 @@ This note records the overlap, overdesign, and contradiction cleanup applied whi
 ## Consolidation decisions
 
 - Installed process skills stay intentionally small and avoid project-prefix process variants.
-- Installed domain skills stay task-specific: `disk-clean-audit`, `oracle`, `pocketbase-go`.
+- Installed domain skills stay task-specific and repo-portable: `disk-clean-audit`, `pocketbase-go`, and other machine-neutral domain skills.
 - Installed agent roles stay narrow and purpose-built: `triager`, `builder`, `debater`, `moderator`, `researcher`, `reviewer`.
 - Everything else remains reference-only until a repeated Codex-native need is proven.
 
@@ -30,7 +30,7 @@ This note records the overlap, overdesign, and contradiction cleanup applied whi
 - Mandatory spec writing and spec-review loops before any implementation were removed from the default process flow. Specs and plans are now optional durable artifacts for long or handoff-heavy work.
 - The reference agent catalogs contain many specialist personas. Installing them all would create routing noise, maintenance overhead, and role ambiguity. The default toolkit now ships only three general roles.
 - Provider-specific variants were removed entirely. The toolkit keeps only Codex-facing instructions and config surfaces.
-- Model-pinned Oracle examples were removed so the skill does not ossify around one external model choice.
+- Machine-specific Oracle guidance was removed from the repo-managed skill set and should live as a local `~/.codex/skills/oracle` skill instead.
 
 ## Contradictions resolved
 

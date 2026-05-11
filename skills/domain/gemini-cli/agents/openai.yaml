@@ -1,3 +1,0 @@
-display_name: "Gemini CLI"
-short_description: "Run Gemini CLI safely for read-only reviews and structured cross-validation."
-default_prompt: "Use Gemini CLI in non-interactive read-only mode for reviews or cross-validation, keep stdout and stderr separate for JSON parsing, and verify all findings locally before acting."

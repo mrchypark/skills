@@ -53,12 +53,6 @@ entries:
     tags: [domain, macos, disk]
     install_scope: [global, project]
     status: active
-  - id: oracle
-    kind: skill
-    path: skills/domain/oracle/SKILL.md
-    tags: [domain, review, oracle]
-    install_scope: [global, project]
-    status: active
   - id: pocketbase-go
     kind: skill
     path: skills/domain/pocketbase-go/SKILL.md
@@ -75,24 +69,6 @@ entries:
     kind: skill
     path: skills/domain/frontend-design/SKILL.md
     tags: [domain, frontend, design]
-    install_scope: [global, project]
-    status: active
-  - id: gemini-cli
-    kind: skill
-    path: skills/domain/gemini-cli/SKILL.md
-    tags: [domain, cli, review, gemini]
-    install_scope: [global, project]
-    status: active
-  - id: playwright-cli
-    kind: skill
-    path: skills/domain/playwright-cli/SKILL.md
-    tags: [domain, browser, test, playwright]
-    install_scope: [global, project]
-    status: active
-  - id: ui-ux-pro-max
-    kind: skill
-    path: skills/domain/ui-ux-pro-max/SKILL.md
-    tags: [domain, ui, ux, design]
     install_scope: [global, project]
     status: active
   - id: yeoul-memory

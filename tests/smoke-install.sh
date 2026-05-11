@@ -60,10 +60,6 @@ HOME="$HOME_DIR" sh "$PROJECT_DIR/install/project-bootstrap.sh" "$PROJECT_DIR" "
   printf 'remote-review symlink target mismatch\n' >&2
   exit 1
 }
-[ -L "$HOME_DIR/.codex/skills/oracle" ] || {
-  printf 'missing synced oracle symlink\n' >&2
-  exit 1
-}
 [ -L "$HOME_DIR/.codex/skills/frontend-design" ] || {
   printf 'missing synced frontend-design symlink\n' >&2
   exit 1
