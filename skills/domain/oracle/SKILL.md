@@ -53,7 +53,7 @@ PATH="/opt/homebrew/opt/node@24/bin:$PATH" oracle ...
 - New browser consult: use this for the first Oracle review of a question. Start with dry-run, then run browser mode on port `55268`.
 - Browser follow-up in the same conversation: use repeated `--browser-follow-up "<prompt>"` when the follow-up prompts are already known before the run.
 - Existing ChatGPT tab continuation: run `oracle status --browser-tabs`, choose the current tab, target id, URL, or title substring, then pass `--browser-tab <ref>`.
-- Detached or timed-out session recovery: run `oracle status --hours 72`, then `oracle session <id> --render`; use `oracle session <id> --harvest` or `--live` when the session is browser-bound and still producing output.
+- Detached or timed-out session recovery: run `oracle status --hours 72`, then `oracle session <id> --render`; use `oracle session <id> --harvest` or `--live` only when the session is browser-bound and the DevTools-backed browser is still reachable.
 - API follow-up: only after explicit API-cost approval, continue a stored Responses run with `--followup <sessionId|responseId>` and use `--followup-model <model>` when the session has multiple model outputs.
 
 ## Effort Selection
@@ -72,6 +72,7 @@ PATH="/opt/homebrew/opt/node@24/bin:$PATH" oracle ...
 - If browser login/profile state blocks the run, report the exact blocker and use only an approved fallback such as `--browser-attach-running`, `--remote-chrome`, or API mode.
 - If a run is already active or a matching session exists, reattach or reuse the tab instead of starting a duplicate. Use `--force` only when intentionally starting a separate run.
 - For long browser runs, keep `--heartbeat` enabled and prefer reattach/harvest/live-tail after timeouts over rerunning the prompt.
+- If `oracle session <id> --harvest` or `--live` fails with `ECONNREFUSED 127.0.0.1:<port>`, the browser DevTools port is no longer reachable. Use `oracle session <id> --render` for stored transcript output, or start a new browser run only if the original session cannot be recovered.
 
 ## Verified Commands
 
@@ -129,6 +130,7 @@ Reattach:
 ```bash
 oracle status --hours 72
 oracle session <id> --render
+# Requires a still-reachable browser-bound session:
 oracle session <id> --harvest
 oracle session <id> --live
 ```
