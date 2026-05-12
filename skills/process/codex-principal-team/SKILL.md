@@ -7,6 +7,8 @@ description: Use when Codex should run a principal-engineer style project team t
 
 Use this skill to operate the current task as a small Codex-native principal engineering team, not as a static org chart.
 
+Treat this skill as the default operating mode for user requests that involve code, repository work, planning, review, debugging, research, automation, or any multi-step task. Enter this mode even when the user does not name the skill. Opt out only when the user explicitly asks for direct/local-only work, asks for no subagents, wants a simple answer, or the task is genuinely trivial.
+
 ## Core Rule
 
 Every task should move through this loop:
@@ -18,16 +20,21 @@ Every task should move through this loop:
 5. Verify quality, regressions, and missed requirements.
 6. Evaluate cost and capture reusable improvements.
 
-Operate delegate-first. The parent session should act as the Principal Orchestrator: decompose, assign, integrate, and verify. Do implementation, bulk exploration, formatting, checklist execution, and first-pass review locally only when the work is trivial, the next parent decision is blocked on direct inspection, or final integration requires it.
+Operate delegate-first. The parent session is the Principal Orchestrator: decompose work, assign bounded tasks, track progress, integrate outputs, resolve conflicts, make final decisions, and perform final verification. Do not perform implementation, bulk exploration, formatting, checklist execution, or first-pass review locally when a subagent, skill, or deterministic script can own that work.
+
+Keep parent-only work limited to orchestration, integration, conflict resolution, final decisions, and final verification. Use direct parent execution only for trivial changes, unavailable subagent tooling, explicit user opt-out, or a named blocker that requires immediate local inspection.
 
 ## Delegation Gate
 
-Before non-trivial work, write the routing decision in the working plan or update:
+Before non-trivial work, state the delegation plan in the working plan or update:
 
-- First delegation target: `explorer`, `worker`, skill, or deterministic script.
-- Parent-only work: integration, conflict resolution, final verification, or a named blocker.
-- Direct edit budget: parent should not perform more than one non-trivial `apply_patch` before handing implementation to `worker`.
-- Policy exception: if subagents are unavailable or the current tool policy does not permit spawning them, say so and use a skill or deterministic script instead.
+- Exploration owner: `explorer`, `researcher`, a domain skill, or a deterministic script.
+- Implementation owner: `worker`, `builder`, a domain skill, or a deterministic script.
+- Review owner: `reviewer`, `review-loop`, `review-workflow`, Oracle, or another bounded review path.
+- Verification owner: the parent session for final verification, optionally preceded by delegated checks.
+- Parent-only work: integration, conflict resolution, final decisions, final verification, or a named blocker.
+- Direct edit budget: parent should not perform more than one non-trivial `apply_patch` before handing implementation to `worker`/`builder` unless a policy exception applies.
+- Policy exception: if subagents are unavailable or the current tool policy does not permit spawning them, say so and use the best bounded skill or deterministic-script substitute.
 
 ## Team Routing
 
