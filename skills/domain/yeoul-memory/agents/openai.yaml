@@ -1,4 +1,4 @@
 schema_version: "1"
 display_name: "Yeoul Memory"
-short_description: "Use Yeoul CLI and memory rules safely in this repo."
-default_prompt: "Use Yeoul proactively: prefer the user-level database at $HOME/.local/share/yeoul/work-memory.lbug for normal work, search before recommendations or status interpretation when prior context may matter, record durable outcomes when they become clear, preserve provenance and lifecycle semantics, and prefer CLI workflows over raw storage queries."
+short_description: "Use Yeoul CLI, memory rules, and change contracts safely in this repo."
+default_prompt: "Use Yeoul proactively: prefer the user-level database at $HOME/.local/share/yeoul/work-memory.lbug for normal work, search before recommendations or status interpretation when prior context may matter, record durable outcomes when they become clear, record falsifiable change contracts for behavior-shaping workflow or harness changes that need later evaluation, preserve provenance and lifecycle semantics, and prefer CLI workflows over raw storage queries."
