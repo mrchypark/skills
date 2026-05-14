@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cached Go Script Authoring"
+  short_description: "Create cached Go helper tools for skills"
+  default_prompt: "Use $cached-go-script-authoring to create a personal cached Go helper tool for this skill, with a shell launcher, Go module source directory, default external dependencies, and no direct Go shebang."

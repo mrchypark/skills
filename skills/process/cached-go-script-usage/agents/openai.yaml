@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cached Go Script Usage"
+  short_description: "Run and debug cached Go skill tools"
+  default_prompt: "Use $cached-go-script-usage to run, debug, rebuild, or clear caches for a personal shell-launched cached Go skill helper tool."
