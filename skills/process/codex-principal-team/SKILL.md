@@ -7,7 +7,7 @@ description: Use when Codex should run a principal-engineer style project team t
 
 Use this skill to operate the current task as a small Codex-native principal engineering team, not as a static org chart.
 
-Treat this skill as the default operating mode for user requests that involve code, repository work, planning, review, debugging, research, automation, or any multi-step task. Enter this mode even when the user does not name the skill. Opt out only when the user explicitly asks for direct/local-only work, asks for no subagents, wants a simple answer, or the task is genuinely trivial.
+Treat this skill as the default operating mode for user requests that involve code, repository work, planning, review, debugging, research, automation, or any multi-step task. Enter this mode even when the user does not name the skill. If the user invokes or asks for `codex-principal-team`, treat that as an explicit delegation and subagent request for non-trivial work under the `spawn_agent` policy. Opt out only when the user explicitly asks for direct/local-only work, asks for no subagents, wants a simple answer, the task is genuinely trivial, subagents are unavailable, or a named blocker requires immediate local inspection.
 
 ## Core Rule
 
@@ -22,19 +22,20 @@ Every task should move through this loop:
 
 Operate delegate-first. The parent session is the Principal Orchestrator: decompose work, assign bounded tasks, track progress, integrate outputs, resolve conflicts, make final decisions, and perform final verification. Do not perform implementation, bulk exploration, formatting, checklist execution, or first-pass review locally when a subagent, skill, or deterministic script can own that work.
 
-Keep parent-only work limited to orchestration, integration, conflict resolution, final decisions, and final verification. Use direct parent execution only for trivial changes, unavailable subagent tooling, explicit user opt-out, or a named blocker that requires immediate local inspection.
+Keep parent-only work limited to orchestration, integration, conflict resolution, final decisions, and final verification. A mini parent session may act as an orchestrator, but a delegated subagent must not recursively fan out unless the user explicitly authorized nested delegation and the runtime depth policy permits it. Use direct parent execution only for trivial changes, unavailable subagent tooling, explicit user opt-out, or a named blocker that requires immediate local inspection.
 
 ## Delegation Gate
 
 Before non-trivial work, state the delegation plan in the working plan or update:
 
-- Exploration owner: `explorer`, `researcher`, a domain skill, or a deterministic script.
-- Implementation owner: `worker`, `builder`, a domain skill, or a deterministic script.
-- Review owner: `reviewer`, `review-loop`, `review-workflow`, Oracle, or another bounded review path.
+- Exploration owner: runtime `explorer`, toolkit `researcher` when directly callable, a domain skill, or a deterministic script.
+- Implementation owner: runtime `worker`, toolkit `builder` when directly callable, a domain skill, or a deterministic script.
+- Review owner: toolkit `reviewer` when directly callable, `review-loop`, `review-workflow`, Oracle, or another bounded review path.
 - Verification owner: the parent session for final verification, optionally preceded by delegated checks.
 - Parent-only work: integration, conflict resolution, final decisions, final verification, or a named blocker.
-- Direct edit budget: parent should not perform more than one non-trivial `apply_patch` before handing implementation to `worker`/`builder` unless a policy exception applies.
+- Direct edit budget: parent should not perform more than one non-trivial `apply_patch` before handing implementation to runtime `worker` or directly callable toolkit `builder` unless a policy exception applies.
 - Policy exception: if subagents are unavailable or the current tool policy does not permit spawning them, say so and use the best bounded skill or deterministic-script substitute.
+- Recursion rule: delegated subagents do their assigned task directly; they do not spawn additional subagents unless explicitly authorized and runtime depth permits it.
 
 ## Team Routing
 
@@ -50,15 +51,9 @@ Default operating-role routing:
 - Use `gpt-5.3-codex-spark` `low` for cheap deterministic searches, checklists, and formatting.
 - Use the `oracle` skill as Oracle Critic with ChatGPT `GPT-5.5 Pro` `standard`; use `extended` only for migration, security, data-loss, or expensive-to-reverse decisions.
 
-Use the callable Codex subagent surface as the execution substrate:
+Do not conflate runtime callable subagents with installed toolkit agents. In the current active spawn surface, the callable runtime roles are `explorer` and `worker`; toolkit agents include `triager`, `builder`, `researcher`, `reviewer`, `cost_analyst`, `debater`, and `moderator`. Use the roster mapping to translate operating roles onto whatever the runtime actually exposes.
 
-- `explorer` for repo exploration, cheap checklist execution, and independent review.
-- `worker` for Skill Factory Worker and Code Automation Worker tasks.
-- Parent session for orchestration, integration, final decisions, and final verification.
-- `cost_analyst` is an installed toolkit role, but when it is not callable through the active subagent surface, use the session-log analyzer plus `harvest-work-patterns` for the cost loop.
-- `oracle` remains a skill-based external critic, not a spawned agent.
-
-For any non-trivial task, assign at least one bounded subagent, skill, or deterministic script unless there is a concrete reason not to. Record that reason in the optimization loop.
+For any non-trivial task, assign at least one bounded subagent, skill, or deterministic script unless there is a concrete reason not to. When `codex-principal-team` is explicitly invoked and `spawn_agent` is available, use at least one runtime subagent unless an opt-out, trivial-task, unavailable-tooling, tool-policy, or named-blocker exception applies. Record any exception in the optimization loop.
 
 ## Execution Workflow
 
