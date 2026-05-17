@@ -46,17 +46,18 @@ skills/.../my-skill/
 set -eu
 
 TOOL_NAME=$(basename "$0")
-SCRIPT_DIR=$(CDPATH= cd -- "$(dirname "$0")" && pwd)
+SCRIPT_PATH=$(readlink -f "$0" 2>/dev/null || realpath "$0" 2>/dev/null || printf '%s\n' "$0")
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname "$SCRIPT_PATH")" && pwd)
 SRC_DIR="$SCRIPT_DIR/$TOOL_NAME-src"
 CACHE_ROOT="${CODEX_GO_SCRIPT_CACHE:-${XDG_CACHE_HOME:-$HOME/.cache}/codex-go-scripts}"
 PLATFORM=$(go env GOOS GOARCH | tr '\n' '-' | sed 's/-$//')
 KEY=$(
   cd "$SRC_DIR" && {
-    go env GOVERSION GOOS GOARCH GOFLAGS CGO_ENABLED GOEXPERIMENT CC CXX
+    go env GOVERSION GOOS GOARCH GOWORK GOFLAGS CGO_ENABLED GOEXPERIMENT CC CXX
     if command -v shasum >/dev/null 2>&1; then
-      find . -type d \( -name ".*" -o -name "vendor" \) -prune -o -type f ! -name ".*" -exec shasum -a 256 {} + | sort
+      find . -type d \( \( -name ".*" ! -name "." \) -o -name "vendor" \) -prune -o -type f ! -name ".*" -exec shasum -a 256 {} + | sort
     else
-      find . -type d \( -name ".*" -o -name "vendor" \) -prune -o -type f ! -name ".*" -exec sha256sum {} + | sort
+      find . -type d \( \( -name ".*" ! -name "." \) -o -name "vendor" \) -prune -o -type f ! -name ".*" -exec sha256sum {} + | sort
     fi
   } | if command -v shasum >/dev/null 2>&1; then
     shasum -a 256
