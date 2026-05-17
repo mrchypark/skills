@@ -46,7 +46,17 @@ skills/.../my-skill/
 set -eu
 
 TOOL_NAME=$(basename "$0")
-SCRIPT_PATH=$(readlink -f "$0" 2>/dev/null || realpath "$0" 2>/dev/null || printf '%s\n' "$0")
+SCRIPT_PATH=$(
+  if readlink -f "$0" >/dev/null 2>&1; then
+    readlink -f "$0"
+  elif realpath "$0" >/dev/null 2>&1; then
+    realpath "$0"
+  elif [ "${0#*/*}" != "$0" ]; then
+    printf '%s\n' "$0"
+  else
+    command -v "$0"
+  fi
+)
 SCRIPT_DIR=$(CDPATH= cd -- "$(dirname "$SCRIPT_PATH")" && pwd)
 SRC_DIR="$SCRIPT_DIR/$TOOL_NAME-src"
 CACHE_ROOT="${CODEX_GO_SCRIPT_CACHE:-${XDG_CACHE_HOME:-$HOME/.cache}/codex-go-scripts}"
