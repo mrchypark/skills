@@ -37,7 +37,8 @@ skills/.../my-skill/
    chmod +x scripts/my-tool
    ```
 5. In the skill body, tell agents to run the launcher, not `go run` by default.
-6. Before committing, run `go test ./...` or at least the launcher once after `go mod tidy`; the second launcher run should reuse the cached binary.
+6. Keep the tool entrypoint at the module root by default, or set `CODEX_GO_BUILD_PKG=./cmd/my-tool` for a launcher whose `main` package lives under a subdirectory.
+7. Before committing, run `go test ./...` or at least the launcher once after `go mod tidy`; the second launcher run should reuse the cached binary.
 
 ## Launcher Pattern
 
@@ -60,10 +61,13 @@ SCRIPT_PATH=$(
 SCRIPT_DIR=$(CDPATH= cd -- "$(dirname "$SCRIPT_PATH")" && pwd)
 SRC_DIR="$SCRIPT_DIR/$TOOL_NAME-src"
 CACHE_ROOT="${CODEX_GO_SCRIPT_CACHE:-${XDG_CACHE_HOME:-$HOME/.cache}/codex-go-scripts}"
+BUILD_PKG="${CODEX_GO_BUILD_PKG:-.}"
 PLATFORM=$(go env GOOS GOARCH | tr '\n' '-' | sed 's/-$//')
+[ -f "$SRC_DIR/go.mod" ] || { printf 'missing Go module: %s/go.mod\n' "$SRC_DIR" >&2; exit 1; }
 KEY=$(
   cd "$SRC_DIR" && {
     go env GOVERSION GOOS GOARCH GOWORK GOFLAGS CGO_ENABLED GOEXPERIMENT CC CXX
+    printf 'BUILD_PKG=%s\n' "$BUILD_PKG"
     if command -v shasum >/dev/null 2>&1; then
       find . -type d \( \( -name ".*" ! -name "." \) -o -name "vendor" \) -prune -o -type f -exec shasum -a 256 {} + | sort
     else
@@ -85,7 +89,7 @@ if [ "${CACHED_GO_REBUILD:-0}" = "1" ] || [ ! -x "$BIN" ]; then
   TMP="$BIN.tmp.$$"
   rm -f "$TMP"
   trap 'rm -f "$TMP"' 0
-  (cd "$SRC_DIR" && go mod download && go build -trimpath -o "$TMP" .)
+  (cd "$SRC_DIR" && go mod download && go build -trimpath -o "$TMP" "$BUILD_PKG")
   mv "$TMP" "$BIN"
   trap - 0
 fi
@@ -100,5 +104,6 @@ exec "$BIN" "$@"
 - Commit `go.mod`, `go.sum`, source files, and the shell launcher. Do not commit cached binaries.
 - Hidden directories are pruned, but hidden files under normal source directories are hashed because `go:embed` can target them explicitly.
 - Do not vendor dependencies into `<tool>-src`; the launcher pattern relies on `go.mod`, `go.sum`, and `go mod download`.
+- Use `CODEX_GO_BUILD_PKG=./cmd/name` only when the `main` package is not at the module root; the build package is part of the cache key.
 - Prefer one command per launcher. Add another launcher and source dir when responsibilities diverge.
 - Do not recommend `#!/usr/bin/env go run` or other direct Go shebang patterns in `.go` files.

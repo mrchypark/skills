@@ -14,7 +14,7 @@ skills/.../my-skill/scripts/my-tool --help
 skills/.../my-skill/scripts/my-tool <args>
 ```
 
-On first run, the launcher builds the Go module from `scripts/<tool>-src` into `${CODEX_GO_SCRIPT_CACHE:-${XDG_CACHE_HOME:-$HOME/.cache}/codex-go-scripts}/...` and then executes the cached binary. Later runs reuse the binary until source files, embedded assets, `go.mod`, `go.sum`, Go version, platform, workspace, or build-affecting Go environment changes. The default key includes `GOVERSION`, `GOOS`, `GOARCH`, `GOWORK`, `GOFLAGS`, `CGO_ENABLED`, `GOEXPERIMENT`, `CC`, and `CXX`. If `go.sum` was missing and the first run created it, run `go mod tidy`, commit `go.sum`, and expect one more rebuild because the cache key correctly changed.
+On first run, the launcher builds the Go module from `scripts/<tool>-src` into `${CODEX_GO_SCRIPT_CACHE:-${XDG_CACHE_HOME:-$HOME/.cache}/codex-go-scripts}/...` and then executes the cached binary. Later runs reuse the binary until source files, embedded assets, `go.mod`, `go.sum`, Go version, platform, workspace, build package, or build-affecting Go environment changes. The default key includes `GOVERSION`, `GOOS`, `GOARCH`, `GOWORK`, `GOFLAGS`, `CGO_ENABLED`, `GOEXPERIMENT`, `CC`, `CXX`, and `CODEX_GO_BUILD_PKG`. If `go.sum` was missing and the first run created it, run `go mod tidy`, commit `go.sum`, and expect one more rebuild because the cache key correctly changed.
 
 ## Debug
 
@@ -22,6 +22,7 @@ On first run, the launcher builds the Go module from `scripts/<tool>-src` into `
 CACHED_GO_DEBUG=1 skills/.../my-skill/scripts/my-tool <args>
 CACHED_GO_REBUILD=1 skills/.../my-skill/scripts/my-tool <args>
 CODEX_GO_SCRIPT_CACHE=/tmp/codex-go-scripts skills/.../my-skill/scripts/my-tool <args>
+CODEX_GO_BUILD_PKG=./cmd/my-tool skills/.../my-skill/scripts/my-tool <args>
 ```
 
 For source-level checks, work inside the module directory:
