@@ -55,9 +55,9 @@ KEY_INPUT=$(
   {
     go env GOVERSION GOOS GOARCH GOFLAGS CGO_ENABLED GOEXPERIMENT CC CXX
     if command -v shasum >/dev/null 2>&1; then
-      find . -type d -name ".*" -prune -o -type f ! -name ".*" -exec shasum -a 256 {} \; | sort
+      find . -type d \( -name ".*" -o -name "vendor" \) -prune -o -type f ! -name ".*" -exec shasum -a 256 {} \; | sort
     else
-      find . -type d -name ".*" -prune -o -type f ! -name ".*" -exec sha256sum {} \; | sort
+      find . -type d \( -name ".*" -o -name "vendor" \) -prune -o -type f ! -name ".*" -exec sha256sum {} \; | sort
     fi
   }
 )
@@ -88,5 +88,6 @@ exec "$BIN" "$@"
 - Keep this personal-use focused: optimize for repeatability and easy local debugging, not public packaging.
 - Use `CODEX_GO_SCRIPT_CACHE=/path` only when overriding the default personal cache location.
 - Commit `go.mod`, `go.sum`, source files, and the shell launcher. Do not commit cached binaries.
+- Do not vendor dependencies into `<tool>-src`; the launcher pattern relies on `go.mod`, `go.sum`, and `go mod download`.
 - Prefer one command per launcher. Add another launcher and source dir when responsibilities diverge.
 - Do not recommend `#!/usr/bin/env go run` or other direct Go shebang patterns in `.go` files.
