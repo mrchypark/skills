@@ -50,13 +50,22 @@ SCRIPT_DIR=$(CDPATH= cd -- "$(dirname "$0")" && pwd)
 SRC_DIR="$SCRIPT_DIR/$TOOL_NAME-src"
 CACHE_ROOT="${CODEX_GO_SCRIPT_CACHE:-${XDG_CACHE_HOME:-$HOME/.cache}/codex-go-scripts}"
 PLATFORM=$(go env GOOS GOARCH | tr '\n' '-' | sed 's/-$//')
-KEY=$(
+KEY_INPUT=$(
   cd "$SRC_DIR"
   {
     go env GOVERSION GOOS GOARCH GOFLAGS CGO_ENABLED GOEXPERIMENT CC CXX
-    find . -type f ! -name ".*" -exec shasum -a 256 {} \; | sort
-  } | shasum -a 256 | awk '{print $1}'
+    if command -v shasum >/dev/null 2>&1; then
+      find . -type d -name ".*" -prune -o -type f ! -name ".*" -exec shasum -a 256 {} \; | sort
+    else
+      find . -type d -name ".*" -prune -o -type f ! -name ".*" -exec sha256sum {} \; | sort
+    fi
+  }
 )
+if command -v shasum >/dev/null 2>&1; then
+  KEY=$(printf '%s\n' "$KEY_INPUT" | shasum -a 256 | awk '{print $1}')
+else
+  KEY=$(printf '%s\n' "$KEY_INPUT" | sha256sum | awk '{print $1}')
+fi
 BIN_DIR="$CACHE_ROOT/$TOOL_NAME/$PLATFORM/$KEY"
 BIN="$BIN_DIR/$TOOL_NAME"
 
@@ -65,8 +74,10 @@ if [ "${CACHED_GO_REBUILD:-0}" = "1" ] || [ ! -x "$BIN" ]; then
   [ "${CACHED_GO_DEBUG:-0}" = "1" ] && printf 'building %s\n' "$BIN" >&2
   TMP="$BIN.tmp.$$"
   rm -f "$TMP"
+  trap 'rm -f "$TMP"' 0
   (cd "$SRC_DIR" && go mod download && go build -trimpath -o "$TMP" .)
   mv "$TMP" "$BIN"
+  trap - 0
 fi
 
 exec "$BIN" "$@"
