@@ -88,10 +88,10 @@ if [ "${CACHED_GO_REBUILD:-0}" = "1" ] || [ ! -x "$BIN" ]; then
   [ "${CACHED_GO_DEBUG:-0}" = "1" ] && printf 'building %s\n' "$BIN" >&2
   TMP="$BIN.tmp.$$"
   rm -f "$TMP"
-  trap 'rm -f "$TMP"' 0
-  (cd "$SRC_DIR" && go mod download && go build -trimpath -o "$TMP" "$BUILD_PKG")
+  trap 'rm -f "$TMP"' 0 1 2 3 15
+  (cd "$SRC_DIR" && go build -trimpath -o "$TMP" "$BUILD_PKG")
   mv "$TMP" "$BIN"
-  trap - 0
+  trap - 0 1 2 3 15
 fi
 
 exec "$BIN" "$@"
