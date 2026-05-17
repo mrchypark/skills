@@ -22,7 +22,7 @@ No repository-owned hook layer is included. The toolkit only models Codex surfac
 
 The default operating surface is intentionally small:
 
-- eight process skills
+- ten process skills
 - six domain skills
 - seven bundled agent roles
 
@@ -52,6 +52,8 @@ catalog/registry.yaml
 
 - `codex-principal-team`
 - `harvest-work-patterns`
+- `cached-go-script-authoring`
+- `cached-go-script-usage`
 - `review-loop`
 - `remote-review`
 - `review-workflow`

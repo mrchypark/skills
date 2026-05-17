@@ -11,6 +11,18 @@ entries:
     tags: [process, skill-harvest, reuse]
     install_scope: [global, project]
     status: active
+  - id: cached-go-script-authoring
+    kind: skill
+    path: skills/process/cached-go-script-authoring/SKILL.md
+    tags: [process, skills, go, scripts]
+    install_scope: [global, project]
+    status: active
+  - id: cached-go-script-usage
+    kind: skill
+    path: skills/process/cached-go-script-usage/SKILL.md
+    tags: [process, skills, go, scripts]
+    install_scope: [global, project]
+    status: active
   - id: review-loop
     kind: skill
     path: skills/process/review-loop/SKILL.md
