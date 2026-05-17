@@ -65,9 +65,9 @@ KEY=$(
   cd "$SRC_DIR" && {
     go env GOVERSION GOOS GOARCH GOWORK GOFLAGS CGO_ENABLED GOEXPERIMENT CC CXX
     if command -v shasum >/dev/null 2>&1; then
-      find . -type d \( \( -name ".*" ! -name "." \) -o -name "vendor" \) -prune -o -type f ! -name ".*" -exec shasum -a 256 {} + | sort
+      find . -type d \( \( -name ".*" ! -name "." \) -o -name "vendor" \) -prune -o -type f -exec shasum -a 256 {} + | sort
     else
-      find . -type d \( \( -name ".*" ! -name "." \) -o -name "vendor" \) -prune -o -type f ! -name ".*" -exec sha256sum {} + | sort
+      find . -type d \( \( -name ".*" ! -name "." \) -o -name "vendor" \) -prune -o -type f -exec sha256sum {} + | sort
     fi
   } | if command -v shasum >/dev/null 2>&1; then
     shasum -a 256
@@ -75,6 +75,7 @@ KEY=$(
     sha256sum
   fi | awk '{print $1}'
 )
+[ -n "$KEY" ] || { printf 'failed to compute cache key\n' >&2; exit 1; }
 BIN_DIR="$CACHE_ROOT/$TOOL_NAME/$PLATFORM/$KEY"
 BIN="$BIN_DIR/$TOOL_NAME"
 
@@ -97,6 +98,7 @@ exec "$BIN" "$@"
 - Keep this personal-use focused: optimize for repeatability and easy local debugging, not public packaging.
 - Use `CODEX_GO_SCRIPT_CACHE=/path` only when overriding the default personal cache location.
 - Commit `go.mod`, `go.sum`, source files, and the shell launcher. Do not commit cached binaries.
+- Hidden directories are pruned, but hidden files under normal source directories are hashed because `go:embed` can target them explicitly.
 - Do not vendor dependencies into `<tool>-src`; the launcher pattern relies on `go.mod`, `go.sum`, and `go mod download`.
 - Prefer one command per launcher. Add another launcher and source dir when responsibilities diverge.
 - Do not recommend `#!/usr/bin/env go run` or other direct Go shebang patterns in `.go` files.
