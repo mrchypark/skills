@@ -14,7 +14,7 @@ skills/.../my-skill/scripts/my-tool --help
 skills/.../my-skill/scripts/my-tool <args>
 ```
 
-On first run, the launcher builds the Go module from `scripts/<tool>-src` into `${CODEX_GO_SCRIPT_CACHE:-${XDG_CACHE_HOME:-$HOME/Library/Caches}/codex-go-scripts}/...` and then executes the cached binary. Later runs reuse the binary until source, `go.mod`, `go.sum`, Go version, platform, or build-affecting Go environment changes. The default key includes `GOFLAGS`, `CGO_ENABLED`, `GOEXPERIMENT`, `CC`, and `CXX`. If `go.sum` was missing and the first run created it, run `go mod tidy`, commit `go.sum`, and expect one more rebuild because the cache key correctly changed.
+On first run, the launcher builds the Go module from `scripts/<tool>-src` into `${CODEX_GO_SCRIPT_CACHE:-${XDG_CACHE_HOME:-$HOME/.cache}/codex-go-scripts}/...` and then executes the cached binary. Later runs reuse the binary until source files, embedded assets, `go.mod`, `go.sum`, Go version, platform, or build-affecting Go environment changes. The default key includes `GOVERSION`, `GOOS`, `GOARCH`, `GOFLAGS`, `CGO_ENABLED`, `GOEXPERIMENT`, `CC`, and `CXX`. If `go.sum` was missing and the first run created it, run `go mod tidy`, commit `go.sum`, and expect one more rebuild because the cache key correctly changed.
 
 ## Debug
 
@@ -40,13 +40,13 @@ go mod tidy
 Clear one tool cache:
 
 ```bash
-rm -rf "${CODEX_GO_SCRIPT_CACHE:-${XDG_CACHE_HOME:-$HOME/Library/Caches}/codex-go-scripts}/my-tool"
+rm -rf "${CODEX_GO_SCRIPT_CACHE:-${XDG_CACHE_HOME:-$HOME/.cache}/codex-go-scripts}/my-tool"
 ```
 
 Clear all personal cached Go skill tools:
 
 ```bash
-rm -rf "${CODEX_GO_SCRIPT_CACHE:-${XDG_CACHE_HOME:-$HOME/Library/Caches}/codex-go-scripts}"
+rm -rf "${CODEX_GO_SCRIPT_CACHE:-${XDG_CACHE_HOME:-$HOME/.cache}/codex-go-scripts}"
 ```
 
 ## Failure Checks

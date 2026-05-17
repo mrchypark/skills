@@ -48,13 +48,13 @@ set -eu
 TOOL_NAME=$(basename "$0")
 SCRIPT_DIR=$(CDPATH= cd -- "$(dirname "$0")" && pwd)
 SRC_DIR="$SCRIPT_DIR/$TOOL_NAME-src"
-CACHE_ROOT="${CODEX_GO_SCRIPT_CACHE:-${XDG_CACHE_HOME:-$HOME/Library/Caches}/codex-go-scripts}"
+CACHE_ROOT="${CODEX_GO_SCRIPT_CACHE:-${XDG_CACHE_HOME:-$HOME/.cache}/codex-go-scripts}"
 PLATFORM=$(go env GOOS GOARCH | tr '\n' '-' | sed 's/-$//')
 KEY=$(
   cd "$SRC_DIR"
   {
     go env GOVERSION GOOS GOARCH GOFLAGS CGO_ENABLED GOEXPERIMENT CC CXX
-    find . -type f \( -name '*.go' -o -name 'go.mod' -o -name 'go.sum' \) -exec shasum -a 256 {} \; | sort
+    find . -type f ! -name ".*" -exec shasum -a 256 {} \; | sort
   } | shasum -a 256 | awk '{print $1}'
 )
 BIN_DIR="$CACHE_ROOT/$TOOL_NAME/$PLATFORM/$KEY"
