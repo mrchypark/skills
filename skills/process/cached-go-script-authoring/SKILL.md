@@ -50,22 +50,20 @@ SCRIPT_DIR=$(CDPATH= cd -- "$(dirname "$0")" && pwd)
 SRC_DIR="$SCRIPT_DIR/$TOOL_NAME-src"
 CACHE_ROOT="${CODEX_GO_SCRIPT_CACHE:-${XDG_CACHE_HOME:-$HOME/.cache}/codex-go-scripts}"
 PLATFORM=$(go env GOOS GOARCH | tr '\n' '-' | sed 's/-$//')
-KEY_INPUT=$(
-  cd "$SRC_DIR"
-  {
+KEY=$(
+  cd "$SRC_DIR" && {
     go env GOVERSION GOOS GOARCH GOFLAGS CGO_ENABLED GOEXPERIMENT CC CXX
     if command -v shasum >/dev/null 2>&1; then
-      find . -type d \( -name ".*" -o -name "vendor" \) -prune -o -type f ! -name ".*" -exec shasum -a 256 {} \; | sort
+      find . -type d \( -name ".*" -o -name "vendor" \) -prune -o -type f ! -name ".*" -exec shasum -a 256 {} + | sort
     else
-      find . -type d \( -name ".*" -o -name "vendor" \) -prune -o -type f ! -name ".*" -exec sha256sum {} \; | sort
+      find . -type d \( -name ".*" -o -name "vendor" \) -prune -o -type f ! -name ".*" -exec sha256sum {} + | sort
     fi
-  }
+  } | if command -v shasum >/dev/null 2>&1; then
+    shasum -a 256
+  else
+    sha256sum
+  fi | awk '{print $1}'
 )
-if command -v shasum >/dev/null 2>&1; then
-  KEY=$(printf '%s\n' "$KEY_INPUT" | shasum -a 256 | awk '{print $1}')
-else
-  KEY=$(printf '%s\n' "$KEY_INPUT" | sha256sum | awk '{print $1}')
-fi
 BIN_DIR="$CACHE_ROOT/$TOOL_NAME/$PLATFORM/$KEY"
 BIN="$BIN_DIR/$TOOL_NAME"
 
