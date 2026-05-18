@@ -35,6 +35,12 @@ entries:
     tags: [process, review, remote]
     install_scope: [global, project]
     status: active
+  - id: remote-review-preflight
+    kind: skill
+    path: skills/process/remote-review-preflight/SKILL.md
+    tags: [process, review, remote, preflight]
+    install_scope: [global, project]
+    status: active
   - id: review-workflow
     kind: skill
     path: skills/process/review-workflow/SKILL.md

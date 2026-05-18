@@ -1,0 +1,121 @@
+{
+  "name": "common-go",
+  "scope": "common",
+  "languages": ["go"],
+  "categories": {
+    "error_context": {
+      "description": "Returned errors should preserve sentinel identity while adding operation, key/path, and boundary context.",
+      "patterns": [
+        "\\berror\\b",
+        "\\bwrap\\b",
+        "\\bcontext\\b",
+        "\\breturn err\\b",
+        "errors?\\.Join",
+        "\\braw err\\b"
+      ]
+    },
+    "resource_lifecycle": {
+      "description": "I/O resources, transactions, goroutines, timers, and buffers should be closed, rolled back, canceled, or released on every path.",
+      "patterns": [
+        "\\bClose\\b",
+        "\\bRollback\\b",
+        "\\bcleanup\\b",
+        "\\bleak\\b",
+        "\\bgoroutine\\b",
+        "\\bdefer\\b",
+        "\\bcancel\\b"
+      ]
+    },
+    "context_cancellation": {
+      "description": "Context-aware APIs should check cancellation, propagate deadlines, and document whether returned readers or writers continue using the context.",
+      "patterns": [
+        "\\bcontext\\b",
+        "\\bcancel",
+        "\\btimeout\\b",
+        "\\bdeadline\\b"
+      ]
+    },
+    "concurrency_race": {
+      "description": "Concurrent writes, shared mutable state, and generation counters should be race-free and covered by focused tests.",
+      "patterns": [
+        "\\brace\\b",
+        "\\bconcurrent",
+        "\\bgeneration\\b",
+        "\\bstale\\b",
+        "\\blocking\\b",
+        "\\bsync\\b"
+      ]
+    },
+    "security_permissions": {
+      "description": "Filesystem and network defaults should fail closed, use narrow permissions, and avoid accidental public exposure.",
+      "patterns": [
+        "\\bsecurity\\b",
+        "\\bpermission",
+        "\\b0?755\\b",
+        "\\b0?700\\b",
+        "\\bworld-readable\\b"
+      ]
+    },
+    "time_serialization": {
+      "description": "Serialized time values should be deterministic across monotonic clock data, time zones, and parsing formats.",
+      "patterns": [
+        "\\btimestamp\\b",
+        "\\btime\\b",
+        "\\bmonotonic\\b",
+        "\\bUTC\\b",
+        "\\bRFC3339\\b"
+      ]
+    },
+    "path_portability": {
+      "description": "Path and URI handling should be cross-platform and resistant to traversal or separator ambiguity.",
+      "patterns": [
+        "\\bWindows\\b",
+        "\\bpath\\b",
+        "\\bfilepath\\b",
+        "\\bURI\\b",
+        "\\bslash\\b",
+        "\\bbackslash\\b",
+        "\\btraversal\\b"
+      ]
+    },
+    "schema_migration": {
+      "description": "Persistent formats should have version checks, forward-compatibility guards, and migration hooks before schema changes accumulate.",
+      "patterns": [
+        "\\bschema\\b",
+        "\\bmigration\\b",
+        "\\bversion\\b",
+        "\\buser_version\\b",
+        "\\bcompat"
+      ]
+    },
+    "test_quality": {
+      "description": "Tests should prove observable behavior with real code where practical and avoid brittle interaction-only mocks.",
+      "patterns": [
+        "\\btest",
+        "\\bcoverage\\b",
+        "\\bregression\\b",
+        "\\bfake\\b",
+        "\\bmock\\b"
+      ]
+    },
+    "docs_operational": {
+      "description": "Operational caveats, compatibility limits, and user-visible behavior should be documented near the feature.",
+      "patterns": [
+        "\\bdoc",
+        "\\bREADME\\b",
+        "\\boperational\\b",
+        "\\bcaveat\\b"
+      ]
+    },
+    "performance_allocation": {
+      "description": "Hot paths should avoid avoidable copies, unbounded allocation, and repeated expensive work.",
+      "patterns": [
+        "\\bperformance\\b",
+        "\\ballocat",
+        "\\bcopy\\b",
+        "\\bbuffer\\b",
+        "\\bpool\\b"
+      ]
+    }
+  }
+}

@@ -60,6 +60,14 @@ HOME="$HOME_DIR" sh "$PROJECT_DIR/install/project-bootstrap.sh" "$PROJECT_DIR" "
   printf 'remote-review symlink target mismatch\n' >&2
   exit 1
 }
+[ -L "$HOME_DIR/.codex/skills/remote-review-preflight" ] || {
+  printf 'missing synced remote-review-preflight symlink\n' >&2
+  exit 1
+}
+[ "$(readlink "$HOME_DIR/.codex/skills/remote-review-preflight")" = "$PROJECT_DIR/skills/process/remote-review-preflight" ] || {
+  printf 'remote-review-preflight symlink target mismatch\n' >&2
+  exit 1
+}
 [ -L "$HOME_DIR/.codex/skills/oracle" ] || {
   printf 'missing synced oracle symlink\n' >&2
   exit 1

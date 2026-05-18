@@ -1,0 +1,4 @@
+interface:
+  display_name: "Remote Review Preflight"
+  short_description: "Prepare a clean first remote review"
+  default_prompt: "Use $remote-review-preflight before requesting a remote review so the first pass has no actionable feedback."
