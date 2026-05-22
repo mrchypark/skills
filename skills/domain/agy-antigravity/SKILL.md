@@ -7,7 +7,7 @@ description: Use when running the Google Antigravity `agy` CLI as an external ag
 
 ## Overview
 
-Use the installed `agy` CLI as an external advisory agent. In this environment, `agy` is Google Antigravity CLI `1.0.1` at `/Users/cypark/.local/bin/agy`.
+Use the installed `agy` CLI as an external advisory agent. In this environment, `agy` is Google Antigravity CLI `1.0.1` (for example, at `~/.local/bin/agy`).
 
 `agy` output is advisory. Verify any claim against local files, tests, command output, and project constraints before changing direction or reporting completion.
 
