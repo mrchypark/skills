@@ -100,4 +100,5 @@ Treat the output as a prompt for improving agent instructions, skills, or script
 
 - Use `harvest-work-patterns` when auditing a thread or workspace for reusable work.
 - Use `oracle` when an important decision needs GPT-5.5 Pro critique.
+- Use `agy-antigravity` when a bounded external Antigravity CLI review or second opinion is useful.
 - Use `yeoul-memory` when a decision, constraint, model routing rule, or status should be remembered.

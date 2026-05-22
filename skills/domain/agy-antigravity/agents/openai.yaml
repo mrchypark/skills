@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agy Antigravity"
+  short_description: "Run the Antigravity agy CLI as an external advisory agent"
+  default_prompt: "Use $agy-antigravity to call the installed Antigravity `agy` CLI as an external advisory agent. Verify `agy` is available, put flags such as `--print-timeout` before `--print`, keep prompts bounded and read-only unless edits are explicitly requested, and treat output as advisory until locally verified."

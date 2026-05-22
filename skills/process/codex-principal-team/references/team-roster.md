@@ -36,6 +36,14 @@ The ten permanent roles are an operating model, not ten guaranteed callable Code
 
 When the active tool policy permits model overrides, set `model` and `reasoning_effort` from the roster. When policy requires inherited models, put the intended role, model, and effort in the handoff prompt and record that execution used inherited defaults.
 
+## Optional External Agents
+
+These are not callable Codex subagents. Use them through their skills or CLI wrappers, and verify their output locally before adopting it.
+
+| External Agent | Engine | Use For | Avoid For |
+| --- | --- | --- | --- |
+| Antigravity Critic | `agy` CLI through `agy-antigravity` | Independent Antigravity second opinions, bounded external review, model-diverse critique | Routine local edits, unbounded whole-repo review, secrets or high-trust data |
+
 ## Routing Rules
 
 - Prefer the cheapest role that can reliably produce the required artifact.
