@@ -72,5 +72,15 @@
       "artifact": "skills/process/codex-principal-team/references/agents/oracle-critic.md",
       "skill": "oracle"
     }
+  ],
+  "external_agents": [
+    {
+      "id": "antigravity-critic",
+      "display_name": "Antigravity Critic",
+      "engine": "agy",
+      "model": "antigravity-cli-selected",
+      "artifact": "skills/process/codex-principal-team/references/agents/antigravity-critic.md",
+      "skill": "agy-antigravity"
+    }
   ]
 }

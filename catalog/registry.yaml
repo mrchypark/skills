@@ -77,6 +77,12 @@ entries:
     tags: [domain, review, oracle]
     install_scope: [global, project]
     status: active
+  - id: agy-antigravity
+    kind: skill
+    path: skills/domain/agy-antigravity/SKILL.md
+    tags: [domain, review, antigravity, cli]
+    install_scope: [global, project]
+    status: active
   - id: pocketbase-go
     kind: skill
     path: skills/domain/pocketbase-go/SKILL.md
