@@ -21,6 +21,8 @@ The same routing is stored in `references/roster.json` for deterministic validat
 
 The ten permanent roles are an operating model, not ten guaranteed callable Codex agents. In the active Codex subagent surface, prefer this practical mapping:
 
+When `codex-principal-team` is active, treat the skill activation as the user's explicit standing request to use callable Codex subagents for non-trivial delegatable work. Do not require a second user request before spawning a bounded `explorer` or `worker` when the active tool policy permits subagents.
+
 | Operating Role | Installed Agent |
 | --- | --- |
 | Principal Orchestrator | parent session |
@@ -50,7 +52,7 @@ These are not callable Codex subagents. Use them through their skills or CLI wra
 - Escalate when uncertainty is high, evidence conflicts, or reversal cost is high.
 - De-escalate repeated work into a skill, small-model role, or script after one successful manual pass.
 - Keep permanent roles under ten; add temporary mission roles only for a bounded project phase.
-- Treat user-requested subagent use as a separate signal from skill-driven delegation. Record it in the run log.
+- Record whether subagent use came from a direct user turn request, from the `codex-principal-team` standing authorization, or from another skill-driven delegation rule.
 - Parent session may perform at most one non-trivial implementation patch before handing implementation to `worker`, unless the patch is final integration or conflict resolution.
 
 ## Subagent Invocation Template

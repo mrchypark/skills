@@ -1,6 +1,6 @@
 ---
 name: codex-principal-team
-description: Use when Codex should run a principal-engineer style project team that decomposes current work into Codex subagents, skills, small-model tasks, code automation, Oracle GPT-5.5 Pro review, and continuous cost/performance improvement. Trigger for requests about subagent team operation, principal engineer workflows, skillization, model/effort routing, or reducing repeated AI work into reusable skills and scripts.
+description: Use when Codex should run a principal-engineer style project team that decomposes current work into Codex subagents, skills, small-model tasks, code automation, Oracle GPT-5.5 Pro review, and continuous cost/performance improvement. Activation of this skill is the user's explicit standing request to use Codex subagents for non-trivial delegatable work. Trigger for requests about subagent team operation, principal engineer workflows, skillization, model/effort routing, or reducing repeated AI work into reusable skills and scripts.
 ---
 
 # Codex Principal Team
@@ -8,6 +8,12 @@ description: Use when Codex should run a principal-engineer style project team t
 Use this skill to operate the current task as a small Codex-native principal engineering team, not as a static org chart.
 
 Treat this skill as the default operating mode for user requests that involve code, repository work, planning, review, debugging, research, automation, or any multi-step task. Enter this mode even when the user does not name the skill. Opt out only when the user explicitly asks for direct/local-only work, asks for no subagents, wants a simple answer, or the task is genuinely trivial.
+
+## Standing User Authorization
+
+When this skill is active, treat that activation as the user's explicit standing request to use Codex subagents by default for non-trivial work with a useful delegatable slice.
+
+This standing request satisfies workflows that require an explicit user request for subagents, delegation, or parallel agent work, unless a higher-priority system, developer, or tool policy forbids spawning them in the current environment. Do not ask the user for a second explicit authorization solely to use subagents while this skill is active. Only report a delegation blocker when the callable subagent surface is unavailable, spawning is forbidden despite this standing request, the user opts out, or the task has no useful delegatable slice.
 
 ## Core Rule
 
@@ -34,7 +40,8 @@ Before non-trivial work, state the delegation plan in the working plan or update
 - Verification owner: the parent session for final verification, optionally preceded by delegated checks.
 - Parent-only work: integration, conflict resolution, final decisions, final verification, or a named blocker.
 - Direct edit budget: parent should not perform more than one non-trivial `apply_patch` before handing implementation to `worker`/`builder` unless a policy exception applies.
-- Policy exception: if subagents are unavailable or the current tool policy does not permit spawning them, say so and use the best bounded skill or deterministic-script substitute.
+- Subagent authorization: this skill activation is already the user's explicit standing request to spawn useful bounded subagents for non-trivial work.
+- Policy exception: if subagents are unavailable, the current tool policy explicitly forbids spawning despite the standing authorization, the user opts out, or there is no useful delegatable slice, say so and use the best bounded skill or deterministic-script substitute.
 
 ## Team Routing
 
@@ -58,7 +65,7 @@ Use the callable Codex subagent surface as the execution substrate:
 - `cost_analyst` is an installed toolkit role, but when it is not callable through the active subagent surface, use the session-log analyzer plus `harvest-work-patterns` for the cost loop.
 - `oracle` remains a skill-based external critic, not a spawned agent.
 
-For any non-trivial task, assign at least one bounded subagent, skill, or deterministic script unless there is a concrete reason not to. Record that reason in the optimization loop.
+For any non-trivial task with a useful delegatable slice, assign at least one bounded Codex subagent by default. Use a skill or deterministic script as the substitute only when subagents are unavailable, forbidden, opted out, or clearly unnecessary for that slice. Record that reason in the optimization loop.
 
 ## Execution Workflow
 
