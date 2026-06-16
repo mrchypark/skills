@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Roundtable"
+  short_description: "Run local Markdown roundtables"
+  default_prompt: "Use $codex-roundtable to run a local Markdown-only roundtable across multiple Codex sessions."
