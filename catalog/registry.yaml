@@ -5,6 +5,12 @@ entries:
     tags: [process, multi-agent, cost]
     install_scope: [global, project]
     status: active
+  - id: codex-roundtable
+    kind: skill
+    path: skills/process/codex-roundtable/SKILL.md
+    tags: [process, multi-agent, roundtable]
+    install_scope: [global, project]
+    status: active
   - id: harvest-work-patterns
     kind: skill
     path: skills/process/harvest-work-patterns/SKILL.md
