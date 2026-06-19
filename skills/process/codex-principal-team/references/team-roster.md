@@ -21,18 +21,18 @@ The same routing is stored in `references/roster.json` for deterministic validat
 
 The ten permanent roles are an operating model, not ten guaranteed callable Codex agents. In the active Codex subagent surface, prefer this practical mapping:
 
-When `codex-principal-team` is active, treat the skill activation as the user's explicit standing request to use callable Codex subagents for non-trivial delegatable work. Do not require a second user request before spawning a bounded `explorer` or `worker` when the active tool policy permits subagents.
+When `codex-principal-team` is active, treat the skill activation as the user's explicit standing request to use callable Codex subagents for non-trivial delegatable work. Do not require a second user request before spawning a bounded installed agent such as `researcher` or `builder`, or a built-in agent type such as `explorer` or `worker`, when the active tool policy permits subagents.
 
-| Operating Role | Installed Agent |
+| Operating Role | Installed / Built-In Agent |
 | --- | --- |
 | Principal Orchestrator | parent session |
-| Repo Explorer | `explorer` |
-| Research Generalizer | `explorer` for evidence, parent session for synthesis |
+| Repo Explorer | installed `researcher`, or built-in `explorer` |
+| Research Generalizer | `researcher`/`explorer` for evidence, parent session for synthesis |
 | Task Spec Architect | parent session; use Oracle for expensive-to-reverse critique |
-| Skill Factory Worker | `worker` |
-| Code Automation Worker | `worker` |
-| Cheap Task Runner | `explorer` or deterministic script |
-| Review & Verification Lead | `explorer` with a findings-only review prompt |
+| Skill Factory Worker | installed `builder`, or built-in `worker` |
+| Code Automation Worker | `builder`/`worker` |
+| Cheap Task Runner | `researcher`/`explorer` or deterministic script |
+| Review & Verification Lead | `reviewer`, or `researcher`/`explorer` with a findings-only review prompt |
 | Cost & Performance Analyst | session-log analyzer plus `harvest-work-patterns`; `cost_analyst` only when callable |
 | Oracle Critic | `oracle` skill, not a spawned agent |
 
@@ -53,7 +53,7 @@ These are not callable Codex subagents. Use them through their skills or CLI wra
 - De-escalate repeated work into a skill, small-model role, or script after one successful manual pass.
 - Keep permanent roles under ten; add temporary mission roles only for a bounded project phase.
 - Record whether subagent use came from a direct user turn request, from the `codex-principal-team` standing authorization, or from another skill-driven delegation rule.
-- Parent session may perform at most one non-trivial implementation patch before handing implementation to `worker`, unless the patch is final integration or conflict resolution.
+- Parent session may perform at most one non-trivial implementation patch before handing implementation to `builder`/`worker`, unless the patch is final integration or conflict resolution.
 
 ## Subagent Invocation Template
 

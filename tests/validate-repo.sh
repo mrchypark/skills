@@ -35,7 +35,10 @@ expect_path "skills/process/memory-harvest/SKILL.md"
 expect_path "skills/process/codex-principal-team/SKILL.md"
 expect_path "skills/process/codex-principal-team/scripts/analyze_codex_sessions.py"
 expect_path "skills/process/codex-principal-team/scripts/evaluate_team_run.py"
+expect_path "skills/process/codex-roundtable/SKILL.md"
 expect_path "skills/process/harvest-work-patterns/SKILL.md"
+expect_path "skills/process/skillopt-skill-optimization/SKILL.md"
+expect_path "skills/process/deli-autoresearch/SKILL.md"
 expect_path "skills/process/cached-go-script-authoring/SKILL.md"
 expect_path "skills/process/cached-go-script-authoring/agents/openai.yaml"
 expect_path "skills/process/cached-go-script-usage/SKILL.md"
@@ -103,7 +106,7 @@ if missing:
     raise SystemExit("broken skill markdown links:\n" + "\n".join(missing))
 PY
 
-grep -Eq 'Oracle CLI `0\.11\.1` or newer|version older than `0\.11\.1`' "$ROOT/skills/domain/oracle/SKILL.md" || {
+grep -Eq 'Oracle CLI `0\.13\.0` or newer|version older than `0\.13\.0`' "$ROOT/skills/domain/oracle/SKILL.md" || {
   printf 'oracle skill must document the required oracle binary version\n' >&2
   exit 1
 }

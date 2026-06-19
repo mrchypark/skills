@@ -14,7 +14,7 @@
 - Inspect AGENTS, README, existing skills, scripts, docs, git status, and Yeoul when prior decisions may matter.
 - Use `rg` and targeted reads before asking questions.
 - Capture facts, sources, open questions, and repeated signals.
-- Delegate broad inventories, repeated searches, and evidence gathering to `explorer`, Cheap Task Runner, or a deterministic script.
+- Delegate broad inventories, repeated searches, and evidence gathering to installed `researcher`, built-in `explorer`, Cheap Task Runner, or a deterministic script.
 
 ## 3. Generalization
 
@@ -39,9 +39,9 @@ The parent session should synthesize the classification, not perform every class
 - Prefer new focused artifacts over broad refactors.
 - Use `apply_patch` for manual edits.
 - Keep skill bodies lean and move details to references or scripts.
-- Route skill and script edits through `worker` when delegating.
+- Route skill and script edits through installed `builder` or built-in `worker` when delegating.
 - Keep parent-session implementation to trivial edits, conflict resolution, and final integration patches.
-- If parent applies a second non-trivial implementation patch, stop and create a `worker` handoff unless current tool policy blocks spawning.
+- If parent applies a second non-trivial implementation patch, stop and create a `builder`/`worker` handoff unless current tool policy blocks spawning.
 
 ## 6. Verification
 
@@ -49,7 +49,7 @@ The parent session should synthesize the classification, not perform every class
 - For skills, validate frontmatter, trigger clarity, referenced files, and bundled scripts.
 - For scripts, run at least one sample fixture.
 - For docs-only work, check links, file paths, and consistency with README.
-- Delegate independent findings-only review to `explorer` when the change is non-trivial or touches operating rules, shared scripts, templates, or install behavior.
+- Delegate independent findings-only review to `reviewer`, `researcher`, or built-in `explorer` when the change is non-trivial or touches operating rules, shared scripts, templates, or install behavior.
 
 ## 7. Optimization Loop
 
@@ -62,5 +62,7 @@ Record:
 - Activities still manual.
 
 For each manual or large-model activity, decide whether the next version should become a skill, small-model subagent, script, or remain manual.
+
+When the next version is an edit to an existing or draft skill, use `skillopt-skill-optimization` if there is a stable evaluator, verifier feedback, repeated task outcomes, or a held-out task set. Keep unvalidated reflections as proposed edits, not deployed skill text.
 
 Use `cost_analyst` for this pass only when it is callable. Otherwise, run `scripts/analyze_codex_sessions.py` or the bundled skill script, then apply `harvest-work-patterns` to the findings.

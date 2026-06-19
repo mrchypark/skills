@@ -15,7 +15,7 @@ This note records the overlap, overdesign, and contradiction cleanup applied whi
 
 - Installed process skills stay intentionally small and avoid project-prefix process variants.
 - Installed domain skills stay task-specific and repo-portable: `disk-clean-audit`, `pocketbase-go`, and other machine-neutral domain skills.
-- Installed agent roles stay narrow and purpose-built: `triager`, `builder`, `debater`, `moderator`, `researcher`, `reviewer`.
+- Installed agent roles stay narrow and purpose-built: `triager`, `builder`, `cost_analyst`, `debater`, `moderator`, `researcher`, `reviewer`.
 - Everything else remains reference-only until a repeated Codex-native need is proven.
 
 ## Overlap removed
@@ -28,9 +28,9 @@ This note records the overlap, overdesign, and contradiction cleanup applied whi
 ## Overdesign removed
 
 - Mandatory spec writing and spec-review loops before any implementation were removed from the default process flow. Specs and plans are now optional durable artifacts for long or handoff-heavy work.
-- The reference agent catalogs contain many specialist personas. Installing them all would create routing noise, maintenance overhead, and role ambiguity. The default toolkit now ships only three general roles.
+- The reference agent catalogs contain many specialist personas. Installing them all would create routing noise, maintenance overhead, and role ambiguity. The default toolkit now ships seven general roles.
 - Provider-specific variants were removed entirely. The toolkit keeps only Codex-facing instructions and config surfaces.
-- Oracle stays repo-managed only with an explicit `oracle >= 0.11.1` binary requirement, because its browser-tab, harvest/live-tail, Deep Research, Project Sources, and multi-turn browser workflows depend on the newer CLI surface.
+- Oracle stays repo-managed only with an explicit `oracle >= 0.13.0` binary requirement, because its browser-tab, harvest/live-tail, Deep Research, Project Sources, and multi-turn browser workflows depend on the newer CLI surface.
 
 ## Contradictions resolved
 

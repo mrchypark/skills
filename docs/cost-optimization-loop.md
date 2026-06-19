@@ -19,6 +19,7 @@ Classify each material activity:
 - Convert manual activity to a skill when it has a stable trigger and repeated judgment.
 - Convert manual activity to a script when the input/output is structured and deterministic.
 - Convert large-model activity to a small-model subagent when the task has a bounded output contract.
+- Route edits to existing or draft skills through `skillopt-skill-optimization` when there is scored rollout evidence, verifier feedback, repeated outcomes, or held-out validation.
 - Keep activity manual when the pattern is not repeated or the cost of abstraction is higher than reuse.
 - Use Oracle only when the reversal cost justifies external GPT-5.5 Pro critique.
 

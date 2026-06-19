@@ -30,6 +30,7 @@
     "turn the run log into an automatically generated artifact after each substantial task"
   ],
   "parent_patch_count": 1,
+  "builder_patch_count": 0,
   "worker_patch_count": 0,
   "user_requested_delegation": false
 }
