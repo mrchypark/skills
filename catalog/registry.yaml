@@ -17,6 +17,18 @@ entries:
     tags: [process, skill-harvest, reuse]
     install_scope: [global, project]
     status: active
+  - id: skillopt-skill-optimization
+    kind: skill
+    path: skills/process/skillopt-skill-optimization/SKILL.md
+    tags: [process, skills, optimization]
+    install_scope: [global, project]
+    status: active
+  - id: deli-autoresearch
+    kind: skill
+    path: skills/process/deli-autoresearch/SKILL.md
+    tags: [process, autonomous, long-horizon, multi-agent]
+    install_scope: [global, project]
+    status: active
   - id: cached-go-script-authoring
     kind: skill
     path: skills/process/cached-go-script-authoring/SKILL.md

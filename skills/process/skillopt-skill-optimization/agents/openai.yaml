@@ -1,0 +1,4 @@
+interface:
+  display_name: "SkillOpt Skill Optimization"
+  short_description: "Validate skill edits from rollouts"
+  default_prompt: "Use $skillopt-skill-optimization to improve this skill from scored rollout evidence without losing held-out validation discipline."

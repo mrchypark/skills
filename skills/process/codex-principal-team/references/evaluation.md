@@ -21,6 +21,7 @@ Use this shape for each substantial task:
   "tests_run": [],
   "follow_up_candidates": [],
   "parent_patch_count": 0,
+  "builder_patch_count": 0,
   "worker_patch_count": 0,
   "user_requested_delegation": false
 }
@@ -46,8 +47,9 @@ Use this shape for each substantial task:
 
 - If a manual activity appears twice, propose a skill or script.
 - If a large-model activity has a stable input/output contract, route it to a cheaper subagent.
-- If parent patch share is above 0.5, move implementation work to `worker` handoffs.
+- If parent patch share is above 0.5, move implementation work to `builder`/`worker` handoffs.
 - If a skill requires the same shell sequence repeatedly, move that sequence into a script.
+- If an existing skill repeatedly causes the same failure or receives the same verifier feedback, run `skillopt-skill-optimization` with a fixed evaluator and held-out validation before changing the deployed skill.
 - If Oracle repeatedly critiques the same type of issue, add a pre-Oracle checklist to the relevant skill.
 - If the same routing decision recurs, update `references/team-roster.md` or an installed agent config instead of adding a new permanent agent.
 

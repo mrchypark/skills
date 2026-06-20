@@ -178,7 +178,9 @@ def aggregate(files: list[Path]) -> dict[str, Any]:
             by_role[role]["user_requested_delegation_sessions"] += 1
 
     parent_patches = by_role["parent"]["apply_patch_count"]
+    builder_patches = by_role["builder"]["apply_patch_count"]
     worker_patches = by_role["worker"]["apply_patch_count"]
+    delegated_patches = builder_patches + worker_patches
     patch_total = sum(counter["apply_patch_count"] for counter in by_role.values())
     spawn_total = sum(counter["spawn_agent_count"] for counter in by_role.values())
     explicit_model_total = sum(counter["explicit_model_count"] for counter in by_role.values())
@@ -207,7 +209,9 @@ def aggregate(files: list[Path]) -> dict[str, Any]:
         if spawn_total
         else 0.0,
         "parent_patch_count": parent_patches,
+        "builder_patch_count": builder_patches,
         "worker_patch_count": worker_patches,
+        "delegated_patch_count": delegated_patches,
         "parent_patch_share": round(parent_patches / patch_total, 3)
         if patch_total
         else 0.0,

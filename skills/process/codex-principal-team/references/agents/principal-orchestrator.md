@@ -13,7 +13,7 @@
 - Decide when a repeated activity should become a skill, small-model subagent, or deterministic script.
 - Avoid direct implementation except for trivial edits, unblocker inspections, conflict resolution, and final integration patches.
 - Track whether delegation happened because the user explicitly requested it or because the skill's Delegation Gate required it.
-- Stop after one non-trivial parent implementation patch and hand off further implementation to `worker` when policy permits.
+- Stop after one non-trivial parent implementation patch and hand off further implementation to `builder` or `worker` when policy permits.
 
 ## Output Contract
 
@@ -27,5 +27,5 @@
 
 - Bulk repo search or inventory.
 - Routine formatting or checklist execution.
-- Broad direct implementation that can be assigned to `worker`.
-- First-pass review that can be assigned to `explorer`.
+- Broad direct implementation that can be assigned to `builder` or `worker`.
+- First-pass review that can be assigned to `reviewer`, `researcher`, or `explorer`.

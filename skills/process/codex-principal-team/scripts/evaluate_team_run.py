@@ -43,10 +43,12 @@ def evaluate(log: dict[str, Any]) -> dict[str, Any]:
     rework = count_list(log.get("rework_items"))
     follow_ups = count_list(log.get("follow_up_candidates"))
     parent_patches = count_number(log.get("parent_patch_count"))
+    builder_patches = count_number(log.get("builder_patch_count"))
     worker_patches = count_number(log.get("worker_patch_count"))
+    delegated_patches = builder_patches + worker_patches
 
     model_actions = large + small
-    patch_actions = parent_patches + worker_patches
+    patch_actions = parent_patches + delegated_patches
     large_share = (large / model_actions) if model_actions else 0.0
     small_share = (small / model_actions) if model_actions else 0.0
     oracle_adoption_rate = (oracle_adopted / oracle_calls) if oracle_calls else 0.0
@@ -58,7 +60,9 @@ def evaluate(log: dict[str, Any]) -> dict[str, Any]:
     if large_share > 0.5 and model_actions >= 4:
         recommendations.append("Move bounded large-model work to small-model subagents.")
     if parent_patch_share > 0.5 and patch_actions >= 4:
-        recommendations.append("Move implementation edits from parent session to worker handoffs.")
+        recommendations.append(
+            "Move implementation edits from parent session to builder/worker handoffs."
+        )
     if failures or rework:
         recommendations.append("Add verification checks for failure or rework patterns.")
     if oracle_calls and oracle_adoption_rate == 0:
@@ -81,7 +85,9 @@ def evaluate(log: dict[str, Any]) -> dict[str, Any]:
         "follow_up_candidate_count": follow_ups,
         "parent_patch_share": round(parent_patch_share, 3),
         "parent_patch_count": parent_patches,
+        "builder_patch_count": builder_patches,
         "worker_patch_count": worker_patches,
+        "delegated_patch_count": delegated_patches,
         "user_requested_delegation": bool(log.get("user_requested_delegation", False)),
         "recommendations": recommendations,
     }

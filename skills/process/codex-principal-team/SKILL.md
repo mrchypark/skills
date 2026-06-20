@@ -34,12 +34,12 @@ Keep parent-only work limited to orchestration, integration, conflict resolution
 
 Before non-trivial work, state the delegation plan in the working plan or update:
 
-- Exploration owner: `explorer`, `researcher`, a domain skill, or a deterministic script.
-- Implementation owner: `worker`, `builder`, a domain skill, or a deterministic script.
+- Exploration owner: installed `researcher`, callable `explorer`, a domain skill, or a deterministic script.
+- Implementation owner: installed `builder`, callable `worker`, a domain skill, or a deterministic script.
 - Review owner: `reviewer`, `review-loop`, `review-workflow`, Oracle, or another bounded review path.
 - Verification owner: the parent session for final verification, optionally preceded by delegated checks.
 - Parent-only work: integration, conflict resolution, final decisions, final verification, or a named blocker.
-- Direct edit budget: parent should not perform more than one non-trivial `apply_patch` before handing implementation to `worker`/`builder` unless a policy exception applies.
+- Direct edit budget: parent should not perform more than one non-trivial `apply_patch` before handing implementation to `builder`/`worker` unless a policy exception applies.
 - Subagent authorization: this skill activation is already the user's explicit standing request to spawn useful bounded subagents for non-trivial work.
 - Policy exception: if subagents are unavailable, the current tool policy explicitly forbids spawning despite the standing authorization, the user opts out, or there is no useful delegatable slice, say so and use the best bounded skill or deterministic-script substitute.
 
@@ -57,10 +57,10 @@ Default operating-role routing:
 - Use `gpt-5.3-codex-spark` `low` for cheap deterministic searches, checklists, and formatting.
 - Use the `oracle` skill as Oracle Critic with ChatGPT `GPT-5.5 Pro` `standard`; use `extended` only for migration, security, data-loss, or expensive-to-reverse decisions.
 
-Use the callable Codex subagent surface as the execution substrate:
+Use the installed Codex agent surface when this repo's config is active, and use the callable Codex subagent surface when the host exposes built-in agent types:
 
-- `explorer` for repo exploration, cheap checklist execution, and independent review.
-- `worker` for Skill Factory Worker and Code Automation Worker tasks.
+- `researcher`, or built-in `explorer`, for repo exploration, cheap checklist execution, and independent review.
+- `builder`, or built-in `worker`, for Skill Factory Worker and Code Automation Worker tasks.
 - Parent session for orchestration, integration, final decisions, and final verification.
 - `cost_analyst` is an installed toolkit role, but when it is not callable through the active subagent surface, use the session-log analyzer plus `harvest-work-patterns` for the cost loop.
 - `oracle` remains a skill-based external critic, not a spawned agent.
@@ -81,7 +81,7 @@ Mandatory stages:
 6. Verification
 7. Optimization loop
 
-Do not skip the optimization loop. If no skill, subagent, or script was used for a material activity, name the activity and decide whether it should be generalized.
+Do not skip the optimization loop. If no skill, subagent, or script was used for a material activity, name the activity and decide whether it should be generalized. If the reusable improvement targets an existing or draft skill and has scored rollouts, verifier feedback, repeated outcomes, or held-out tasks, route the follow-up through `skillopt-skill-optimization` instead of ad hoc rewriting.
 
 ## Evaluation
 
@@ -106,6 +106,7 @@ Treat the output as a prompt for improving agent instructions, skills, or script
 ## Related Skills
 
 - Use `harvest-work-patterns` when auditing a thread or workspace for reusable work.
+- Use `skillopt-skill-optimization` when an existing or draft skill should be improved from scored evidence, verifier feedback, rejected edits, or held-out validation.
 - Use `oracle` when an important decision needs GPT-5.5 Pro critique.
 - Use `agy-antigravity` when a bounded external Antigravity CLI review or second opinion is useful.
 - Use `yeoul-memory` when a decision, constraint, model routing rule, or status should be remembered.
