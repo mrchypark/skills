@@ -8,15 +8,29 @@ For normal work, prefer a single user-level database rather than a project-local
 
 ```bash
 export YEOUL_DB="$HOME/.local/share/yeoul/work-memory.lbug"
+export YEOUL_GROUP="project:yeoul"
+export YEOUL_PROJECT_ID="repo:mrchypark-yeoul:project:yeoul"
 mkdir -p "$(dirname "$YEOUL_DB")"
 ```
 
 Use `./yeoul.lbug` only for quickstarts, isolated tests, or disposable local experiments.
+`$YEOUL_GROUP` scopes searches and episode writes. `fact assert` does not take `--group-id`; use `$YEOUL_PROJECT_ID` or repo namespace `repo:mrchypark/yeoul` plus stable keys for fact subjects instead.
+
+## Agent pack rules
+
+Yeoul Core is not an agent runtime. Agent behavior belongs in policy files such as `SKILL.md`, `agent_instructions.md`, `ontology.yaml`, `episode_rules.yaml`, and `search_recipes.yaml`.
+
+Use public Yeoul CLI/API workflows instead of raw Cypher. Prefer search recipes over ad hoc retrieval when the repository provides an `agent-pack`.
+
+Default recipe choices:
+- `recent_context` for open-ended recall and recent facts or episodes.
+- `project_memory` for project, task, decision, and document context.
+- `contradiction_check` before asserting a fact that may conflict with active memory.
 
 ## Search current context
 
 ```bash
-yeoul search --db "$YEOUL_DB" --query "Ladybug decision" --mode hybrid --include-related
+yeoul search --db "$YEOUL_DB" --query "Ladybug decision" --mode hybrid --group-id "$YEOUL_GROUP" --include-related
 ```
 
 Use `--policy-path` with `--recipe` when a pack should shape retrieval:
@@ -24,8 +38,20 @@ Use `--policy-path` with `--recipe` when a pack should shape retrieval:
 ```bash
 yeoul search --db "$YEOUL_DB" \
   --query "recent project memory" \
+  --group-id "$YEOUL_GROUP" \
   --policy-path ./agent-pack \
   --recipe recent_context \
+  --include-related
+```
+
+Use `project_memory` when the question is about repository-level context:
+
+```bash
+yeoul search --db "$YEOUL_DB" \
+  --query "release automation decisions" \
+  --group-id "$YEOUL_GROUP" \
+  --policy-path ./agent-pack \
+  --recipe project_memory \
   --include-related
 ```
 
@@ -33,15 +59,27 @@ yeoul search --db "$YEOUL_DB" \
 
 ```bash
 yeoul fact lookup --db "$YEOUL_DB" \
-  --subject-id project:yeoul \
+  --subject-id "$YEOUL_PROJECT_ID" \
   --predicate USES_STORAGE_ENGINE \
+  --group-id "$YEOUL_GROUP" \
   --include-inactive
+```
+
+Before asserting a new fact, check for possible active conflicts:
+
+```bash
+yeoul search --db "$YEOUL_DB" \
+  --query "new claim to check" \
+  --group-id "$YEOUL_GROUP" \
+  --policy-path ./agent-pack \
+  --recipe contradiction_check \
+  --include-related
 ```
 
 ## Explain change history
 
 ```bash
-yeoul timeline --db "$YEOUL_DB" --entity project:yeoul --descending
+yeoul timeline --db "$YEOUL_DB" --entity "$YEOUL_PROJECT_ID" --descending
 yeoul provenance --db "$YEOUL_DB" --fact fact_001 --max-depth 2
 ```
 
@@ -52,12 +90,23 @@ yeoul ingest episode --db "$YEOUL_DB" \
   --kind note \
   --content "We decided to keep the core agent-free." \
   --source-kind note \
-  --source-external-ref decision-log
+  --source-external-ref decision-log \
+  --group-id "$YEOUL_GROUP"
 ```
 
-Use episode ingest as the provenance step, not always the final memory shape. If the episode contains a confirmed decision, stable constraint, status change, ownership change, dependency relation, or correction that future agents should retrieve through fact lookup, continue with structured promotion.
+Use episode ingest as the context/evidence step, not the decision lifecycle record. If the episode supports a confirmed decision, stable constraint, status change, ownership change, dependency relation, or correction that future agents should retrieve through fact lookup, continue with structured fact assertion.
 
-For decisions, prefer recording structured context instead of only the conclusion:
+Do not store secrets, credentials, personal/customer data, or verbatim private content, even with confirmation; redact or omit it. Before implicit writes to the global database, confirm exact fact text and scope unless the user explicitly requested the write in the current turn and the content is non-sensitive and repo-scoped.
+
+Promote to durable memory for decisions, task assignments, status changes, corrections, repeated problems and resolutions, confirmed dependencies, ownership changes, and provenance-worthy claims. Drop acknowledgements, unsettled brainstorming, weak guesses, and duplicate low-signal chatter.
+
+Agent-specific durable memory examples:
+- Coding agents: repository decisions, ownership, open issues, implementation constraints, and superseded plans.
+- Operations agents: incident timelines, runbook changes, affected systems, and postmortem facts.
+- Research agents: sources, extracted claims, contradictory findings, and date-scoped summaries.
+- Personal assistants: stable preferences, recurring commitments, decisions, and corrections.
+
+For decisions, record self-contained context before asserting the decision fact:
 
 ```text
 Topic: default Yeoul database location for normal work
@@ -115,7 +164,8 @@ yeoul ingest episode --db "$YEOUL_DB" \
   --kind note \
   --content "$(< contract.md)" \
   --source-kind note \
-  --source-external-ref "change-contract:contract_2026_05_13_harness_timeout_recovery"
+  --source-external-ref "change-contract:contract_2026_05_13_harness_timeout_recovery" \
+  --group-id "$YEOUL_GROUP"
 ```
 
 After the next evaluation, add an outcome episode instead of overwriting the original contract:
@@ -146,14 +196,14 @@ yeoul ingest file --db "$YEOUL_DB" \
   --source-external-ref notes/decision.txt
 ```
 
-## Promote clear state to a fact
+## Assert clear state as a fact
 
 When the subject entity already exists, assert the fact directly:
 
 ```bash
 yeoul fact assert --db "$YEOUL_DB" \
   --predicate HAS_DECISION \
-  --subject-id project:yeoul \
+  --subject-id "$YEOUL_PROJECT_ID" \
   --value-text "Yeoul uses one user-level database for normal work" \
   --observed-at 2026-04-17T00:00:00Z \
   --supporting-episodes ep_000003
@@ -165,25 +215,32 @@ When the subject is clear but the entity has not been created yet, let the CLI c
 yeoul fact assert --db "$YEOUL_DB" \
   --predicate HAS_DECISION \
   --upsert-subject \
+  --subject-namespace repo:mrchypark/yeoul \
   --subject-type Project \
   --subject-name Yeoul \
+  --subject-stable-key yeoul \
   --value-text "Yeoul uses one user-level database for normal work" \
   --supporting-episodes ep_000003
 ```
 
 If `--observed-at` is omitted, `fact assert` uses the first non-empty `observed_at` from the supporting episodes, then falls back to system time. Pass `--observed-at` explicitly when the fact observation time differs from the episode time. The CLI records the basis in metadata, for example `observed_at_basis=system_time_default`.
 
+Prefer the starter ontology when it fits:
+- Entity types: `Person`, `Organization`, `Project`, `Task`, `Document`, `Repository`, `File`, `Decision`, `Issue`.
+- Predicates: `OWNS`, `WORKS_ON`, `DECIDED`, `BLOCKED_BY`, `DEPENDS_ON`, `MENTIONED_IN`, `CHANGED_TO`, `SUPERSEDES`.
+- Dedup keys: people by email or canonical name, repositories by URL or canonical name, files by path plus repository.
+
 For relationships, the object can be upserted in the same command:
 
 ```bash
 yeoul fact assert --db "$YEOUL_DB" \
   --predicate USES_STORAGE_ENGINE \
-  --upsert-subject --subject-type Project --subject-name Yeoul \
-  --upsert-object --object-type Database --object-name Ladybug \
+  --upsert-subject --subject-namespace repo:mrchypark/yeoul --subject-type Project --subject-name Yeoul --subject-stable-key yeoul \
+  --upsert-object --object-namespace repo:mrchypark/yeoul --object-type Database --object-name Ladybug --object-stable-key ladybug \
   --supporting-episodes ep_000001
 ```
 
-Keep episode-only when the content is ambiguous, exploratory, or lacks a stable subject and predicate.
+Keep episode-only when the content is context, evidence, ambiguous, exploratory, or lacks a stable subject and predicate.
 
 ## Record lifecycle changes
 
@@ -191,7 +248,7 @@ Keep episode-only when the content is ambiguous, exploratory, or lacks a stable 
 yeoul fact supersede --confirm --db "$YEOUL_DB" \
   --id fact_old \
   --predicate HAS_STATUS \
-  --subject-id project:yeoul \
+  --subject-id "$YEOUL_PROJECT_ID" \
   --value-text "beta" \
   --supporting-episodes ep_status_change \
   --reason "status changed"

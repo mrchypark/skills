@@ -1,13 +1,13 @@
 ---
 name: yeoul-memory
-description: Use when working in the Yeoul repository or when an agent should store, search, or explain durable local temporal memory with Yeoul, including decisions, constraints, status, provenance, and falsifiable change contracts.
+description: Use when working in the Yeoul repository or when an agent should store, search, or explain durable local temporal memory with Yeoul. Covers when to remember, when to search first, which CLI commands to use, and how to report provenance and lifecycle state safely.
 ---
 
 # Yeoul Memory
 
 Use this skill when the task depends on prior project memory, durable decisions, fact lifecycle, or provenance in the Yeoul repo.
 
-Yeoul is active working memory, not only a decision log. In addition to settled decisions, use it to record falsifiable change contracts for agent harnesses, skills, prompts, evaluators, workflows, or automation changes whose predicted effects should be checked later.
+Yeoul Core is a memory substrate, not an agent runtime. Keep agent behavior in skills, instructions, ontology files, episode rules, and search recipes. Use Yeoul public CLI/API workflows instead of raw Cypher or storage queries.
 
 ## Default database path
 
@@ -23,13 +23,14 @@ Project-local `./yeoul.lbug` is only for quickstarts, isolated tests, or tempora
 Search Yeoul before answering when:
 - the user asks what was decided before
 - the task depends on prior project constraints or status
+- ownership, task assignment, dependency, issue, or recent change history matters
 - a new fact may conflict with existing memory
-- a change may depend on previous predictions, regressions, rollbacks, or evaluation results
 - you need provenance or change history
 
 Prefer:
-- `yeoul search` for broad recall
-- `yeoul fact lookup` for subject/predicate checks
+- `yeoul search` with the `recent_context` recipe for broad recall
+- `yeoul search` with the `project_memory` recipe for project-level context
+- `yeoul fact lookup` for subject/predicate checks and contradiction checks
 - `yeoul timeline` for change history
 - `yeoul provenance` for explanation
 - `yeoul neighborhood` for local graph context
@@ -37,12 +38,15 @@ Prefer:
 Default behavior:
 - proactively search before recommendations, design choices, prioritization, status interpretation, or conflict resolution
 - proactively search when the user refers to earlier decisions, previous attempts, current status, or continuity across work
+- proactively check for active conflicting facts before asserting a new fact
 - skip lookup only when the task is clearly self-contained and prior memory is unlikely to matter
 
 When a decision is required:
 - search for similar past decisions first
+- summarize the decision question briefly
 - present current options and realistic alternatives
 - include implementation examples and tradeoffs when useful
+- if memory conflicts, surface the conflict instead of silently choosing one
 - restate the user's chosen direction before recording it
 - expect to reuse the recorded decision later
 
@@ -52,47 +56,26 @@ Store memory only when the content is likely to matter later:
 - explicit decisions
 - stable constraints
 - ownership or status changes
+- confirmed dependencies or relationships
 - corrections or retractions
-- falsifiable change contracts and their evaluation results
 - repeated problems and resolutions
+- repository decisions, implementation constraints, open issues, and superseded plans
+- incident timelines, runbook changes, affected systems, and postmortem facts
+- source-backed claims, contradictory findings, and date-scoped research summaries
+- stable user preferences and recurring commitments, when provenance is available
 
 Do not store:
 - acknowledgements
+- brainstorming that is still unsettled
 - low-signal chatter
 - unsupported guesses
+- duplicate summaries of the same event
 - destructive corrections without a reason
 
 Default behavior:
 - when a durable outcome becomes clear, treat it as a memory-write candidate even if the user did not explicitly ask to save it
 - prefer storing at the end of a decision, implementation, review, or correction cycle
-- after storing the source episode, promote stable decisions, status, ownership, and dependency relationships to facts when the subject can be named
 - if the outcome is still ambiguous, defer writing until the state is clear instead of recording a weak summary
-
-## Falsifiable change contracts
-
-When modifying an agent harness, skill, prompt, evaluator, automation, memory policy, or other behavior-shaping workflow, record a change contract before or with the change when future evaluation matters.
-
-A change contract is not a settled decision. Treat it as a testable hypothesis with lifecycle state.
-
-Include, when available:
-- `Topic`: the contract topic
-- `Contract ID`: a stable local identifier
-- `Context`: the failing task, limitation, or repeated pattern
-- `Change`: the intended file, prompt, policy, command, or workflow change
-- `Prediction`: what task, benchmark, metric, or behavior should improve
-- `Regression risk`: what task, metric, or behavior might get worse
-- `Falsification condition`: what future evidence would show the change did not work
-- `Rollback plan`: the rollback unit, such as file, patch, commit, config, or instruction block
-- `Evaluation result`: observed results after the next relevant run
-- `Status`: `proposed`, `active`, `validated`, `falsified`, `reverted`, or `superseded`
-
-Use this pattern when a future agent should compare predicted and observed effects, especially for harness self-improvement loops. Do not use it for routine notes with no evaluation path.
-
-After evaluation:
-- keep validated and falsified contracts for future retrieval
-- record regressions explicitly instead of deleting the contract
-- use lifecycle operations for state changes when a fact already exists
-- roll back at the planned unit when the falsification condition or regression threshold is met
 
 When recording a decision, prefer storing more than the conclusion alone.
 Include, when available:
@@ -113,11 +96,12 @@ Do not let a one-off tool name, environment name, or implementation detail becom
 ## Write rules
 
 - Use `ingest episode` or `ingest file` for source episodes.
-- Use `fact assert` when subject and supporting episodes are clear.
-- Prefer `fact assert --upsert-subject --subject-type TYPE --subject-name NAME` when the fact subject is clear but the entity has not been created yet.
-- Pass `fact assert --observed-at RFC3339` when the fact observation time differs from the supporting episode time; otherwise the CLI inherits the first non-empty supporting episode `observed_at`, then falls back to system time with `observed_at_basis=system_time_default`.
+- Use `fact assert` only when subject and supporting episodes are clear.
+- Prefer the ontology vocabulary when it fits: `Person`, `Organization`, `Project`, `Task`, `Document`, `Repository`, `File`, `Decision`, `Issue`; predicates such as `OWNS`, `WORKS_ON`, `DECIDED`, `BLOCKED_BY`, `DEPENDS_ON`, `MENTIONED_IN`, `CHANGED_TO`, and `SUPERSEDES`.
 - Use `fact supersede --confirm` for state changes rather than overwriting.
 - Use `fact retract --confirm` only with an explicit reason.
+- Mark contradictions and supersession explicitly; keep older facts queryable as history.
+- Treat policy files as guidance for agent behavior, not storage guarantees.
 - Use `admin compact` as dry-run first; treat apply as maintenance, not normal editing.
 
 ## Response rules
@@ -126,6 +110,7 @@ Do not let a one-off tool name, environment name, or implementation detail becom
 - If facts conflict, surface the conflict.
 - Mention time context when it matters.
 - Mention provenance or supporting episodes when explaining why something is believed.
+- Distinguish active state from superseded or retracted history.
 - Treat duplicate-marked entities as historical aliases, not canonical current answers.
 - When memory use materially changes the answer, say briefly that prior context was checked and summarize the relevant decision, constraint, or conflict.
 
