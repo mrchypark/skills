@@ -55,6 +55,8 @@ yeoul ingest episode --db "$YEOUL_DB" \
   --source-external-ref decision-log
 ```
 
+Use episode ingest as the context/evidence step, not the decision lifecycle record. Episode content should preserve the background, evidence, context, and source needed to understand the memory later.
+
 For decisions, prefer recording structured context instead of only the conclusion:
 
 ```text
@@ -143,6 +145,10 @@ yeoul ingest file --db "$YEOUL_DB" \
   --source-kind file \
   --source-external-ref notes/decision.txt
 ```
+
+## Assert clear decisions or rules as facts
+
+Facts are promoted claims, not a copy of every episode. Assert a fact only when it is a confirmed decision or durable rule with a stable subject and at least one supporting episode. Keep status, progress, benchmark results, implementation logs, review notes, and exploratory context episode-only unless they contain a reusable decision or rule.
 
 ## Record lifecycle changes
 
