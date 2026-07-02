@@ -98,7 +98,9 @@ Use episode ingest as the context/evidence step, not the decision lifecycle reco
 
 Do not store secrets, credentials, personal/customer data, or verbatim private content, even with confirmation; redact or omit it. Before implicit writes to the global database, confirm exact fact text and scope unless the user explicitly requested the write in the current turn and the content is non-sensitive and repo-scoped.
 
-Promote to durable memory for decisions, task assignments, status changes, corrections, repeated problems and resolutions, confirmed dependencies, ownership changes, and provenance-worthy claims. Drop acknowledgements, unsettled brainstorming, weak guesses, and duplicate low-signal chatter.
+Promote to durable memory for decisions, task assignments, status changes, corrections, repeated problems and resolutions, confirmed dependencies, relationships, stable preferences, definitions or terminology, ownership changes, and provenance-worthy claims. Drop acknowledgements, unsettled brainstorming, weak guesses, and duplicate low-signal chatter.
+First decide whether the exchange contains a fact-worthy claim or only episode-worthy context. If it is fact-worthy but missing the subject, claim, scope, time/status, or supporting context needed for a reliable fact, ask a focused clarification instead of asserting a weak fact.
+Match episode detail to the fact type: decisions need context/options/why/tradeoffs; status needs previous/new state and as-of time; corrections need wrong/right/reason; benchmarks need setup/metric/result/decision impact; ownership needs owner/scope; rules need scope/exceptions.
 
 Agent-specific durable memory examples:
 - Coding agents: repository decisions, ownership, open issues, implementation constraints, and superseded plans.
@@ -129,6 +131,7 @@ Revisit when:
 
 Prefer the most reusable abstraction that is still true.
 If the current project choice is only one example of a broader rule, store the broader rule as the main decision and keep the project-specific detail under `Current application`.
+For decisions shaped like "use X for Y", do not make `X` the whole fact unless the user gave the reusable selection criterion or explicitly said the exact tool choice is the durable rule. Store the selection criterion as the fact and keep `X for Y` under `Current application`; if the criterion is missing, ask or keep it episode-only.
 
 ## Store a falsifiable change contract
 
