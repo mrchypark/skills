@@ -98,7 +98,7 @@ Use episode ingest as the context/evidence step, not the decision lifecycle reco
 
 Do not store secrets, credentials, personal/customer data, or verbatim private content, even with confirmation; redact or omit it. Before implicit writes to the global database, confirm exact fact text and scope unless the user explicitly requested the write in the current turn and the content is non-sensitive and repo-scoped.
 
-Promote to durable memory for decisions, task assignments, status changes, corrections, repeated problems and resolutions, confirmed dependencies, ownership changes, and provenance-worthy claims. Drop acknowledgements, unsettled brainstorming, weak guesses, and duplicate low-signal chatter.
+Promote to durable memory for decisions, task assignments, status changes, corrections, repeated problems and resolutions, confirmed dependencies, relationships, stable preferences, definitions or terminology, ownership changes, and provenance-worthy claims. Drop acknowledgements, unsettled brainstorming, weak guesses, and duplicate low-signal chatter.
 First decide whether the exchange contains a fact-worthy claim or only episode-worthy context. If it is fact-worthy but missing the subject, claim, scope, time/status, or supporting context needed for a reliable fact, ask a focused clarification instead of asserting a weak fact.
 Match episode detail to the fact type: decisions need context/options/why/tradeoffs; status needs previous/new state and as-of time; corrections need wrong/right/reason; benchmarks need setup/metric/result/decision impact; ownership needs owner/scope; rules need scope/exceptions.
 
